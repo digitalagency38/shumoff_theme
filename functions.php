@@ -227,3 +227,15 @@ $reviews_args = array(
 );
 
 register_post_type( 'reviews', $reviews_args );
+
+
+
+
+
+
+
+
+
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false );
