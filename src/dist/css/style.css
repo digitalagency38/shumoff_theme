@@ -4432,6 +4432,26 @@ body .custom-logo-link {
 
 .product_block__info {
   width: calc(100% - 453px);
+  display: flex;
+  align-items: flex-start;
+}
+
+.product_block__h1 {
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 140%;
+  color: #111111;
+}
+
+.product_block__article {
+  padding: 5px 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #FFFFFF;
 }
 
 .main_work__h1 {
