@@ -88,3 +88,70 @@ textarea {
 }
 
 // scrollbar end
+
+// wp theme
+body {
+    div.asl_w {
+        background: none !important;
+        .probox {
+            background: none !important;
+            height: auto !important;
+            .proinput { 
+                color: #111 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                input[type="search"] {
+                    color: #111 !important;
+                    height: 36px !important;
+                    width: calc(100% - 40px) !important; 
+                    border: 0 !important; 
+                    padding: 6px 28px !important; 
+                    font-style: normal !important; 
+                    font-weight: 400 !important; 
+                    font-size: 18px !important; 
+                    line-height: 150% !important; 
+                    background: transparent !important; 
+                    &::placeholder {
+                        color: #111 !important;
+                    }
+                    &.autocomplete {
+                        display: none !important;
+                    }
+                }
+            }
+            .promagnifier {
+                width: 40px !important;
+                height: 40px !important;
+                background: #F1752A !important;
+                border: 2px solid #F1752A !important;
+                transition: all .3s ease-out !important;
+                &:hover {
+                    background: #fff !important;
+                    .innericon {
+                        svg {
+                            path {
+                                fill: #F1752A !important;
+                            }
+                        }
+                    }
+                }
+            }
+            .proclose {
+                display: none !important;
+            }
+        }
+    }
+    .custom-logo-link {
+        flex: 0 0 118px;
+        margin-right: 40px;
+        order: 2;
+        @media all and (max-width: 1023px) {
+            max-width: 110px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            flex: none;
+        }
+    }
+}
+// wp theme end
