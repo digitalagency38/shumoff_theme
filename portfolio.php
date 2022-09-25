@@ -54,12 +54,14 @@ $portfolio = get_posts( $args );
                 <?php }; ?>
             <?php wp_reset_postdata(); // ВАЖНО - сбросьте значение $post object чтобы избежать ошибок в дальнейшем коде ?>
         </div>
-        <div class="main_work__all button button__all-line">
-            <svg>
-                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-            </svg>
-            <span>Загрузить ещё</span>
-        </div>
+        <? if (count($portfolio) > 6) { ?>
+            <div class="main_work__all button button__all-line">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <span>Загрузить ещё</span>
+            </div>
+        <? }; ?>
     </div>
 </main>
 
