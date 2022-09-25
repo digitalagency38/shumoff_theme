@@ -9,6 +9,7 @@ const FirstBlock = class FirstBlock {
             slidesToShow: 1,
             fade: true,
             cssEase: 'linear',
+            swipe: false,
             slidesToScroll: 1,
             dots: true,
             prevArrow: $('.first_slider__arrow--left'),

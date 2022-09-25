@@ -790,6 +790,72 @@ textarea {
   border-radius: 20px;
 }
 
+body div.asl_w {
+  background: none !important;
+}
+
+body div.asl_w .probox {
+  background: none !important;
+  height: auto !important;
+}
+
+body div.asl_w .probox .proinput {
+  color: #111 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body div.asl_w .probox .proinput input[type=search] {
+  color: #111 !important;
+  height: 36px !important;
+  width: calc(100% - 40px) !important;
+  border: 0 !important;
+  padding: 6px 28px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 150% !important;
+  background: transparent !important;
+}
+
+body div.asl_w .probox .proinput input[type=search]::-moz-placeholder {
+  color: #111 !important;
+}
+
+body div.asl_w .probox .proinput input[type=search]::placeholder {
+  color: #111 !important;
+}
+
+body div.asl_w .probox .proinput input[type=search].autocomplete {
+  display: none !important;
+}
+
+body div.asl_w .probox .promagnifier {
+  width: 40px !important;
+  height: 40px !important;
+  background: #F1752A !important;
+  border: 2px solid #F1752A !important;
+  transition: all 0.3s ease-out !important;
+}
+
+body div.asl_w .probox .promagnifier:hover {
+  background: #fff !important;
+}
+
+body div.asl_w .probox .promagnifier:hover .innericon svg path {
+  fill: #F1752A !important;
+}
+
+body div.asl_w .probox .proclose {
+  display: none !important;
+}
+
+body .custom-logo-link {
+  flex: 0 0 118px;
+  margin-right: 40px;
+  order: 2;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;
@@ -1402,13 +1468,18 @@ textarea {
 }
 
 .header__cart {
-  order: 5;
-  cursor: pointer;
-  padding: 13px 15px;
-  color: #333;
-  font-weight: 400;
-  border: 2px solid #F1752A;
-  flex: 0 0 146px;
+  order: 5 !important;
+  cursor: pointer !important;
+  padding: 13px 15px !important;
+  color: #333 !important;
+  display: flex !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  background: none !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  border: 2px solid #F1752A !important;
+  flex: 0 0 146px !important;
 }
 
 .header__cart svg {
@@ -1425,7 +1496,7 @@ textarea {
 }
 
 .header__cart:hover {
-  color: #fff;
+  color: #fff !important;
 }
 
 .header__cart:hover svg path {
@@ -1456,6 +1527,7 @@ textarea {
   padding-bottom: 1px;
   overflow: hidden;
   display: inline-block;
+  white-space: nowrap;
   position: relative;
 }
 
@@ -1481,14 +1553,20 @@ textarea {
 }
 
 .header__call {
-  padding-top: 4px;
-  padding-bottom: 4px;
-  color: #2AA6F1;
+  padding: 0 !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  color: #2AA6F1 !important;
+  background: none !important;
+  overflow: hidden !important;
+  font-weight: 400 !important;
+  border-radius: 0 !important;
+  font-size: 14px !important;
 }
 
 .header__call:after,
 .header__call:before {
-  background: #2AA6F1;
+  background: #2AA6F1 !important;
 }
 
 .header__menu-bot > ul {
@@ -2694,9 +2772,12 @@ textarea {
   height: 100%;
 }
 
-.about_block__img img {
+.about_block__img img,
+.about_block__img picture {
   -o-object-fit: cover;
      object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about_block .js_sl1_prev {
@@ -2778,9 +2859,14 @@ textarea {
   border-color: #F1752A;
 }
 
+.about_block__bottom .slick-slide {
+  cursor: pointer;
+}
+
 .about_block__bottom .about_block__blockss {
   height: 280px;
   overflow: hidden;
+  cursor: pointer;
   width: 100%;
   pointer-events: none;
   position: relative;
@@ -2801,7 +2887,8 @@ textarea {
   top: 0;
 }
 
-.about_block__bottom .about_block__blockss img {
+.about_block__bottom .about_block__blockss img,
+.about_block__bottom .about_block__blockss picture {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -4446,7 +4533,8 @@ textarea {
     align-items: center;
   }
 
-  .about_block__img img {
+  .about_block__img img,
+  .about_block__img picture {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -4497,6 +4585,14 @@ textarea {
 }
 
 @media all and (max-width: 1023px) {
+  body .custom-logo-link {
+    max-width: 110px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    flex: none;
+  }
+
   .header {
     border-bottom: 1px solid #DFDEE2;
   }
@@ -4539,7 +4635,7 @@ textarea {
   }
 
   .header__cart {
-    display: none;
+    display: none !important;
   }
 
   .header__info {

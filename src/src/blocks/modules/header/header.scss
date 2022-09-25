@@ -95,15 +95,20 @@
         }
     }
     &__cart {
-        order: 5;
-        cursor: pointer;
-        padding: 13px 15px;
-        color: #333;
-        font-weight: 400;
-        border: 2px solid #F1752A;
-        flex: 0 0 146px;   
+        order: 5 !important;
+        cursor: pointer !important;
+        padding: 13px 15px !important;
+        color: #333 !important;
+        display: flex !important;
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        background: none !important;
+        overflow: hidden !important; 
+        border-radius: 0 !important;
+        border: 2px solid #F1752A !important;
+        flex: 0 0 146px !important;   
         @media all and (max-width: 1023px) {
-            display: none;
+            display: none !important;
         } 
         svg {
             width: 30px;
@@ -116,7 +121,7 @@
             top: 100%;
         }
         &:hover {
-            color: #fff;
+            color: #fff !important;
             svg {
                 path {
                     fill: #fff !important;
@@ -150,6 +155,7 @@
         padding-bottom: 1px;
         overflow: hidden;
         display: inline-block;
+        white-space: nowrap;
         position: relative;
         &:after {
             position: absolute;
@@ -190,11 +196,17 @@
         }
     }
     &__call {
-        padding-top: 4px;
-        padding-bottom: 4px;
-        color: #2AA6F1;
+        padding: 0 !important;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+        color: #2AA6F1 !important;
+        background: none !important;
+        overflow: hidden !important;
+        font-weight: 400 !important;
+        border-radius: 0 !important;
+        font-size: 14px !important;
         &:after, &:before {
-            background: #2AA6F1;
+            background: #2AA6F1 !important;
         }
         @media all and (max-width: 1023px) {
             display: none;

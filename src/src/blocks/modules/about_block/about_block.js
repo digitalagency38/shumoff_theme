@@ -26,7 +26,10 @@ const AboutBlock = class AboutBlock {
             slidesToShow: 4,
             slidesToScroll: 1,
             asNavFor: '.js_sl2',
-            dots: false
+            dots: false,
+            centerMode: false,
+            focusOnSelect: true,
+            accessibility: false
         });
     }
     init() {
