@@ -140,7 +140,7 @@ add_action( 'widgets_init', 'shumof_widgets_init' );
 function shumof_scripts() {
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/src/dist/css/style.css', false, '1.1', 'all');
 	wp_style_add_data( 'style', 'rtl', 'replace' );
-	wp_deregister_script( 'jquery' );
+	// wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'main.js', get_template_directory_uri() . '/src/dist/js/app.min.js', false, '1.1', true );
 }
 add_action( 'wp_enqueue_scripts', 'shumof_scripts' );

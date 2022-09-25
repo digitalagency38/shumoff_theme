@@ -64,7 +64,7 @@ $products = wc_get_products($args = array(
                                 <div class="first_slider__title">
                                     <?= $item['title'] ?>
                                 </div>
-                                <div class="first_slider__text"><?= $item['text'] ?></div>
+                                <div class="first_slider__text"><?= $item['tekst'] ?></div>
                                 <a href="<?= $item['link'] ?>" class="first_slider__btn button button__all-line">
                                     <svg>
                                         <rect x="0" y="0" fill="none" width="100%" height="100%" />

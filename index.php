@@ -15,17 +15,21 @@
 get_header();
 ?>
 
-	<main id="primary" class="content">
-		<div class="text_page center_block">
-		<?php
+<main id="primary" class="content">
+	<div class="inner_page center_block">
+		<div class="inner_page__left">
+			<? get_sidebar(); ?>
+		</div>
+		<div class="inner_page__right">
+			<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :
 				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
+			<header>
+				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+			</header>
+			<?php
 			endif;
 
 			/* Start the Loop */
@@ -48,7 +52,8 @@ get_header();
 		endif;
 		?>
 		</div>
-	</main><!-- #main -->
+	</div>
+</main><!-- #main -->
 
 <?php
 get_footer();
