@@ -4,21 +4,23 @@ import 'slick-carousel';
 const ProductBlock = class ProductBlock {
     constructor() {}
     slideProduct() {
-        // $('.product_block__slider--main').slick({
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     arrows: false,
-        //     fade: true,
-        //     asNavFor: '.product_block__slider--dot'
-        // });
-        // $('.product_block__slider--dot').slick({
-        //     slidesToShow: 3,
-        //     slidesToScroll: 1,
-        //     asNavFor: '.product_block__slider--main',
-        //     dots: true,
-        //     centerMode: true,
-        //     focusOnSelect: true
-        // });
+        setTimeout(() => {
+            $('.js_prod_main').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.js_prod_dot'
+            });
+            $('.js_prod_dot').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.js_prod_main',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+            });
+        }, 500);
     }
     init() {
         this.slideProduct();

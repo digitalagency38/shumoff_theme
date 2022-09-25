@@ -4418,10 +4418,11 @@ body .custom-logo-link {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
 }
 
 .product_block__slider {
-  flex: 0 0 413px;
+  width: 413px;
   margin-right: 40px;
 }
 
@@ -4430,7 +4431,7 @@ body .custom-logo-link {
 }
 
 .product_block__info {
-  width: 100%;
+  width: calc(100% - 453px);
 }
 
 .main_work__h1 {

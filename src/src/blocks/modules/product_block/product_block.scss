@@ -7,15 +7,16 @@
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+        width: 100%;
     }
     &__slider {
-        flex: 0 0 413px;
+        width: 413px;
         margin-right: 40px;
     }
     &__slide {
         font-size: 0;
     }
     &__info {
-        width: 100%;
+        width: calc(100% - 453px);
     }
 }
