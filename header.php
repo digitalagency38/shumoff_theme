@@ -36,10 +36,7 @@ $categories = get_terms( 'product_cat');
 							<div class="burger-body">
 								<div class="burger-body__top">
 									<div class="burger-close-btn"></div>
-									<form action="" class="header__search">
-										<input type="text" placeholder="Поиск">
-										<button type="submit">Поиск</button>
-									</form>
+									<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
 								</div>
 								<div class="burger-body__catalog">каталог</div>
 								<div class="burger-body__cat-block">
@@ -87,7 +84,7 @@ $categories = get_terms( 'product_cat');
 							</div>
 						</div>
 					</div>
-					<a href="/" class="header__logo"><img src="img/logo_head.svg" alt=""></a>
+					<? the_custom_logo(); ?>
 					<div class="header__cat-btn isOpen button button__all-link">
 						<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -104,10 +101,9 @@ $categories = get_terms( 'product_cat');
 						</svg>
 						<span>Закрыть</span>
 					</div>
-					<form action="" class="header__search">
-						<input type="text" placeholder="Поиск">
-						<button type="submit">Поиск</button>
-					</form>
+					<div class="header__search">
+						<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+					</div>
 					<a href="#" class="header__cart button button__all-link">
 						<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path
