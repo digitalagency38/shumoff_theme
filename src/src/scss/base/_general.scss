@@ -153,5 +153,17 @@ body {
             flex: none;
         }
     }
+    .inner_page {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        &__left {
+            flex: 0 0 305px;
+            margin-right: 20px;
+        }
+        &__right {
+            width: 100%;
+        }
+    }
 }
 // wp theme end

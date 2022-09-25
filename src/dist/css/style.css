@@ -856,6 +856,21 @@ body .custom-logo-link {
   order: 2;
 }
 
+body .inner_page {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+body .inner_page__left {
+  flex: 0 0 305px;
+  margin-right: 20px;
+}
+
+body .inner_page__right {
+  width: 100%;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;
