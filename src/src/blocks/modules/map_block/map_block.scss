@@ -1,0 +1,115 @@
+.map_block {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @media all and (max-width: 1023px) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    &__in {
+        display: flex;
+        justify-content: space-between;
+        @media all and (max-width: 1023px) {
+            flex-direction: column-reverse;
+        }
+    }
+    &__l-side {
+        width: calc(50% - 10px);
+        @media all and (max-width: 1023px) {
+            width: 100%;
+            .mapBlock {
+                height: 400px !important;
+            }
+        }
+    }
+    &__r-side {
+        width: calc(50% - 10px);
+        @media all and (max-width: 1023px) {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    &__title {
+        margin-bottom: 45px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+        color: #111111;
+        font-family: 'bebas', cursive;
+        @media all and (max-width: 1023px) {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+    }
+    &__info {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 150%;
+        color: #111111;
+        margin-bottom: 30px;
+        br {
+            display: none;
+        }
+        @media all and (max-width: 1023px) {
+            font-size: 18px;
+            margin-bottom: 20px;
+            br {
+                display: block;
+            }
+        }
+        a {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 150%;
+            color: #111111;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            padding-bottom: 2px;
+            @media all and (max-width: 1023px) {
+                font-size: 18px;
+            }
+            &:after {
+                position: absolute;
+                content: '';
+                height: 2px;
+                background: #111111;
+                transform: scaleX(0) translateZ(0);
+                width: 100%;
+                left: 0;
+                transform-origin: left;
+                transition: all .6s ease-out;
+                bottom: 0;
+            }
+            &:hover {
+                &:after {
+                    transform: scaleX(1) translateZ(0);
+                }
+            }
+        }
+        span {
+            display: block;
+            margin-bottom: 5px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: #333333;
+            @media all and (max-width: 1023px) {
+                font-size: 14px;
+            }
+        }
+    }
+    &__btn {
+        @media all and (max-width: 420px) {
+            width: 100%;
+            span {
+                width: 100%;
+            }
+        }
+    }
+}

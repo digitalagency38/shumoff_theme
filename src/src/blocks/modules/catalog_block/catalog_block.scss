@@ -1,0 +1,37 @@
+.catalog_block {
+    padding-bottom: 30px;
+    @media all and (max-width: 1023px) {
+        padding-bottom: 20px;
+    }
+    &__h1 {
+        margin-top: 0;
+        font-family: 'bebas', cursive;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+        color: #111111;
+        margin-bottom: 40px;
+        @media all and (max-width: 1023px) {
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+    }
+    .header__cat--blocks {
+        @media all and (max-width: 640px) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .header__cat--block {
+        @media all and (max-width: 1023px) {
+            width: calc(50% - 20px);
+        }
+        @media all and (max-width: 640px) {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.product_block {
+    margin-bottom: 50px;
+    @media all and (max-width: 1023px) {
+        margin-bottom: 30px;
+    }
+    &__top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    &__slider {
+        flex: 0 0 413px;
+        margin-right: 40px;
+    }
+    &__slide {
+        font-size: 0;
+    }
+    &__info {
+        width: 100%;
+    }
+}

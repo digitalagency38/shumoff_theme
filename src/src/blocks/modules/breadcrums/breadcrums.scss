@@ -1,0 +1,91 @@
+.breadcrums {
+    padding-top: 44px;
+    padding-bottom: 44px;
+    @media all and (max-width: 1023px) {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    &__item {
+        overflow: hidden;
+        overflow-x: auto;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        @media all and (max-width: 1023px) {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            width: calc(100% + 16px);
+            margin-right: -16px;
+        }
+        &::-webkit-scrollbar {
+            height: 2px;
+            @media all and (max-width: 1023px) {
+                width: 0;
+                height: 0;
+                background: transparent;
+            }
+        }
+    }
+    &__in {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        &::-webkit-scrollbar {
+            width: 0px; 
+            background: transparent;
+        }
+        a {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #41A5B2;
+            padding: 2px 0;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            &:after {
+                position: absolute;
+                content: '';
+                height: 1px;
+                background: #41A5B2;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                transform-origin: left;
+                transition: all .6s ease-out;
+                transform: scaleX(0) translateZ(0);
+            }
+            &:hover {
+                &:after {
+                    transform: scaleX(1) translateZ(0);
+                }
+            }
+            @media all and (max-width: 1023px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+        span {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #333333;
+            @media all and (max-width: 1023px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+    }
+    &__splash {
+        margin-left: 14px;
+        margin-right: 14px;
+        width: 20px;
+        height: 2px;
+        background: #333333;
+        @media all and (max-width: 1023px) {
+            height: 1px;    
+        }
+    }
+}

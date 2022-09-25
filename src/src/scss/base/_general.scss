@@ -1,0 +1,90 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;  
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;  
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    height: 100%;
+}
+
+.owh {
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: inherit;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+.center_block {
+    max-width: 1312px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.center_block2 {
+    max-width: 1064px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+// scrollbar
+/* width */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+    background: #292B3A;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    background: #E8610F;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+    background: #E8610F;
+    border-radius: 20px;
+}
+
+// scrollbar end
