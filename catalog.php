@@ -29,10 +29,16 @@ $seo_block = get_field('seo_block');
             <div class="header__cat--blocks">
                 <? foreach ( $categories as $category ) { ?>
                     <a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block">
+                    <?
+                        $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+                        $image = wp_get_attachment_image( $thumbnail_id, 'medium', false, array( "class" => "img-responsive" ) );
+
+                        if ($image) {
+                    ?>
                         <div class="header__cat--img">
-                            <picture>
-                                <source srcset="img/c1.webp" type="image/webp"><img src="img/c1.jpg" alt=""></picture>
+                            <?= $image ?>
                         </div>
+                        <? }; ?>
                         <div class="header__cat--info">
                             <div class="header__cat--title"><?= $category->name ?> <sup><?= $category->count ?></sup></div>
                             <div class="header__cat--price">от 350 ₽</div>

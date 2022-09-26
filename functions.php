@@ -12,6 +12,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+
+require get_template_directory() . '/customizer-repeater/functions.php';
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -228,3 +230,68 @@ $reviews_args = array(
 
 register_post_type( 'reviews', $reviews_args );
 
+
+
+
+
+/**
+ * Добавляет страницу настройки темы в админку Вордпресса
+ */
+function mytheme_customize_register( $wp_customize ) {
+	/*
+	Добавляем секцию в настройки темы
+	*/
+	$wp_customize->add_section(
+		// ID
+		'data_site_section',
+		// Arguments array
+		array(
+			'title' => 'Данные сайта',
+			'capability' => 'edit_theme_options',
+			'description' => "Тут можно указать данные сайта"
+		)
+	);
+
+
+	/*
+	Добавляем поле Телефон site_phone
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_phone',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_phone_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Телефон",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_phone'
+		)
+	);
+
+
+	
+	
+	$wp_customize->add_setting( 'site_socials', array(
+	'sanitize_callback' => 'customizer_repeater_sanitize'
+	));
+	$wp_customize->add_control( new Customizer_Repeater( $wp_customize, 'site_socials', array(
+		'label'   => esc_html__('Социальные сети','customizer-repeater'),
+		'section' => 'data_site_section',
+		'priority' => 1,
+		'customizer_repeater_image_control' => true,
+		'customizer_repeater_icon_control' => true,
+		'customizer_repeater_title_control' => false,
+		'customizer_repeater_link_control' => true,
+	) ) );
+}
+add_action( 'customize_register', 'mytheme_customize_register' );
