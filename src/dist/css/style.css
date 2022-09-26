@@ -867,6 +867,107 @@ body .inner_page__left {
   margin-right: 20px;
 }
 
+body .inner_page__left .wp-block-group__inner-container {
+  padding: 30px 20px;
+  background: #F5F5F6;
+}
+
+body .inner_page__left .wp-block-group__inner-container .berocket_ajax_group_filter_title {
+  font-family: "bebas", cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+  color: #111111;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+body .inner_page__left .wp-block-group__inner-container .berocket_single_filter_widget:not(:last-of-type) {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #111111;
+}
+
+body .inner_page__left .bapf_head h3 {
+  margin: 0;
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  color: #333333;
+}
+
+body .inner_page__left .bapf_body {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 150% !important;
+  color: #333333 !important;
+  margin-bottom: 20px;
+}
+
+body .inner_page__left .bapf_body ul {
+  margin: 0;
+  padding: 0;
+}
+
+body .inner_page__left .bapf_body ul li {
+  /* для элемента label, связанного с .custom-checkbox */
+  /* создание в label псевдоэлемента before со следующими стилями */
+  /* стили для чекбокса, находящегося в состоянии checked */
+}
+
+body .inner_page__left .bapf_body ul li:not(:last-child) {
+  margin-bottom: 15px !important;
+}
+
+body .inner_page__left .bapf_body ul li > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+body .inner_page__left .bapf_body ul li > label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 34px;
+}
+
+body .inner_page__left .bapf_body ul li > label::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  position: absolute;
+  top: 50%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.04348 1.04348H22.9565V22.9565H1.04348V19H0V24H24V0H0V5H1.04348V1.04348Z' fill='%23111111'/%3E%3C/svg%3E%0A") 50%/100% no-repeat;
+  margin-right: 10px;
+  left: 0px;
+}
+
+body .inner_page__left .bapf_body ul li > input:checked + label::before {
+  background: #F1752A url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.05732 8.04216L1.65043 5.0943L-2.22679e-07 5.0943L4.05732 10L12 5.24537e-07L10.3496 4.52394e-07L4.05732 8.04216Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
+}
+
+body .inner_page__left .bapf_sfilter {
+  margin-bottom: 0 !important;
+}
+
+body .inner_page__left .bapf_slidr_main.ui-widget-content .ui-slider-range,
+body .inner_page__left .berocket_filter_price_slider.ui-widget-content .ui-slider-range {
+  background: #F1752A;
+}
+
+body .inner_page__left .bapf_slidr_main.ui-widget-content,
+body .inner_page__left .berocket_filter_price_slider.ui-widget-content {
+  background: #292B3A;
+}
+
 body .inner_page__right {
   width: 100%;
 }
