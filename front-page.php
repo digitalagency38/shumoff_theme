@@ -481,7 +481,7 @@ $products = wc_get_products($args = array(
                     <div class="about_block__blockss">
                         <?
                             $image = $item['image'];
-                            $size = 'thumbnail';
+                            $size = 'medium';
                             $alt = $image['alt'];
                             $thumb = $image['sizes'][ $size ];
 
