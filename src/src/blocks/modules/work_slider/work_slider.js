@@ -4,6 +4,7 @@ import 'slick-carousel';
 const WorkBlock = class WorkBlock {
     constructor() {}
     sliderText() {
+      setTimeout(() => {
         $('.js_sl4').slick({
             infinite: true,
             slidesToShow: 2,
@@ -20,6 +21,7 @@ const WorkBlock = class WorkBlock {
               }
             ]
           });
+        }, 1000);
     }
     init() {
         this.sliderText();

@@ -209,7 +209,7 @@
             background: #2AA6F1 !important;
         }
         @media all and (max-width: 1023px) {
-            display: none;
+            display: none !important;
         }
     }
     &__menu-bot {
@@ -447,7 +447,7 @@
         display: none;
     }
     position: relative;
-    z-index: 100;
+    z-index: 1000;
     & .burger-wrap {
       width: 40px;
       height: 40px;
@@ -552,7 +552,7 @@
                 transition: all .3s ease-out;
                 top: 0;
                 margin-left: 0;
-                z-index: 3;
+                z-index: 3000;
                 margin-right: 0;
             }
             &.isOpened {

@@ -117,6 +117,9 @@ body {
                     &.autocomplete {
                         display: none !important;
                     }
+                    @media all and (max-width: 1023px) {
+                        height: 22px !important;
+                    }
                 }
             }
             .promagnifier {
@@ -135,10 +138,26 @@ body {
                         }
                     }
                 }
+                @media all and (max-width: 1023px) {
+                    width: 28px !important;
+                    height: 28px !important;
+                }
             }
             .proclose {
                 display: none !important;
             }
+        }
+    }
+    @media all and (max-width: 1023px) {
+        #ajaxsearchlite1 .probox .proinput input, div.asl_w .probox .proinput input {
+            color: #111 !important;
+        }
+        #ajaxsearchlite1 {
+            padding: 5px;
+            border: 1px solid #DFDEE2;
+        }
+        .autocomplete {
+            display: none !important;
         }
     }
     .custom-logo-link {
@@ -254,6 +273,18 @@ body {
         }
         &__right {
             width: 100%;
+        }
+    }
+    .footer__info {
+        .custom-logo-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 40px;
+            max-width: 118px;
+            width: 100%;
+            @media all and (max-width: 1023px) {
+                margin-bottom: 10px;
+            }
         }
     }
 }
