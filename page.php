@@ -17,9 +17,11 @@ get_header();
 
 	<main id="primary" class="content">
 		<div class="inner_page center_block">
-			<div class="inner_page__left">
-				<? get_sidebar(); ?>
-			</div>
+			<? if( is_product_category() || is_shop() ) { ?>
+				<div class="inner_page__left">
+					<? get_sidebar(); ?>
+				</div>
+			<? }; ?>
 			<div class="inner_page__right">
 				<?php
 				while ( have_posts() ) :
