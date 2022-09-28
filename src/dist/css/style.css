@@ -4675,6 +4675,93 @@ body .footer__info .custom-logo-link {
   width: 100%;
 }
 
+.calc_block__h1 {
+  margin: 0;
+  font-family: "bebas", cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 140%;
+  color: #111111;
+  margin-bottom: 30px;
+}
+
+.calc_block__items {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.calc_block__l-side {
+  width: 100%;
+}
+
+.calc_block__r-side {
+  flex: 0 0 413px;
+  margin-left: 20px;
+}
+
+.calc_block__status {
+  top: 10px;
+  position: sticky;
+  padding: 40px 30px;
+  background: #F5F5F6;
+}
+
+.calc_block__status--title {
+  margin-bottom: 20px;
+  font-style: normal;
+  font-family: "bebas", cursive;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+  color: #111111;
+}
+
+.calc_block__list {
+  border-top: 1px solid #DFDEE2;
+}
+
+.calc_block__list--item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #DFDEE2;
+}
+
+.calc_block__list--left {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #1E1F1F;
+}
+
+.calc_block__list--right {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #333333;
+}
+
+.calc_block__btn {
+  margin-top: 20px;
+  width: 100%;
+  font-weight: normal;
+}
+
+.calc_block__button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.calc_block__button span {
+  width: 100%;
+}
+
 @media all and (min-width: 1024px) {
   .site-panel-wrap {
     display: none;
@@ -5869,6 +5956,12 @@ body .footer__info .custom-logo-link {
 
   .main_work__text {
     font-size: 14px;
+  }
+
+  .calc_block__h1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 140%;
   }
 }
 
