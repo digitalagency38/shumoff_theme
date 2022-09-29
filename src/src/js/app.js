@@ -3,7 +3,6 @@ globalFunctions.isWebp();
 
 document.addEventListener("DOMContentLoaded", function () {
     new SlideMenu(document.getElementById('example-menu'));
-    console.log(1);
 });
 import $ from 'jquery';
 
@@ -22,6 +21,7 @@ import ExpBlock from '../blocks/modules/exp_block/exp_block.js';
 import ServBlock from '../blocks/modules/page_service/page_service.js';
 import MainWork from '../blocks/modules/main_work/main_work.js';
 import ProductBlock from '../blocks/modules/product_block/product_block.js';
+import FixedBlock from '../blocks/modules/fixed_panel/fixed_panel.js';
 
 
 $(function () {
@@ -39,6 +39,7 @@ $(function () {
     const expBlock = new ExpBlock();
     const servBlock = new ServBlock();
     const productBlock = new ProductBlock();
+    const fixedBlock = new FixedBlock();
     
     headerBlock.init();
     mapBlock.init();
@@ -54,6 +55,7 @@ $(function () {
     expBlock.init();
     servBlock.init();
     productBlock.init();
+    fixedBlock.init();
 })
 document.addEventListener('DOMContentLoaded', function(){
     const mainWork = new MainWork();

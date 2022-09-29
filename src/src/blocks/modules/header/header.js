@@ -21,7 +21,6 @@ const HeaderBlock = class HeaderBlock {
         });
         $(window).trigger('resize');
           
-          
         function burg(){
             var burgerWr = $('.burger-wrap'),
               burgerBtn = $('.burger-btn'),
@@ -43,7 +42,7 @@ const HeaderBlock = class HeaderBlock {
           
           
         $(document).on('click', function(e){
-            if( $(e.target).closest('.burger-btn').length || $(e.target).closest('.burger-body').length)
+            if( $(e.target).closest('.burger-btn').length || $(e.target).closest('.burger-body').length || $(e.target).closest('.fixed_panel__menu').length) 
             return
             
             $('.burger-wrap').removeClass('opened');
