@@ -21,3 +21,12 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+
+
+
+.catalog__wrapper_in {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--item_in_line), 1fr);
+    grid-gap: 20px;
+}

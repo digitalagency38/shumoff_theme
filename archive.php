@@ -10,9 +10,12 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+<main id="primary" class="content">
+	<div class="inner_page center_block">
+		<div class="inner_page__right">
+
+			<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php
@@ -44,7 +47,10 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+		</div>
+	</div>
+
+</main><!-- #main -->
 
 <?php
 get_sidebar();
