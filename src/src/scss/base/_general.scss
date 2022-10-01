@@ -172,13 +172,35 @@ body {
             flex: none;
         }
     }
+    .woocommerce nav.woocommerce-pagination {
+        margin-top: 20px;
+    }
+    .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span {
+        color: #111;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .prev.page-numbers {
+        font-size: 0 !important;
+        background: url("data:image/svg+xml,%3Csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.23515 6.99979L7.35986 2.19979V0.279785L0.159863 6.99979L7.35986 13.7198V11.7998L2.23515 6.99979Z' fill='%23333333'/%3E%3C/svg%3E%0A") 50% no-repeat !important;
+    }
+    .next.page-numbers {
+        transform: rotate(180deg);
+        font-size: 0 !important;
+        background: url("data:image/svg+xml,%3Csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.23515 6.99979L7.35986 2.19979V0.279785L0.159863 6.99979L7.35986 13.7198V11.7998L2.23515 6.99979Z' fill='%23333333'/%3E%3C/svg%3E%0A") 50% no-repeat !important;
+    }
     .inner_page {
         width: 100%;
         display: flex;
         overflow: hidden;
         align-items: flex-start;
+        padding-bottom: 50px;   
         @media all and (max-width: 1023px) {
             flex-direction: column;
+            padding-bottom: 30px;
         }
         &__left {
             flex: 0 0 305px;
@@ -350,6 +372,13 @@ body {
         font-weight: 500 !important;
         font-size: 18px !important;
         border-radius: 0 !important;
+        span {
+            span {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
         &:hover {
             color: #fff !important;
         }
