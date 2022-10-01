@@ -179,9 +179,9 @@ body {
         &__left {
             flex: 0 0 305px;
             margin-right: 20px;
+            padding: 30px 20px;
+            background: #F5F5F6;
             .wp-block-group__inner-container {
-                padding: 30px 20px;
-                background: #F5F5F6;
                 .berocket_ajax_group_filter_title {
                     font-family: "bebas", cursive;
                     font-style: normal;
@@ -286,6 +286,24 @@ body {
                 margin-bottom: 10px;
             }
         }
+    }
+    .main_product__cart {
+        margin-top: 20px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        display: flex !important;
+        background: none !important;
+        overflow: hidden !important;
+        color: #111 !important;
+        font-weight: 500 !important;
+        font-size: 18px !important;
+        border-radius: 0 !important;
+        &:hover {
+            color: #fff !important;
+        }
+    }
+    .main_product__cart:after {
+        transform: unset !important;
     }
 }
 // wp theme end

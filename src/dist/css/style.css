@@ -865,9 +865,6 @@ body .inner_page {
 body .inner_page__left {
   flex: 0 0 305px;
   margin-right: 20px;
-}
-
-body .inner_page__left .wp-block-group__inner-container {
   padding: 30px 20px;
   background: #F5F5F6;
 }
@@ -978,6 +975,27 @@ body .footer__info .custom-logo-link {
   margin-bottom: 40px;
   max-width: 118px;
   width: 100%;
+}
+
+body .main_product__cart {
+  margin-top: 20px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  display: flex !important;
+  background: none !important;
+  overflow: hidden !important;
+  color: #111 !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  border-radius: 0 !important;
+}
+
+body .main_product__cart:hover {
+  color: #fff !important;
+}
+
+body .main_product__cart:after {
+  transform: unset !important;
 }
 
 .button__line {
