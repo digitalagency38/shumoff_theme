@@ -12,6 +12,8 @@
  * @package shumof
  */
 
+$seo_block = get_field('seo_block');
+
 get_header();
 ?>
 	<div class="breadcrums center_block">
@@ -58,6 +60,30 @@ get_header();
 			</div>
 		</div>
 	</main><!-- #main -->
+
+	<? if (!empty($seo_block)) { ?>
+        <div class="seo_block center_block">
+            <div class="seo_block__in">
+                <div class="seo_block__l-side">
+                    <?
+                        $image = $seo_block['image'];
+                        $size = 'large';
+                        $alt = $image['alt'];
+                        $thumb = $image['sizes'][ $size ];
+
+                        if( $image ):
+                    ?>
+                        <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+                    <?php endif; ?>
+                </div>
+                <div class="seo_block__r-side">
+                    <div class="seo_block__title"><?= $seo_block['title']; ?></div>
+                    <div class="seo_block__text"><?= $seo_block['text']; ?></div>
+                </div>
+            </div>
+        </div>
+    <? }; ?>
+
 
 <?php
 get_footer();
