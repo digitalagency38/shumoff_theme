@@ -373,10 +373,9 @@ body {
         font-size: 18px !important;
         border-radius: 0 !important;
         span {
-            span {
+            .text {
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                overflow: hidden;
             }
         }
         &:hover {

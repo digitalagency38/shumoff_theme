@@ -1044,10 +1044,9 @@ body .main_product__cart {
   border-radius: 0 !important;
 }
 
-body .main_product__cart span span {
+body .main_product__cart span .text {
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 body .main_product__cart:hover {
