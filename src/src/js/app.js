@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     new SlideMenu(document.getElementById('example-menu'));
 });
 import $ from 'jquery';
+import SlimSelect from 'slim-select';
 
 import ProdBlock from '../blocks/modules/main_product/main_product.js';
 import HeaderBlock from '../blocks/modules/header/header.js';
@@ -51,7 +52,7 @@ $(function () {
     })
     setTimeout( function() {
         $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile--item">');
-    }, );
+    }, 0);
 
     headerBlock.init();
     mapBlock.init();
@@ -73,4 +74,12 @@ document.addEventListener('DOMContentLoaded', function(){
     const mainWork = new MainWork();
     
     mainWork.init();
+
+    const allSelects = document.querySelectorAll("select");
+    allSelects.forEach(function (el) {
+        new SlimSelect({
+            select: el,
+            showSearch: false
+        })
+    })
 });
