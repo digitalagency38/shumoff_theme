@@ -233,10 +233,13 @@
             pointer-events: none;
             transition: all .6s cubic-bezier(0.19, 1, 0.22, 1);
         }
-        span {
+        span, button {
             position: relative;
             z-index: 2;
             padding: 16px 34px;
+            transition: all .6s cubic-bezier(0.19, 1, 0.22, 1);
+            border: 0;
+            background: none;
             display: block;
             border-top: 2px solid #F1752A;
             border-bottom: 2px solid #F1752A;

@@ -41,6 +41,18 @@ $(function () {
     const productBlock = new ProductBlock();
     const fixedBlock = new FixedBlock();
     
+    $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
+    $('.filter_block_mobile').append('<div class="block_back_filter">Фильтры</div>');
+    $('.berocket_ajax_group_filter_title').on('click', function () {
+        $('.filter_block_mobile').addClass('isOpened');
+    })
+    $('.block_back_filter').on('click', function () {
+        $('.filter_block_mobile').removeClass('isOpened');
+    })
+    setTimeout( function() {
+        $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile--item">');
+    }, );
+
     headerBlock.init();
     mapBlock.init();
     footerBlock.init();
