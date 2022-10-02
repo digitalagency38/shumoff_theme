@@ -30,3 +30,20 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     grid-template-columns: repeat(var(--item_in_line), 1fr);
     grid-gap: 20px;
 }
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+    float: none;
+}
+
+
+.product__top {
+    display: flex;
+    align-items: flex-start;
+}
+.single_variation_wrap {
+    display: flex;
+    flex-direction: column;
+}
+.woocommerce-variation {
+    order: -1;
+}
