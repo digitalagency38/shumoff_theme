@@ -658,6 +658,10 @@ body {
     .block_right_status {
         width: 411px;
         margin-left: 20px;
+        .shipping-calculator-button {
+            font-size: 14px !important;
+            color: #F1752A !important;
+        }
         &--item {
             padding: 40px 30px;
             background: #F5F5F6;
@@ -977,6 +981,11 @@ body {
             transition: all .3s ease-out;
             &:hover {
                 background: #d96621;
+            }
+        }
+        .woocommerce-privacy-policy-text {
+            p {
+                margin-top: 0;
             }
         }
     }

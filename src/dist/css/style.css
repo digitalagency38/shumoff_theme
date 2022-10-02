@@ -1677,6 +1677,11 @@ body .block_right_status {
   margin-left: 20px;
 }
 
+body .block_right_status .shipping-calculator-button {
+  font-size: 14px !important;
+  color: #F1752A !important;
+}
+
 body .block_right_status--item {
   padding: 40px 30px;
   background: #F5F5F6;
@@ -2011,6 +2016,10 @@ body #payment .button.alt {
 
 body #payment .button.alt:hover {
   background: #d96621;
+}
+
+body #payment .woocommerce-privacy-policy-text p {
+  margin-top: 0;
 }
 
 body .woocommerce-shipping-calculator button[type=submit] {
