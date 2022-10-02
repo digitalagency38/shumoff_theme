@@ -27,9 +27,14 @@ if ( $max_value && $min_value === $max_value ) {
 	/* translators: %s: Quantity. */
 	$label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
 	?>
-	<!-- <div class="quantity">
+	<div class="quantity product__quantity">
 		<?php do_action( 'woocommerce_before_quantity_input_field' ); ?>
 		<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $label ); ?></label>
+		<button type="button" class="product__quantity_button product__quantity_minus">
+			<svg xmlns="http://www.w3.org/2000/svg" width="10" height="3" viewBox="0 0 10 3" fill="none">
+				<path d="M0 0.5H10V2.5H0V0.5Z" fill="#333333"/>
+			</svg>
+		</button>
 		<input
 			type="number"
 			id="<?php echo esc_attr( $input_id ); ?>"
@@ -45,7 +50,13 @@ if ( $max_value && $min_value === $max_value ) {
 			inputmode="<?php echo esc_attr( $inputmode ); ?>"
 			autocomplete="<?php echo esc_attr( isset( $autocomplete ) ? $autocomplete : 'on' ); ?>"
 		/>
+		<button type="button" class="product__quantity_button product__quantity_plus">
+			<svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
+				<path d="M0 4.78571H10V6.21429H0V4.78571Z" fill="#333333"/>
+				<path d="M4.28571 10.5V0.5L5.71429 0.5L5.71429 10.5H4.28571Z" fill="#333333"/>
+			</svg>
+		</button>
 		<?php do_action( 'woocommerce_after_quantity_input_field' ); ?>
-	</div> -->
+	</div>
 	<?php
 }
