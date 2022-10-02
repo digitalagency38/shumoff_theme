@@ -71,6 +71,13 @@ if ( post_password_required() ) {
 				</div>
 			</div>
 		</div>
+		<div class="product__right">
+			<? 
+				if($product->get_type() == "variable"){
+					woocommerce_variable_add_to_cart();	
+				} else {};
+			?>
+		</div>
 	</div>
 
 	<?php
@@ -83,6 +90,7 @@ if ( post_password_required() ) {
 	 */
 	do_action( 'woocommerce_after_single_product_summary' );
 	?>
+	
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
