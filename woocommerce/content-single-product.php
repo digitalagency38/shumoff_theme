@@ -32,33 +32,45 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+	<div class="product__top">
 
-	<?php
-	/**
-	 * Hook: woocommerce_before_single_product_summary.
-	 *
-	 * @hooked woocommerce_show_product_sale_flash - 10
-	 * @hooked woocommerce_show_product_images - 20
-	 */
-	do_action( 'woocommerce_before_single_product_summary' );
-	?>
-
-	<div class="summary entry-summary">
 		<?php
 		/**
-		 * Hook: woocommerce_single_product_summary.
+		 * Hook: woocommerce_before_single_product_summary.
 		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
+		 * @hooked woocommerce_show_product_sale_flash - 10
+		 * @hooked woocommerce_show_product_images - 20
 		 */
-		do_action( 'woocommerce_single_product_summary' );
+		do_action( 'woocommerce_before_single_product_summary' );
 		?>
+
+		<div class="product__summary">
+			<h1 class="product__title"><?= $product->get_title(); ?></h1>
+			<div class="product__article"><?= $product->get_sku(); ?></div>
+			<div class="product__info">
+				<div class="title">Описание</div>
+				<div class="text"><?= $product->get_short_description(); ?></div>
+				<a href="#description" class="header__call button button__link">Читать полное описание</a>
+			</div>
+			<div class="product__info">
+				<div class="title">Характеристики</div>
+				<div class="attributes">
+					<?
+						$attributes = $product->get_attributes();
+
+						foreach ($attributes as $attribute):
+					?>
+						<div class="attribute">
+							<pre>
+								<?= print_r($attribute); ?>
+							</pre>
+							<div class="left"><?= $attribute['name']; ?></div>
+							<div class="right"></div>
+						</div>
+					<?endforeach;?>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<?php
