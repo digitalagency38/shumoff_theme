@@ -605,10 +605,10 @@ body {
     }
     .cart-collaterals > form {
         display: flex;
-        align-items: flex-start;
         margin-top: 50px;
         @media all and (max-width: 1023px) {
             margin-top: 30px;
+            flex-direction: column;
         }
     }
     // #order_review_heading {
@@ -629,12 +629,48 @@ body {
     // }
     #customer_details {
         width: calc(100% - 431px);
+        @media all and (max-width: 1023px) {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+    }
+    .single_variation_wrap {
+        .woocommerce-variation {
+            margin-bottom: 15px;
+        }
+        tr {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            label {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 150%;
+                color: #111111;
+                margin-bottom: 5px;
+            }
+            .value {
+                width: 100%;
+            }
+        }
     }
     .block_right_status {
         width: 411px;
         margin-left: 20px;
-        padding: 40px 30px;
-        background: #F5F5F6;
+        &--item {
+            padding: 40px 30px;
+            background: #F5F5F6;
+            position: sticky;
+            top: 10px;
+            @media all and (max-width: 1023px) {
+                padding: 30px 20px;
+            }
+        }
+        @media all and (max-width: 1023px) {
+            width: 100%;
+            margin-left: 0;
+        }
         #order_review_heading {
             margin: 0;
             margin-bottom: 30px;
@@ -644,6 +680,9 @@ body {
             font-size: 30px;
             line-height: 140%;
             color: #111111;
+            @media all and (max-width: 1023px) {
+                margin-bottom: 20px;    
+            }
         }
         .woocommerce-checkout-review-order {
             display: none !important;
@@ -658,17 +697,23 @@ body {
                 tbody {
                     display: flex;
                     flex-direction: column;
+                    tr, td, th {
+                        border: 0 !important;
+                    }
                     & > tr {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
                         padding-top: 20px;
                         padding-bottom: 20px;
+                        &:first-child {
+                            border-top: 1px solid #DFDEE2 !important;
+                        }
                         &:not(:last-child) {
-                            border-bottom: 1px solid #DFDEE2;
+                            border-bottom: 1px solid #DFDEE2 !important;
                         }
                         &:last-child {
-                            border-bottom: 1px solid #111111;
+                            border-bottom: 1px solid #111111 !important;
                         }
                         th {
                             font-style: normal;
@@ -679,6 +724,301 @@ body {
                             color: #333333;
                         }
                     }
+                    td {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 150%;
+                        text-align: right;
+                        width: 50%;
+                        color: #F1752A;
+                        @media all and (max-width: 1023px) {
+                            width: 100%;
+                            background: none !important;
+                            &:before {
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 16px;
+                                padding: 0;
+                                line-height: 150%;
+                                color: #333333;
+                            }
+                        }
+                    }
+                }
+            }
+            .wc-proceed-to-checkout {
+                padding: 0;
+                margin: 0;
+                margin-top: 30px;
+                @media all and (max-width: 1023px) {
+                    margin-top: 20px;
+                }
+                a {
+                    margin: 0;
+                    background: #F1752A;
+                    border-radius: 0;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 21px;
+                    color: #FFFFFF;
+                    transition: all .3s ease-out;
+                    &:hover {
+                        background: #d96621;
+                    }
+                }
+            }
+        }
+    }
+    #customer_details {
+        display: flex;
+        flex-direction: column;
+        &:before {
+            display: block;
+            content: 'Оформление заказа';
+            margin-bottom: 30px;
+            font-family: "bebas", cursive;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 50px;
+            line-height: 140%;
+            color: #111111;
+            @media all and (max-width: 1023px) {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+        }
+        h3 {
+            margin: 0;
+            margin-bottom: 20px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 150%;
+            color: #111111;
+        }
+        .col-1 {
+            width: 100%;
+            h3 {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 150%;
+                color: #111111;
+                &:before {
+                    content: '1.';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 150%;
+                    color: #F1752A;
+                    margin-right: 5px;
+                    display: inline-block;
+                    min-width: 25px;
+                }
+            }
+            .woocommerce-billing-fields__field-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -10px;
+                margin-right: -10px;
+                @media all and (max-width: 1023px) {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                .form-row {
+                    width: calc(50% - 20px);
+                    margin-bottom: 20px;
+                    padding: 0 !important;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    @media all and (max-width: 1023px) {
+                        width: 100%;
+                        margin-left: 0;
+                        margin-right: 0;
+                        margin-bottom: 10px;
+                    }
+                    label {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: #333333;
+                        margin-bottom: 5px;
+                    }
+                    input {
+                        padding: 15px;
+                        background: #F5F5F6;
+                        border: 1px solid #DFDEE2;
+                        &::placeholder {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 19px;
+                            color: #333333;
+                        }
+                    }
+                }
+            }
+        }
+        .col-2 {
+            width: 100%;
+            margin-top: 20px;
+            h3 {
+                label input {
+                    display: none;
+                }
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 150%;
+                color: #111111;
+                &:before {
+                    content: '2.';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 150%;
+                    color: #F1752A;
+                    margin-right: 5px;
+                    display: inline-block;
+                    min-width: 25px;
+                }
+            }
+            .woocommerce-shipping-fields__field-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -10px;
+                margin-right: -10px;
+                @media all and (max-width: 1023px) {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                .form-row {
+                    width: calc(50% - 20px);
+                    margin-bottom: 20px;
+                    padding: 0 !important;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    @media all and (max-width: 1023px) {
+                        width: 100%;
+                        margin-left: 0;
+                        margin-right: 0;
+                        margin-bottom: 10px;
+                    }
+                    label {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: #333333;
+                        margin-bottom: 5px;
+                    }
+                    input {
+                        padding: 15px;
+                        background: #F5F5F6;
+                        border: 1px solid #DFDEE2;
+                        &::placeholder {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 19px;
+                            color: #333333;
+                        }
+                    }
+                }
+            }
+            .woocommerce-additional-fields {
+                margin-bottom: 40px;
+                @media all and (max-width: 1023px) {
+                    margin-bottom: 20px;
+                }
+                .form-row {
+                    width: 100%;
+                    margin-bottom: 0;
+                    padding: 0;
+                    label {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: #333333;
+                        margin-bottom: 5px;
+                    }
+                    textarea {
+                        padding: 15px;
+                        background: #F5F5F6;
+                        border: 1px solid #DFDEE2;
+                        &::placeholder {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 19px;
+                            color: #333333;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    #payment {
+        border-radius: 0 !important;
+        .button.alt {
+            margin: 0;
+            background: #F1752A;
+            border-radius: 0;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #FFFFFF;
+            transition: all .3s ease-out;
+            &:hover {
+                background: #d96621;
+            }
+        }
+    }
+    .woocommerce-shipping-calculator {
+        button[type="submit"] {
+            margin: 0;
+            background: #F1752A;
+            border-radius: 0;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #FFFFFF !important;
+            transition: all .3s ease-out;
+            &:hover {
+                background: #d96621;
+            }
+        }
+    }
+    .shipping-calculator-form {
+        .form-row {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 0 !important;
+            label {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: #333333;
+                margin-bottom: 5px;
+            }
+            input {
+                padding: 15px;
+                background: #Fff;
+                border: 1px solid #DFDEE2;
+                &::placeholder {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #333333;
                 }
             }
         }
