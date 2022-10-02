@@ -43,6 +43,7 @@ $(function () {
     const fixedBlock = new FixedBlock();
     
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
+    $('#order_review_heading, #order_review, .cart_totals').wrapAll('<div class="block_right_status">');
     $('.filter_block_mobile').append('<div class="block_back_filter">Фильтры</div>');
     $('.berocket_ajax_group_filter_title').on('click', function () {
         $('.filter_block_mobile').addClass('isOpened');
@@ -52,7 +53,15 @@ $(function () {
     })
     setTimeout( function() {
         $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile--item">');
+        $('#customer_details').append($('#payment'));
     }, 0);
+
+
+
+
+
+
+
 
     headerBlock.init();
     mapBlock.init();

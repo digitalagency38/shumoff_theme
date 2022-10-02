@@ -524,6 +524,59 @@ body {
             display: block;
         }
     }
+    .woocommerce table.shop_table td {
+        border: 0;
+        padding: 0;
+    }
+    .woocommerce table.shop_table {
+        border: 0;
+        margin: 0;
+    }
+    .cart_block__blocks {
+        padding-bottom: 40px;
+    }
+    button[name="update_cart"] {
+        border: 0;
+        background: none !important;
+        height: 56px;
+        transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+        font-weight: 500 !important;
+        position: relative;
+        z-index: 2;
+        padding: 16px 34px;
+        transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        border: 0;
+        border-radius: 0 !important;
+        background: none;
+        display: block;
+        border-top: 2px solid #F1752A !important;
+        border-bottom: 2px solid #F1752A !important;
+        &:before {
+            position: absolute;
+            content: "";
+            width: 2px;
+            height: 100%;
+            pointer-events: none;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            left: 0;
+            bottom: 0;
+            top: 0;
+            background: url("data:image/svg+xml,%3Csvg width='2' height='57' viewBox='0 0 2 57' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect y='43' width='2' height='14' fill='%23F1752A'/%3E%3Crect width='2' height='14' fill='%23F1752A'/%3E%3C/svg%3E%0A") 50% no-repeat;
+        }
+
+        &:after {
+            position: absolute;
+            content: "";
+            width: 2px;
+            height: 100%;
+            pointer-events: none;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background: url("data:image/svg+xml,%3Csvg width='2' height='57' viewBox='0 0 2 57' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect y='43' width='2' height='14' fill='%23F1752A'/%3E%3Crect width='2' height='14' fill='%23F1752A'/%3E%3C/svg%3E%0A") 50% no-repeat;
+        }
+    }
     @media all and (max-width: 1023px) {
         .filter_block_mobile {
             position: fixed;
@@ -547,6 +600,86 @@ body {
                 overflow-x: auto;
                 overscroll-behavior: contain;
                 padding: 30px 16px;
+            }
+        }
+    }
+    .cart-collaterals > form {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 50px;
+        @media all and (max-width: 1023px) {
+            margin-top: 30px;
+        }
+    }
+    // #order_review_heading {
+    //     width: 60%;
+    //     font-family: "bebas", cursive;
+    //     font-style: normal;
+    //     font-weight: 700;
+    //     font-size: 50px;
+    //     line-height: 140%;
+    //     margin-bottom: 30px;
+    //     color: #111111;
+    //     @media all and (max-width: 1023px) {
+    //         font-size: 40px;
+    //         line-height: 140%;
+    //         margin-bottom: 20px;
+    //         width: 100%;
+    //     }
+    // }
+    #customer_details {
+        width: calc(100% - 431px);
+    }
+    .block_right_status {
+        width: 411px;
+        margin-left: 20px;
+        padding: 40px 30px;
+        background: #F5F5F6;
+        #order_review_heading {
+            margin: 0;
+            margin-bottom: 30px;
+            font-family: "bebas", cursive;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 140%;
+            color: #111111;
+        }
+        .woocommerce-checkout-review-order {
+            display: none !important;
+        }
+        .cart_totals {
+            width: 100% !important;
+            float: none !important;
+            h2 {
+                display: none;
+            }
+            .shop_table {
+                tbody {
+                    display: flex;
+                    flex-direction: column;
+                    & > tr {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        &:not(:last-child) {
+                            border-bottom: 1px solid #DFDEE2;
+                        }
+                        &:last-child {
+                            border-bottom: 1px solid #111111;
+                        }
+                        th {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            padding: 0;
+                            line-height: 150%;
+                            color: #333333;
+                        }
+                    }
+                }
             }
         }
     }
