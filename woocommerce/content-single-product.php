@@ -50,7 +50,7 @@ if ( post_password_required() ) {
 			<div class="product__info">
 				<div class="title">Описание</div>
 				<div class="text"><?= $product->get_short_description(); ?></div>
-				<a href="#description" class="header__call button button__link">Читать полное описание</a>
+				<a href="#prod_description" class="header__call button button__link">Читать полное описание</a>
 			</div>
 			<div class="product__info">
 				<div class="title">Характеристики</div>
@@ -59,13 +59,11 @@ if ( post_password_required() ) {
 						$attributes = $product->get_attributes();
 
 						foreach ($attributes as $attribute):
+						$attr = wc_get_attribute($attribute['id']);
 					?>
 						<div class="attribute">
-							<pre>
-								<?= print_r($attribute); ?>
-							</pre>
-							<div class="left"><?= $attribute['name']; ?></div>
-							<div class="right"></div>
+							<div class="left"><?= $attr->name; ?></div>
+							<div class="right"><?= $attr_value = $product->get_attribute( $attribute['name'] );?></div>
 						</div>
 					<?endforeach;?>
 				</div>
@@ -79,6 +77,14 @@ if ( post_password_required() ) {
 			?>
 		</div>
 	</div>
+	<? if ($product->get_description()): ?>
+		<div class="product__description" id="prod_description">
+			<div class="product__description_title">Полное описание</div>
+			<div class="product__description_value">
+				<?= $product->get_description(); ?>
+			</div>
+		</div>
+	<?endif;?>
 
 	<?php
 	/**

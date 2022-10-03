@@ -28,7 +28,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
-if ( ! empty( $product_tabs ) ) : ?>
+//if ( ! empty( $product_tabs ) ) : 
+
+if ( false ) :?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper">
 		<ul class="tabs wc-tabs" role="tablist">
