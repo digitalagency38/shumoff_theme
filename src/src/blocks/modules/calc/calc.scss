@@ -485,34 +485,59 @@
                 margin-right: 0;
             }
         }
+        &--top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            .custom-checkbox {
+                position: absolute;
+                z-index: -1;
+                opacity: 0;
+                cursor: pointer;
+              }
+          
+              /* для элемента label, связанного с .custom-checkbox */
+              .custom-checkbox+label {
+                display: inline-flex;
+                align-items: center;
+                user-select: none;
+                font-size: 0;
+                cursor: pointer;
+              }
+          
+              /* создание в label псевдоэлемента before со следующими стилями */
+              .custom-checkbox+label::before {
+                content: '';
+                display: inline-block;
+                width: 48px;
+                cursor: pointer;
+                height: 48px;
+                flex-shrink: 0;
+                flex-grow: 0;
+                border: 2px solid #F1752A;
+                @media all and (max-width: 1023px) {
+                    width: 36px;
+                    height: 36px;
+                }
+              }
+          
+              /* стили для чекбокса, находящегося в состоянии checked */
+              .custom-checkbox:checked+label::before {
+                background: #F1752A url("data:image/svg+xml,%3Csvg width='24' height='20' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.11464 16.0843L3.30087 10.1886L-4.45358e-07 10.1886L8.11464 20L24 1.04907e-06L20.6991 9.04788e-07L8.11464 16.0843Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat; 
+                @media all and (max-width: 1023px) {
+                    background-size: 15px;
+                }
+              }
+        }
+
         &--title {
             position: relative;
-            padding-left: 68px;
             font-style: normal;
             font-weight: 500;
             font-size: 18px;
             line-height: 24px;
             color: #111111;
-            margin-bottom: 32px;
-            @media all and (max-width: 1023px) {
-                padding-left: 56px;
-            }
-            &:before {
-                position: absolute;
-                content: '';
-                width: 48px;
-                height: 48px;
-                left: 0;
-                top: 50%;
-                margin-top: -24px;
-                background: #F1752A url("data:image/svg+xml,%3Csvg width='24' height='20' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.11464 16.0843L3.30087 10.1886L-4.45358e-07 10.1886L8.11464 20L24 1.04907e-06L20.6991 9.04788e-07L8.11464 16.0843Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
-                @media all and (max-width: 1023px) {
-                    width: 36px;
-                    height: 36px;
-                    background-size: 15px;
-                    margin-top: -18px;
-                }
-            }
+            margin-left: 20px;
         }
         &--list {
             padding-bottom: 10px;
