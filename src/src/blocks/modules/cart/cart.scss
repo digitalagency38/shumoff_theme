@@ -97,6 +97,13 @@
                     max-width: 100%;
                     margin-right: 0;
                     margin-bottom: 20px;  
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    align-items: center;
+                    .product__quantity {
+                        margin-bottom: 0 !important;
+                    }
                 }
             }
             &:nth-child(4) {
