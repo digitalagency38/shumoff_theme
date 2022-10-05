@@ -1153,6 +1153,82 @@ body {
     .product__top .woocommerce-variation-add-to-cart {
         margin-top: 0;
     }
+    .flex_thumb_item {
+        overflow: hidden;
+        width: 196px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 20px;
+        .flex-control-thumbs {
+            display: flex;
+            width: max-content;
+            margin-left: -10px;
+            margin-right: -10px;
+            li {
+                width: 88px !important;
+                height: 79px;
+                margin-left: 10px !important;
+                margin-right: 10px !important;
+                font-size: 0;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .product.type-product {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .product__title {
+            order: 1;
+        }
+        .product__article {
+            order: 2;
+            @media all and (max-width: 1140px) {
+                margin-bottom: 20px;
+            }
+        }
+        .product__top {
+            order: 3;
+            width: 100%;
+        }
+        .product__description {
+            order: 4;
+        }
+        .products {
+            order: 5;
+        }
+    }
+    .product__title {
+        max-width: 500px;
+        width: 100%;
+        order: 1;
+        margin: 0;
+        margin-bottom: 20px;
+        font-family: "bebas", cursive;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 140%;
+        color: #111111;
+        @media all and (max-width: 1140px) {
+            font-size: 40px;
+        }
+    }
+    .product__article {
+        font-style: normal;
+        font-weight: 400;
+        order: 2;
+        font-size: 14px;
+        line-height: 150%;
+        color: #FFFFFF;
+        display: inline-block;
+        background: #1DB956;
+        padding: 5px 10px;
+    }
     .product__top {
         display: flex;
         align-items: flex-start;
@@ -1175,33 +1251,18 @@ body {
             margin-left: 40px;
             max-width: 500px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             @media all and (max-width: 1140px) {
-
-            }
-            .product__title {
-                max-width: 500px;
-                width: 100%;
-                margin: 0;
-                margin-bottom: 20px;
-                font-family: "bebas", cursive;
-                font-style: normal;
-                font-weight: 700;
-                font-size: 50px;
-                line-height: 140%;
-                color: #111111;
-            }
-            .product__article {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 150%;
-                color: #FFFFFF;
-                display: inline-block;
-                background: #1DB956;
-                padding: 5px 10px;
+                margin-left: 0;
+                max-width: 100%;
+                padding-bottom: 30px;
+                order: 1;
             }
             .product__info {
                 margin-top: 30px;
+                order: 3;
                 .title {
                     font-style: normal;
                     font-weight: 600;
@@ -1210,6 +1271,10 @@ body {
                     text-transform: uppercase;
                     color: #111111;
                     margin-bottom: 15px;
+                    @media all and (max-width: 1140px) {
+                        font-size: 20px;
+                        margin-bottom: 13px;
+                    }
                 }
                 .text {
                     font-style: normal;
@@ -1247,6 +1312,15 @@ body {
             width: 100%;
             padding: 40px 30px;
             background: #F5F5F6;
+            @media all and (max-width: 1140px) {
+                margin-left: 0;
+                max-width: calc(100% + 32px);
+                width: calc(100% + 32px);
+                margin-bottom: 30px;
+                padding: 40px 16px;
+                margin-left: -16px;
+                margin-right: -16px;
+            }
             .price {
                 font-style: normal !important;
                 font-weight: 700 !important;

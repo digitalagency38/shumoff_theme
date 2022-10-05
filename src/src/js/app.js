@@ -43,6 +43,8 @@ $(function () {
     const fixedBlock = new FixedBlock();
     
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
+    
+    $('.flex-control-thumbs').wrapAll('<div class="flex_thumb_item">');   
     $('#order_review_heading, #order_review, .cart_totals').wrapAll('<div class="block_right_status"><div class="block_right_status--item">');
     $('.filter_block_mobile').append('<div class="block_back_filter">Фильтры</div>');
     $('.berocket_ajax_group_filter_title').on('click', function () {
@@ -56,7 +58,13 @@ $(function () {
         $('#customer_details').append($('#payment'));
     }, 0);
 
-
+    if ( window.matchMedia('(max-width : 1140px)').matches ) {
+        $('.product__title').appendTo(".entry-content .single-product .product.type-product");
+        $('.product__article').appendTo(".entry-content .single-product .product.type-product");
+    } else {
+        $('.entry-content .single-product .product.type-product .product__title').appendTo(".product__summary");
+        $('.entry-content .single-product .product.type-product .product__article').appendTo(".product__summary");
+    };
 
     // Убавляем кол-во по клику
     $('.product__quantity .product__quantity_minus').click(function() {
