@@ -305,3 +305,7 @@ function product_count_shortcode( ) {
 	return $count_posts->publish;
 }
 add_shortcode( 'product_count', 'product_count_shortcode' );
+
+
+
+
