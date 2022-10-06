@@ -120,9 +120,9 @@ $site_socials_decoded = json_decode($site_socials);
 					<a href="#" class="footer__link">Политика конфиденциальности</a>
 				</div>
 				<div class="footer__pays">
-					<div class="footer__pay"><img src="img/pay1.svg" alt=""></div>
-					<div class="footer__pay"><img src="img/pay2.svg" alt=""></div>
-					<div class="footer__pay"><img src="img/pay3.svg" alt=""></div>
+					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay1.svg" alt=""></div>
+					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay2.svg" alt=""></div>
+					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay3.svg" alt=""></div>
 				</div>
 				<?php if( $site_socials_decoded ) { ?>
 					<div class="footer__socs">

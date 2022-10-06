@@ -23,24 +23,26 @@ import ServBlock from '../blocks/modules/page_service/page_service.js';
 import MainWork from '../blocks/modules/main_work/main_work.js';
 import ProductBlock from '../blocks/modules/product_block/product_block.js';
 import FixedBlock from '../blocks/modules/fixed_panel/fixed_panel.js';
+import Calculator from '../blocks/modules/calc/calc.js';
 
 
 $(function () {
-    const footerBlock = new FooterBlock();
-    const textBlock = new TextBlock();
-    const mapBlock = new MapBlock();
-    const aboutBlock = new AboutBlock();
-    const revBlock = new RevBlock();
-    const workBlock = new WorkBlock();
-    const prevBlock = new PrevBlock();
-    const headerBlock = new HeaderBlock();
-    const firstBlock = new FirstBlock();
-    const prodBlock = new ProdBlock();
-    const contactsBlock = new ContactsBlock();
-    const expBlock = new ExpBlock();
-    const servBlock = new ServBlock();
-    const productBlock = new ProductBlock();
-    const fixedBlock = new FixedBlock();
+    window.footerBlock = new FooterBlock();
+    window.textBlock = new TextBlock();
+    window.mapBlock = new MapBlock();
+    window.aboutBlock = new AboutBlock();
+    window.revBlock = new RevBlock();
+    window.workBlock = new WorkBlock();
+    window.prevBlock = new PrevBlock();
+    window.headerBlock = new HeaderBlock();
+    window.firstBlock = new FirstBlock();
+    window.prodBlock = new ProdBlock();
+    window.contactsBlock = new ContactsBlock();
+    window.expBlock = new ExpBlock();
+    window.servBlock = new ServBlock();
+    window.productBlock = new ProductBlock();
+    window.fixedBlock = new FixedBlock();
+    window.calculator = new Calculator();
     
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
     
@@ -99,6 +101,7 @@ $(function () {
     servBlock.init();
     productBlock.init();
     fixedBlock.init();
+    calculator.init();
 })
 document.addEventListener('DOMContentLoaded', function(){
     const mainWork = new MainWork();

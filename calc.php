@@ -6,7 +6,7 @@ Template Name: Калькулятор
 get_header();
 
 ?>
-<main class="content">
+<main class="content" id="calculator">
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
@@ -47,56 +47,56 @@ get_header();
                         <div class="calc_model__items">
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car1.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car1.jpg" alt="">
                                     <input type="radio" name="color" value="Хэтчбек">
                                     <span>Хэтчбек</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car2.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car2.jpg" alt="">
                                     <input type="radio" name="color" value="Купе">
                                     <span>Купе</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car3.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car3.jpg" alt="">
                                     <input type="radio" name="color" value="Седан">
                                     <span>Седан</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car4.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car4.jpg" alt="">
                                     <input type="radio" name="color" value="Универсал">
                                     <span>Универсал</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car5.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car5.jpg" alt="">
                                     <input type="radio" name="color" value="Кроссовер">
                                     <span>Кроссовер</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car6.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car6.jpg" alt="">
                                     <input type="radio" name="color" value="Джип">
                                     <span>Джип</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car7.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car7.jpg" alt="">
                                     <input type="radio" name="color" value="Пикап">
                                     <span>Пикап</span>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label class="custom-radio">
-                                    <img src="img/car8.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car8.jpg" alt="">
                                     <input type="radio" name="color" value="Микроавтобус">
                                     <span>Микроавтобус</span>
                                 </label>
