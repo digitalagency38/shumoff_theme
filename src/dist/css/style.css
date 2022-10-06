@@ -2958,7 +2958,7 @@ body .product__top .product__right .price {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 150%;
+  line-height: normal;
   color: #111111;
   background: transparent;
 }
