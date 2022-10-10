@@ -22,7 +22,6 @@ function url(){
 
 
 ?>
-
 <main class="content" id="calculator">
     <div class="breadcrums center_block">
         <div class="breadcrums__item">

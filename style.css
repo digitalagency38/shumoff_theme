@@ -47,3 +47,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .woocommerce-variation {
     order: -1;
 }
+
+.widget_shopping_cart {
+    order: 5;
+}
+.header__cart strong {
+    display: none;
+}

@@ -339,3 +339,6 @@ function maximum_api_filter($query_params) {
 	return $query_params;
  }
  add_filter('rest_product_collection_params', 'maximum_api_filter', 10, 1 );
+ams;
+ }
+ add_filter('rest_product_collection_params', 'maximum_api_filter', 10, 1 );

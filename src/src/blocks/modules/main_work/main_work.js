@@ -18,9 +18,9 @@ const MainWork = class MainWork {
 
         const callback = (event) => {
             if (i >= itemsCount) {
-            alert('Больше товаров нет!');
+            // alert('Больше товаров нет!');
             //showButton.removeEventListener('click', callback);
-            //showButton.outerHTML = '';
+            showButton.outerHTML = '';
             return;
         }
         

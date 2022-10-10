@@ -161,7 +161,7 @@ wp_reset_postdata();
 		<a href="/" class="fixed_panel__main">Главная</a>
 		<div class="fixed_panel__menu">Меню</div>
 		<a href="/shop" class="fixed_panel__catalog">Каталог</a>
-		<a href="<?= wc_get_cart_url(); ?>" class="fixed_panel__cart">Корзина</a>
+		<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 	</div>
 </div><!-- #page -->
 
