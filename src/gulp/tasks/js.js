@@ -10,6 +10,11 @@ export const js = () => {
         ))
         .pipe(webpack({
             mode: app.isBuild ? 'production' : 'development',
+            resolve: {
+                fallback: {
+                    "stream": false,
+                } 
+            },
             output: {
                 filename: "app.min.js"
             }

@@ -4,9 +4,26 @@ Template Name: Калькулятор
 */
 
 get_header();
+$products = wc_get_products($args = array(
+    'limit' => -1,
+));
+
+
+function url(){
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+        $url = "https://";   
+    else  
+        $url = "http://";   
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];
+    
+    return $url;  
+};
+
 
 ?>
-<main class="content">
+
+<main class="content" id="calculator">
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
@@ -18,86 +35,86 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="calc_block center_block">
+    <div class="calc_block center_block" data-site-url="<?= url(); ?>">
         <h1 class="calc_block__h1">Калькулятор</h1>
         <div class="calc_block__items">
             <div class="calc_block__l-side">
                 <div class="calc_model">
-                    <div class="calc_model__l-side">
+                    <div class="calc_model__l-side" data-models=''>
                         <div class="calc_model__tit">Рассчитать по марке и модели</div>
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите марку машины:</div>
-                            <select name="" id="single">
-                                <option value="Audi">Audi</option>
-                                <option value="Audi2">Audi2</option>
-                                <option value="Audi3">Audi3</option>
+                            <select name="" id="single" v-model="selectedBrand">
+                                <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
                             </select>
                         </div>
+                        {{ selectedBrand }}
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите модель:</div>
-                            <select name="" id="single-model">
-                                <option value="q7">q7</option>
-                                <option value="q72">q72</option>
-                                <option value="q73">q73</option>
+                            <select name="" id="single-model" v-model="selectedModel">
+                                <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
                             </select>
                         </div>
+                        {{ selectedModel }}
+                        {{ availableBodies }}
                     </div>
                     <div class="calc_model__r-side">
                         <div class="calc_model__tit">Рассчитать по кузову</div>
                         <div class="calc_model__items">
-                            <div class="radio">
+                            {{ selectedBody }}
+                            <div class="radio" v-if="availableBodies.includes('1')">
                                 <label class="custom-radio">
-                                    <img src="img/car1.jpg" alt="">
-                                    <input type="radio" name="color" value="Хэтчбек">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car1.jpg" alt="">
+                                    <input type="radio" name="color" value="1" v-model="selectedBody">
                                     <span>Хэтчбек</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('2')">
                                 <label class="custom-radio">
-                                    <img src="img/car2.jpg" alt="">
-                                    <input type="radio" name="color" value="Купе">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car2.jpg" alt="">
+                                    <input type="radio" name="color" value="2" v-model="selectedBody">
                                     <span>Купе</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('3')">
                                 <label class="custom-radio">
-                                    <img src="img/car3.jpg" alt="">
-                                    <input type="radio" name="color" value="Седан">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car3.jpg" alt="">
+                                    <input type="radio" name="color" value="3" v-model="selectedBody">
                                     <span>Седан</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('4')">
                                 <label class="custom-radio">
-                                    <img src="img/car4.jpg" alt="">
-                                    <input type="radio" name="color" value="Универсал">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car4.jpg" alt="">
+                                    <input type="radio" name="color" value="4" v-model="selectedBody">
                                     <span>Универсал</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('5')">
                                 <label class="custom-radio">
-                                    <img src="img/car5.jpg" alt="">
-                                    <input type="radio" name="color" value="Кроссовер">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car5.jpg" alt="">
+                                    <input type="radio" name="color" value="5" v-model="selectedBody">
                                     <span>Кроссовер</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('6')">
                                 <label class="custom-radio">
-                                    <img src="img/car6.jpg" alt="">
-                                    <input type="radio" name="color" value="Джип">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car6.jpg" alt="">
+                                    <input type="radio" name="color" value="6" v-model="selectedBody">
                                     <span>Джип</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('7')">
                                 <label class="custom-radio">
-                                    <img src="img/car7.jpg" alt="">
-                                    <input type="radio" name="color" value="Пикап">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car7.jpg" alt="">
+                                    <input type="radio" name="color" value="7" v-model="selectedBody">
                                     <span>Пикап</span>
                                 </label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" v-if="availableBodies.includes('8')">
                                 <label class="custom-radio">
-                                    <img src="img/car8.jpg" alt="">
-                                    <input type="radio" name="color" value="Микроавтобус">
+                                    <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car8.jpg" alt="">
+                                    <input type="radio" name="color" value="8" v-model="selectedBody">
                                     <span>Микроавтобус</span>
                                 </label>
                             </div>
@@ -107,7 +124,7 @@ get_header();
                 <div class="calc_block__orange-info">
                     Ваш автомобиль: <span class="calc_block__orange-info--car">Audi</span> <span class="calc_block__orange-info--model">Q7</span> <span class="calc_block__orange-info--kuzov">Кроссовер</span>, чтобы увидеть расчет, листайте вниз
                 </div>
-                <div class="calc_block__tabs">
+                <div class="calc_block__tabs" v-if="false">
                     <div class="calc_block__tabs--tit">Выберите вариант шумоизоляции:</div>
                     <div class="calc_block__tabs--top">
                         <div class="calc_block__tabs--tab isActive">Максимальный <br> эффект</div>
@@ -128,510 +145,65 @@ get_header();
                     </div>
                 </div>
                 <div class="calc_block__options">
-                    <div class="calc_block__options--block">
+                    <div class="calc_block__options--block" v-for="(area, key) in areas" :key="area.index">
                         <div class="calc_block__options--top">
                             <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-1" name="check-1" value="Внутрь дверей, 4 двери" checked>
-                                <label for="check-1">Внутрь дверей, 4 двери</label>
+                                <input class="custom-checkbox" type="checkbox" :id="`check-${key}`" :name="`check-${key}`" :value="area.name" v-model="area.isSelected">
+                                <label :for="`check-${key}`">{{ area.name }}</label>
                             </div>
-                            <div class="calc_block__options--title">Внутрь дверей, 4 двери</div>
+                            <label :for="`check-${key}`" class="calc_block__options--title">{{ area.name }}</label>
                         </div>
                         <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
+                            <div class="calc_block__options--item" v-for="product in area.products">
+                                <div class="calc_block__options--name">{{ product.name }}</div>
                                 <div class="calc_block__options--count"></div>
                             </div>
                         </div>
                         <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
+                            Цена комплекта: <span>{{ area.price }} ₽</span>
                         </div>
                         <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-2" name="check-2" value="Тех. отверстия в дверях + пластиковые обшивки, 4 двери" checked>
-                                <label for="check-2">Тех. отверстия в дверях + пластиковые обшивки, 4 двери</label>
-                            </div>
-                            <div class="calc_block__options--title">Тех. отверстия в дверях + пластиковые обшивки, 4 двери</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-3" name="check-3" value="Пол салона" checked>
-                                <label for="check-3">Пол салона</label>
-                            </div>
-                            <div class="calc_block__options--title">Пол салона</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-4" name="check-4" value="Пол багажника" checked>
-                                <label for="check-4">Пол багажника</label>
-                            </div>
-                            <div class="calc_block__options--title">Пол багажника</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-5" name="check-5" value="Арки со стороны салона, 2 арки" checked>
-                                <label for="check-5">Арки со стороны салона, 2 арки</label>
-                            </div>
-                            <div class="calc_block__options--title">Арки со стороны салона, 2 арки</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-6" name="check-6" value="Крыша" checked>
-                                <label for="check-6">Крыша</label>
-                            </div>
-                            <div class="calc_block__options--title">Крыша</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-7" name="check-7" value="Крышка капота" checked>
-                                <label for="check-7">Крышка капота</label>
-                            </div>
-                            <div class="calc_block__options--title">Крышка капота</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-8" name="check-8" value="Крышка багажника" checked>
-                                <label for="check-8">Крышка багажника</label>
-                            </div>
-                            <div class="calc_block__options--title">Крышка багажника</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-9" name="check-9" value="Перегородка моторного отсека" checked>
-                                <label for="check-9">Перегородка моторного отсека</label>
-                            </div>
-                            <div class="calc_block__options--title">Перегородка моторного отсека</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-10" name="check-10" value="Пластиковые подкрылки, 4 арки" checked>
-                                <label for="check-10">Пластиковые подкрылки, 4 арки</label>
-                            </div>
-                            <div class="calc_block__options--title">Пластиковые подкрылки, 4 арки</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
-                        </div>
-                    </div>
-                    <div class="calc_block__options--block">
-                        <div class="calc_block__options--top">
-                            <div class="checkbox">
-                                <input class="custom-checkbox" type="checkbox" id="check-11" name="check-11" value="Металл арок, 4 арки" checked>
-                                <label for="check-11">Металл арок, 4 арки</label>
-                            </div>
-                            <div class="calc_block__options--title">Металл арок, 4 арки</div>
-                        </div>
-                        <div class="calc_block__options--list">
-                            <div class="calc_block__options--item" data-number="1.">
-                                <div class="calc_block__options--name">Шумоff Black Jack (Блэк Джек)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="2.">
-                                <div class="calc_block__options--name">Шумофф Комфорт 10</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                            <div class="calc_block__options--item" data-number="3.">
-                                <div class="calc_block__options--name">Шумоff Specific в деталях (Специфик)</div>
-                                <div class="calc_block__options--count"></div>
-                            </div>
-                        </div>
-                        <div class="calc_block__options--total-price">
-                            Цена комплекта: <span>5 060 ₽</span>
-                        </div>
-                        <div class="calc_block__options--total-weight">
-                            Масса комплекта: <span>8.1 кг.</span>
+                            Масса комплекта: <span>{{ area.weight }} кг.</span>
                         </div>
                     </div>
                 </div>
                 <div class="calc_block__total">
-                    <div class="calc_block__total--title">Итого:</div>
+                    <div class="calc_block__total--title">
+                        <template v-if="selectedAreas.length">
+                            Итого:
+                        </template>
+                        <template v-else>
+                            Вам необходимо выбрать один из комплектов.
+                        </template>
+                    </div>
                     <div class="calc_block__total--blocks">
-                        <div class="calc_block__total--block">
-                            <div class="calc_block__total--top">
-                                <div class="calc_block__total--tit">Внутрь дверей, 4 двери</div>
-                                <div class="calc_block__total--prc">6 260 ₽</div>
+                        <div class="calc_block__total--block" :class="{ 'isOpened': selectedArea.isOpened }" v-for="selectedArea in selectedAreas" :key="selectedArea.index">
+                            <div class="calc_block__total--top" @click="selectedArea.isOpened = !selectedArea.isOpened">
+                                <div class="calc_block__total--tit">{{ selectedArea.name }}</div>
+                                <div class="calc_block__total--prc">{{ selectedArea.price }} ₽</div>
                             </div>
                             <div class="calc_block__total--text">
                                 <div class="calc_block__total--l-side">
                                     <ol class="calc_block__total--list">
-                                        <li data-number="1.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="2.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="3.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
+                                        <li v-for="(product, key) in selectedArea.products" :key="product.index" :data-number="`${key+1}.`">
+                                            <div class="calc_block__total--name">{{ product.name }}</div>
+                                            <div class="calc_block__total--size" v-for="optionValues in product.attributes" :key="optionValues.index" v-if="optionValues.name === 'Тип упаковки'">
+                                                <span v-for="option in optionValues.options" :key="option.index">
+                                                    {{ option }}
+                                                </span>
+                                            </div>
+                                            <div class="calc_block__total--summ">{{ product.price }} ₽</div>
                                         </li>
                                     </ol>
                                 </div>
                                 <div class="calc_block__total--r-side">
                                     <div class="calc_block__total--price">
                                         Цена комплекта:
-                                        <span>5 060 ₽</span>
+                                        <span>{{ selectedArea.price }} ₽</span>
                                     </div>
                                     <div class="calc_block__total--price">
                                         Масса комплекта:
-                                        <span>8.1 кг.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc_block__total--block isOpened">
-                            <div class="calc_block__total--top">
-                                <div class="calc_block__total--tit">Внутрь дверей, 4 двери</div>
-                                <div class="calc_block__total--prc">6 260 ₽</div>
-                            </div>
-                            <div class="calc_block__total--text">
-                                <div class="calc_block__total--l-side">
-                                    <ol class="calc_block__total--list">
-                                        <li data-number="1.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="2.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="3.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="calc_block__total--r-side">
-                                    <div class="calc_block__total--price">
-                                        Цена комплекта:
-                                        <span>5 060 ₽</span>
-                                    </div>
-                                    <div class="calc_block__total--price">
-                                        Масса комплекта:
-                                        <span>8.1 кг.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc_block__total--block">
-                            <div class="calc_block__total--top">
-                                <div class="calc_block__total--tit">Внутрь дверей, 4 двери</div>
-                                <div class="calc_block__total--prc">6 260 ₽</div>
-                            </div>
-                            <div class="calc_block__total--text">
-                                <div class="calc_block__total--l-side">
-                                    <ol class="calc_block__total--list">
-                                        <li data-number="1.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="2.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="3.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="calc_block__total--r-side">
-                                    <div class="calc_block__total--price">
-                                        Цена комплекта:
-                                        <span>5 060 ₽</span>
-                                    </div>
-                                    <div class="calc_block__total--price">
-                                        Масса комплекта:
-                                        <span>8.1 кг.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc_block__total--block">
-                            <div class="calc_block__total--top">
-                                <div class="calc_block__total--tit">Внутрь дверей, 4 двери</div>
-                                <div class="calc_block__total--prc">6 260 ₽</div>
-                            </div>
-                            <div class="calc_block__total--text">
-                                <div class="calc_block__total--l-side">
-                                    <ol class="calc_block__total--list">
-                                        <li data-number="1.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="2.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="3.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="calc_block__total--r-side">
-                                    <div class="calc_block__total--price">
-                                        Цена комплекта:
-                                        <span>5 060 ₽</span>
-                                    </div>
-                                    <div class="calc_block__total--price">
-                                        Масса комплекта:
-                                        <span>8.1 кг.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc_block__total--block">
-                            <div class="calc_block__total--top">
-                                <div class="calc_block__total--tit">Внутрь дверей, 4 двери</div>
-                                <div class="calc_block__total--prc">6 260 ₽</div>
-                            </div>
-                            <div class="calc_block__total--text">
-                                <div class="calc_block__total--l-side">
-                                    <ol class="calc_block__total--list">
-                                        <li data-number="1.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="2.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                        <li data-number="3.">
-                                            <div class="calc_block__total--name">Шумоff Black Jack (Блэк Джек)</div>
-                                            <div class="calc_block__total--size">16 листов 370 х 270 мм</div>
-                                            <div class="calc_block__total--summ">2 160 ₽</div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="calc_block__total--r-side">
-                                    <div class="calc_block__total--price">
-                                        Цена комплекта:
-                                        <span>5 060 ₽</span>
-                                    </div>
-                                    <div class="calc_block__total--price">
-                                        Масса комплекта:
-                                        <span>8.1 кг.</span>
+                                        <span>{{ selectedArea.weight }} кг.</span>
                                     </div>
                                 </div>
                             </div>
@@ -645,11 +217,11 @@ get_header();
                     <div class="calc_block__list">
                         <div class="calc_block__list--item">
                             <div class="calc_block__list--left">Стоимость материалов:</div>
-                            <div class="calc_block__list--right">69 695 ₽</div>
+                            <div class="calc_block__list--right">{{ total.price }} ₽</div>
                         </div>
                         <div class="calc_block__list--item">
                             <div class="calc_block__list--left">Масса набора:</div>
-                            <div class="calc_block__list--right">117.37 кг.</div>
+                            <div class="calc_block__list--right">{{ total.weight }} кг.</div>
                         </div>
                     </div>
                     <a href="#" class="button button__all-link calc_block__btn">

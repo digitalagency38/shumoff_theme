@@ -12,6 +12,26 @@
 $site_socials = get_theme_mod('site_socials');
 $site_socials_decoded = json_decode($site_socials);
 
+$args = array(
+    'numberposts' => -1,
+    'post_type'   => 'model'
+);
+
+$models = get_posts( $args );
+
+$models_data = array();
+
+foreach( $models as $post) {
+	setup_postdata($post);
+	array_push($models_data, (object) array(
+		"name"  => get_the_title(),
+		"brand" => get_field('brand'),
+		"body"  => get_field('body'),
+	));
+};
+wp_reset_postdata();
+
+
 ?>
 
 	<footer class="footer">
@@ -120,9 +140,9 @@ $site_socials_decoded = json_decode($site_socials);
 					<a href="#" class="footer__link">Политика конфиденциальности</a>
 				</div>
 				<div class="footer__pays">
-					<div class="footer__pay"><img src="img/pay1.svg" alt=""></div>
-					<div class="footer__pay"><img src="img/pay2.svg" alt=""></div>
-					<div class="footer__pay"><img src="img/pay3.svg" alt=""></div>
+					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay1.svg" alt=""></div>
+					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay2.svg" alt=""></div>
+					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay3.svg" alt=""></div>
 				</div>
 				<?php if( $site_socials_decoded ) { ?>
 					<div class="footer__socs">
@@ -146,6 +166,12 @@ $site_socials_decoded = json_decode($site_socials);
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<script>
+	function loadModels() {
+		return <?= json_encode($models_data); ?>;
+	}
+</script>
 
 </body>
 

@@ -233,6 +233,33 @@ $reviews_args = array(
 register_post_type( 'reviews', $reviews_args );
 
 
+$model_labels = array(
+	'name' => 'Модели',
+	'singular_name' => 'Модели',
+	'add_new' => 'Добавить модель',
+	'add_new_item' => 'Добавить модель',
+	'edit_item' => 'Редактировать модель',
+	'new_item' => 'Новая модель',
+	'all_items' => 'Все модели',
+	'search_items' => 'Искать модели',
+	'not_found' =>  'Моделей по заданным критериям не найдено.',
+	'not_found_in_trash' => 'В корзине нет моделей.',
+	'menu_name' => 'Модели'
+);
+
+$model_args = array(
+	'labels' => $model_labels,
+	'public' => true,
+	'publicly_queryable' => true,
+	'has_archive' => false,
+	'menu_icon' => 'dashicons-image-filter',
+	'menu_position' => 4,
+	'supports' => array( 'title' )
+);
+
+register_post_type( 'model', $model_args );
+
+
 
 
 
@@ -300,8 +327,15 @@ add_action( 'customize_register', 'mytheme_customize_register' );
 
 
 
-function product_count_shortcode( ) {
-	$count_posts = wp_count_posts( 'product' );
-	return $count_posts->publish;
-}
-add_shortcode( 'product_count', 'product_count_shortcode' );
+// function product_count_shortcode( ) {
+// 	$count_posts = wp_count_posts( 'product' );
+// 	return $count_posts->publish;
+// }
+// add_shortcode( 'product_count', 'product_count_shortcode' );
+
+function maximum_api_filter($query_params) {
+	$query_params['per_page']['maximum'] = 10000;
+	$query_params['per_page']['default'] = 500;
+	return $query_params;
+ }
+ add_filter('rest_product_collection_params', 'maximum_api_filter', 10, 1 );
