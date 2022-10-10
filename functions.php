@@ -339,3 +339,9 @@ function maximum_api_filter($query_params) {
 	return $query_params;
 }
 add_filter('rest_product_collection_params', 'maximum_api_filter', 10, 1 );
+
+function product_count_shortcode( ) {
+	$count_posts = wp_count_posts( 'product' );
+	return $count_posts->publish;
+}
+add_shortcode( 'product_count', 'product_count_shortcode' );
