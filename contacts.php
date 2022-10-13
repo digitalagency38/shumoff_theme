@@ -5,6 +5,15 @@ Template Name: Контакты
 
 get_header();
 
+$site_phone = get_option('site_phone');
+$site_address = get_option('site_address');
+$site_worktime = get_option('site_worktime');
+$site_email = get_option('site_email');
+$site_name = get_option('site_name');
+$site_inn = get_option('site_inn');
+$site_kpp = get_option('site_kpp');
+$site_ogrn = get_option('site_ogrn');
+
 ?>
 
 
@@ -12,11 +21,12 @@ get_header();
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
-                <a href="/">Главная</a>
-                <div class="breadcrums__splash"></div>
-                <a href="#">Подкатегория</a>
-                <div class="breadcrums__splash"></div>
-                <span>Данная страница</span>
+                <?php
+                    if(function_exists('bcn_display'))
+                    {
+                        bcn_display();
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -27,44 +37,60 @@ get_header();
             </div>
             <div class="contacts__r-side">
                 <div class="contacts__title">Контакты</div>
-                <div class="contacts__info">
-                    <span>Адрес</span>
-                    г. Иваново, ул. <br> Лежневская, д. 111
-                </div>
-                <div class="contacts__info">
-                    <span>Телефон</span>
-                    <a href="tel:74932581403">+7 (4932) 58-14-03</a>
-                </div>
-                <div class="contacts__info">
-                    <span>Время работы</span>
-                    Пн - Пт: 09:00 - 19:00 <br> Сб - Вс: 09:00 - 15:00
-                </div>
-                <div class="contacts__info">
-                    <span>Почта</span>
-                    <a href="mailto:pro@shumoff.biz">pro@shumoff.biz</a>
-                </div>
+                <?if ($site_address):?>
+                    <div class="contacts__info">
+                        <span>Адрес</span>
+                        <?= $site_address; ?>
+                    </div>
+                <?endif;?>
+                <?if ($site_phone):?>
+                    <div class="contacts__info">
+                        <span>Телефон</span>
+                        <a href="tel:<?= $site_phone; ?>"><?= $site_phone; ?></a>
+                    </div>
+                <?endif;?>
+                <?if ($site_worktime):?>
+                    <div class="contacts__info">
+                        <span>Время работы</span>
+                        <?= $site_worktime; ?>
+                    </div>
+                <?endif;?>
+                <?if ($site_email):?>
+                    <div class="contacts__info">
+                        <span>Почта</span>
+                        <a href="mailto:<?= $site_email; ?>"><?= $site_email; ?></a>
+                    </div>
+                <?endif;?>
             </div>
         </div>
     </div>
     <div class="rekv_block center_block">
         <div class="rekv_block__title">Реквизиты</div>
         <div class="rekv_block__blocks">
-            <div class="rekv_block__block">
-                <span>Название:</span>
-                ООО Шумофф
-            </div>
-            <div class="rekv_block__block">
-                <span>ИНН:</span>
-                3702579095
-            </div>
-            <div class="rekv_block__block">
-                <span>КПП:</span>
-                370201001
-            </div>
-            <div class="rekv_block__block">
-                <span>ОГРН:</span>
-                1093702004043
-            </div>
+            <?if ($site_name):?>
+                <div class="rekv_block__block">
+                    <span>Название:</span>
+                    <?= $site_name; ?>
+                </div>
+            <?endif;?>
+            <?if ($site_inn):?>
+                <div class="rekv_block__block">
+                    <span>ИНН:</span>
+                    <?= $site_inn; ?>
+                </div>
+            <?endif;?>
+            <?if ($site_kpp):?>
+                <div class="rekv_block__block">
+                    <span>КПП:</span>
+                    <?= $site_kpp; ?>
+                </div>
+            <?endif;?>
+            <?if ($site_ogrn):?>
+                <div class="rekv_block__block">
+                    <span>ОГРН:</span>
+                    <?= $site_ogrn; ?>
+                </div>
+            <?endif;?>
         </div>
     </div>
 </main>

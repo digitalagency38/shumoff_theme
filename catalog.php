@@ -15,11 +15,12 @@ $seo_block = get_field('seo_block');
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
-                <a href="/">Главная</a>
-                <div class="breadcrums__splash"></div>
-                <a href="#">Подкатегория</a>
-                <div class="breadcrums__splash"></div>
-                <span>Данная страница</span>
+                <?php
+                    if(function_exists('bcn_display'))
+                    {
+                        bcn_display();
+                    }
+                ?>
             </div>
         </div>
     </div>

@@ -306,6 +306,201 @@ function mytheme_customize_register( $wp_customize ) {
 			'settings' => 'site_phone'
 		)
 	);
+	/*
+	Добавляем поле Телефон site_phone
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_phone',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_phone_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Телефон",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_phone'
+		)
+	);
+
+	/*
+	Добавляем поле Адрес site_address
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_address',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_address_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Адрес",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_address'
+		)
+	);
+	/*
+	Добавляем поле Время работы site_worktime
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_worktime',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_worktime_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Время работы",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_worktime'
+		)
+	);
+	/*
+	Добавляем поле Почта site_email
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_email',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_email_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Почта",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_email'
+		)
+	);
+	/*
+	Добавляем поле Название site_name
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_name',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_name_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Название",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_name'
+		)
+	);
+
+	/*
+	Добавляем поле ИНН site_inn
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_inn',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_inn_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "ИНН",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_inn'
+		)
+	);
+
+	/*
+	Добавляем поле КПП site_kpp
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_kpp',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_kpp_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "КПП",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_kpp'
+		)
+	);
+	/*
+	Добавляем поле ОГРН site_ogrn
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'site_ogrn',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'site_ogrn_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "ОГРН",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'site_ogrn'
+		)
+	);
 
 
 	
@@ -339,3 +534,9 @@ function maximum_api_filter($query_params) {
 	return $query_params;
 }
 add_filter('rest_product_collection_params', 'maximum_api_filter', 10, 1 );
+
+function product_count_shortcode( ) {
+	$count_posts = wp_count_posts( 'product' );
+	return $count_posts->publish;
+}
+add_shortcode( 'product_count', 'product_count_shortcode' );

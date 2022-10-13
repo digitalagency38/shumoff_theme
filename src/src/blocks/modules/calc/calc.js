@@ -22,7 +22,7 @@ const Calculator = class Calculator {
                 selectedModel: "",
                 selectedBody: "",
                 uniqueModels: [],
-                
+                effect: "max"
             }),
             watch: {
                 selectedBrand: function(newValue, oldValue) {
@@ -60,7 +60,8 @@ const Calculator = class Calculator {
                 },
                 selectedBody: function(newValue, oldValue) {
                     if (newValue === oldValue) return;
-                    this.splitProductsByArea(this.selectedProducts);    
+                    this.splitProductsByArea(this.selectedProducts);
+                    this.reloadAreas(this.effect);
                 },                 
             },
             async mounted() {
@@ -123,6 +124,11 @@ const Calculator = class Calculator {
                 }
             },
             methods: {
+                setEffect(effect) {
+                    if (effect === this.effect) return;
+                    this.effect = effect;
+                    this.reloadAreas(this.effect);
+                },
                 filterBrands() {
                     let uniqueBrands = [];
                     this.models.map(model => {
@@ -165,6 +171,7 @@ const Calculator = class Calculator {
                     return filteredProducts;
                 },
                 createAreasArray(filterProducts) {
+                    this.areas = [];
                     let areaNames = [];
                     filterProducts.map(product => {
                         if ('attributes' in product) {
@@ -220,6 +227,19 @@ const Calculator = class Calculator {
                     catch (error) {
                         console.log(error);
                     }
+                },
+                reloadAreas(effect) {
+                    let prods = [];
+                    this.products.filter(product => {
+                        product.attributes.map(attr => {
+                            if (attr.name === "Эффект" && JSON.stringify(attr.options).includes(this.effect)) {
+                                console.log('123123123123')
+                                prods.push(product);
+                            }
+                            return attr;
+                        })
+                    });
+                    this.splitProductsByArea(prods);
                 }
             }
         });

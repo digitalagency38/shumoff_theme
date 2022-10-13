@@ -26,11 +26,12 @@ function url(){
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
-                <a href="/">Главная</a>
-                <div class="breadcrums__splash"></div>
-                <a href="#">Подкатегория</a>
-                <div class="breadcrums__splash"></div>
-                <span>Данная страница</span>
+                <?php
+                    if(function_exists('bcn_display'))
+                    {
+                        bcn_display();
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -47,20 +48,16 @@ function url(){
                                 <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
                             </select>
                         </div>
-                        {{ selectedBrand }}
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите модель:</div>
                             <select name="" id="single-model" v-model="selectedModel">
                                 <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
                             </select>
                         </div>
-                        {{ selectedModel }}
-                        {{ availableBodies }}
                     </div>
                     <div class="calc_model__r-side">
                         <div class="calc_model__tit">Рассчитать по кузову</div>
                         <div class="calc_model__items">
-                            {{ selectedBody }}
                             <div class="radio" v-if="availableBodies.includes('1')">
                                 <label class="custom-radio">
                                     <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/car1.jpg" alt="">
@@ -120,30 +117,33 @@ function url(){
                         </div>
                     </div>
                 </div>
-                <div class="calc_block__orange-info">
-                    Ваш автомобиль: <span class="calc_block__orange-info--car">Audi</span> <span class="calc_block__orange-info--model">Q7</span> <span class="calc_block__orange-info--kuzov">Кроссовер</span>, чтобы увидеть расчет, листайте вниз
+                <div class="calc_block__orange-info" v-if="selectedBrand && selectedModel">
+                    Ваш автомобиль: <span class="calc_block__orange-info--car">{{ selectedBrand }}</span> <span class="calc_block__orange-info--model">{{ selectedModel }}</span> <span class="calc_block__orange-info--kuzov">Кроссовер</span>, чтобы увидеть расчет, листайте вниз
                 </div>
-                <div class="calc_block__tabs" v-if="false">
-                    <div class="calc_block__tabs--tit">Выберите вариант шумоизоляции:</div>
+                <div class="calc_block__tabs" v-if="selectedBody">
+                    <div class="calc_block__tabs--tit">Выберите вариант шумоизоляции: {{ effect }}</div>
+                    <!-- <pre>
+                        {{ areas }}
+                    </pre> -->
                     <div class="calc_block__tabs--top">
-                        <div class="calc_block__tabs--tab isActive">Максимальный <br> эффект</div>
-                        <div class="calc_block__tabs--tab">Отличный <br> эффект</div>
-                        <div class="calc_block__tabs--tab">Хороший <br> эффект</div>
-                        <div class="calc_block__tabs--tab">Практичный <br> эффект</div>
+                        <div class="calc_block__tabs--tab" :class="{'isActive': effect === 'max'}" @click="setEffect('max')">Максимальный <br> эффект</div>
+                        <div class="calc_block__tabs--tab" :class="{'isActive': effect === 'best'}" @click="setEffect('best')">Отличный <br> эффект</div>
+                        <div class="calc_block__tabs--tab" :class="{'isActive': effect === 'good'}" @click="setEffect('good')">Хороший <br> эффект</div>
+                        <div class="calc_block__tabs--tab" :class="{'isActive': effect === 'practice'}" @click="setEffect('practice')">Практичный <br> эффект</div>
                     </div>
                     <div class="calc_block__tabs--info">
-                        <div class="calc_block__tabs--text isActive">Максимальный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
-                        <div class="calc_block__tabs--text">Максимальный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
-                        <div class="calc_block__tabs--text">Максимальный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
-                        <div class="calc_block__tabs--text">Максимальный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
+                        <div class="calc_block__tabs--text" :class="{'isActive': effect === 'max'}">Максимальный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
+                        <div class="calc_block__tabs--text" :class="{'isActive': effect === 'best'}">Отличный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
+                        <div class="calc_block__tabs--text" :class="{'isActive': effect === 'good'}">Хороший эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
+                        <div class="calc_block__tabs--text" :class="{'isActive': effect === 'practice'}">Практичный эффект - для тех, кто хочет сделать свою машину максимально тихой. Комплект включает в себя самые эффективные материалы Шумофф. Каждый материал разрабатывался для определенных областей применения, и обладает уникальными свойствами.</div>
                     </div>
                 </div>
-                <div class="calc_block__warning">
+                <div class="calc_block__warning" v-if="areas.length">
                     <div class="calc_block__warning--in">
                         Мы подобрали оптимальное количество материалов для шумоизоляции вашего автомобиля, но вы можете изменить количество вручную ниже
                     </div>
                 </div>
-                <div class="calc_block__options">
+                <div class="calc_block__options" v-if="areas.length">
                     <div class="calc_block__options--block" v-for="(area, key) in areas" :key="area.index">
                         <div class="calc_block__options--top">
                             <div class="checkbox">
@@ -166,7 +166,7 @@ function url(){
                         </div>
                     </div>
                 </div>
-                <div class="calc_block__total">
+                <div class="calc_block__total" v-if="areas.length">
                     <div class="calc_block__total--title">
                         <template v-if="selectedAreas.length">
                             Итого:
