@@ -1,5 +1,5 @@
 import Vue from 'vue/dist/vue.js';
-
+import $ from 'jquery';
 
 
 const Calculator = class Calculator {
@@ -22,7 +22,8 @@ const Calculator = class Calculator {
                 selectedModel: "",
                 selectedBody: "",
                 uniqueModels: [],
-                effect: "max"
+                effect: "max",
+                nonce: null,
             }),
             watch: {
                 selectedBrand: function(newValue, oldValue) {
@@ -71,7 +72,7 @@ const Calculator = class Calculator {
                 });
                 this.models = loadModels();
                 this.filterBrands();
-                console.log(this.models);
+                this.getNonce();
             },
             computed: {
                 selectedProducts() {
@@ -240,10 +241,48 @@ const Calculator = class Calculator {
                         })
                     });
                     this.splitProductsByArea(prods);
+                },
+                getNonce() {
+                    if (!document.querySelector("[data-nonce]")) return;
+                    this.nonce = document.querySelector("[data-nonce]").dataset.nonce;
+                    console.log(this.nonce);
+                },
+                addToCart() {
+                    console.log(this.areas);
+                    this.areas.map(area => {
+                        area.products.map(product => {
+                            console.log(product);
+                            $.ajax({
+                                type: 'POST',
+                                url: `${this.url}/wp-json/wc/store/cart/add-item`,
+                                dataType: 'json',
+                                headers: {
+                                  'X-WC-Store-API-Nonce': this.nonce
+                                },
+                                data: {
+                                  id : product.id,
+                                  quantity: 1,
+                                  variation: [
+                                    {
+                                        attribute: "size",
+                                        value: '1 шт',
+                                    }
+                                  ],
+                                },
+                                success: function(result) {
+                                    console.log(result);
+                                }
+                            });
+                            return product;
+                        });
+                        return area;
+                    })
+                   
                 }
             }
         });
     }
+    
     init() {        
         console.log(this.app.message);
     }

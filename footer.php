@@ -164,14 +164,16 @@ wp_reset_postdata();
 		<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 	</div>
 </div><!-- #page -->
+<script>
+	function loadModels() {
+		return <?= json_encode($models_data); ?>
+	};
+</script>
+
 
 <?php wp_footer(); ?>
 
-<script>
-	function loadModels() {
-		return <?= json_encode($models_data); ?>;
-	}
-</script>
+
 
 </body>
 
