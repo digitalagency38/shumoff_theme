@@ -10,7 +10,18 @@
 get_header();
 ?>
 
-
+<div class="breadcrums center_block">
+	<div class="breadcrums__item">
+		<div class="breadcrums__in">
+			<?php
+				if(function_exists('bcn_display'))
+				{
+					bcn_display();
+				}
+			?>
+		</div>
+	</div>
+</div>
 <main id="primary" class="content">
 	<div class="inner_page center_block">
 		<div class="inner_page__right">

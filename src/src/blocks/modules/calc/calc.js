@@ -283,7 +283,8 @@ const Calculator = class Calculator {
         });
     }
     
-    init() {        
+    init() {
+        if (!document.querySelector('#calculator')) return;
         console.log(this.app.message);
     }
 }
