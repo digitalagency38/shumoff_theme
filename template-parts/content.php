@@ -7,6 +7,10 @@
  * @package shumof
  */
 
+$type = get_post_type();
+
+echo $type;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

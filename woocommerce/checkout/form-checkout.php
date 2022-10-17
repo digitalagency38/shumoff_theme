@@ -40,7 +40,12 @@ if ( ! WC()->checkout->is_registration_enabled() && WC()->checkout->is_registrat
 			<div class="col-1">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 			</div>
-
+			
+			<div class="col-3">
+				<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+					<?php wc_cart_totals_shipping_html(); ?>
+				<?php endif; ?>
+			</div>
 			<div class="col-2">
 				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 			</div>
