@@ -32,9 +32,11 @@ get_header();
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
-		<div class="page_top__counter">
-			<?= do_shortcode('[product_count]'); ?> товаров
-		</div>
+        <?if( is_category() ):?>
+            <div class="page_top__counter">
+                <?= do_shortcode('[product_count]'); ?> товаров
+            </div>
+        <?endif;?>
 
 	</div>
 	
