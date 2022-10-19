@@ -1884,7 +1884,7 @@ body #customer_details .col-1 .woocommerce-billing-fields__field-wrapper .form-r
 
 body #customer_details .col-2 {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 body #customer_details .col-2 h3 {
@@ -1900,7 +1900,7 @@ body #customer_details .col-2 h3 label input {
 }
 
 body #customer_details .col-2 h3:before {
-  content: "2.";
+  content: "3.";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -2409,6 +2409,157 @@ body .fixed_panel .header__cart > span:before {
   transition: all 0.3s ease-out;
   margin-left: -12px;
   background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9997 17.9999C14.2649 17.9999 14.5192 17.8945 14.7068 17.707C14.8943 17.5195 14.9997 17.2651 14.9997 16.9999V14.9999C14.9997 14.7347 14.8943 14.4803 14.7068 14.2928C14.5192 14.1053 14.2649 13.9999 13.9997 13.9999C13.7345 13.9999 13.4801 14.1053 13.2926 14.2928C13.105 14.4803 12.9997 14.7347 12.9997 14.9999V16.9999C12.9997 17.2651 13.105 17.5195 13.2926 17.707C13.4801 17.8945 13.7345 17.9999 13.9997 17.9999ZM9.99967 17.9999C10.2649 17.9999 10.5192 17.8945 10.7068 17.707C10.8943 17.5195 10.9997 17.2651 10.9997 16.9999V14.9999C10.9997 14.7347 10.8943 14.4803 10.7068 14.2928C10.5192 14.1053 10.2649 13.9999 9.99967 13.9999C9.73445 13.9999 9.4801 14.1053 9.29256 14.2928C9.10503 14.4803 8.99967 14.7347 8.99967 14.9999V16.9999C8.99967 17.2651 9.10503 17.5195 9.29256 17.707C9.4801 17.8945 9.73445 17.9999 9.99967 17.9999ZM18.9997 5.99991H17.6197L15.8897 2.5499C15.8368 2.42296 15.7583 2.30828 15.6591 2.21303C15.56 2.11779 15.4422 2.04402 15.3132 1.99635C15.1842 1.94867 15.0468 1.92811 14.9095 1.93595C14.7722 1.94379 14.638 1.97986 14.5153 2.04191C14.3926 2.10396 14.284 2.19065 14.1963 2.29657C14.1086 2.40249 14.0437 2.52536 14.0056 2.6575C13.9675 2.78964 13.9571 2.92821 13.975 3.06455C13.9929 3.20089 14.0388 3.33208 14.1097 3.44991L15.3797 5.99991H8.61967L9.88967 3.44991C9.98674 3.21681 9.99203 2.95563 9.90449 2.71879C9.81695 2.48196 9.64306 2.287 9.41773 2.17307C9.1924 2.05914 8.93231 2.03467 8.68969 2.10456C8.44706 2.17446 8.23985 2.33356 8.10967 2.5499L6.37967 5.99991H4.99967C4.29286 6.01066 3.61255 6.27065 3.07872 6.73404C2.54489 7.19742 2.19184 7.83443 2.08184 8.53271C1.97184 9.23099 2.11195 9.94569 2.47746 10.5508C2.84297 11.1558 3.4104 11.6124 4.07967 11.8399L4.81967 19.2999C4.89429 20.0425 5.24301 20.7306 5.79774 21.2298C6.35247 21.7291 7.07337 22.0036 7.81967 21.9999H16.1997C16.946 22.0036 17.6669 21.7291 18.2216 21.2298C18.7763 20.7306 19.125 20.0425 19.1997 19.2999L19.9397 11.8399C20.6104 11.6117 21.1787 11.1535 21.544 10.5464C21.9092 9.9393 22.0478 9.22254 21.9352 8.52305C21.8227 7.82356 21.4661 7.18649 20.9288 6.72468C20.3915 6.26287 19.7081 6.00612 18.9997 5.99991ZM17.1897 19.0999C17.1648 19.3474 17.0486 19.5768 16.8636 19.7432C16.6787 19.9096 16.4384 20.0012 16.1897 19.9999H7.80967C7.5609 20.0012 7.3206 19.9096 7.13569 19.7432C6.95079 19.5768 6.83454 19.3474 6.80967 19.0999L6.09967 11.9999H17.8997L17.1897 19.0999ZM18.9997 9.9999H4.99967C4.73445 9.9999 4.4801 9.89455 4.29256 9.70701C4.10503 9.51948 3.99967 9.26512 3.99967 8.99991C3.99967 8.73469 4.10503 8.48033 4.29256 8.2928C4.4801 8.10526 4.73445 7.99991 4.99967 7.99991H18.9997C19.2649 7.99991 19.5192 8.10526 19.7068 8.2928C19.8943 8.48033 19.9997 8.73469 19.9997 8.99991C19.9997 9.26512 19.8943 9.51948 19.7068 9.70701C19.5192 9.89455 19.2649 9.9999 18.9997 9.9999Z' fill='%23333333'/%3E%3C/svg%3E%0A") 50% no-repeat;
+}
+
+body #customer_details .col-3 {
+  margin-top: 30px;
+}
+
+body #customer_details .col-3 h3:before {
+  content: "2.";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  color: #F1752A;
+  margin-right: 5px;
+  display: inline-block;
+  min-width: 25px;
+}
+
+body #customer_details .col-3 #shipping_method {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+body #customer_details .col-3 #shipping_method li {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(33.3% - 20px);
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #DFDEE2;
+  position: relative;
+  text-align: center;
+}
+
+body #customer_details .col-3 #shipping_method li input[type=radio] {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+}
+
+body #customer_details .col-3 #shipping_method li input[type=radio]:checked + label {
+  color: #F1752A;
+}
+
+body #customer_details .col-3 #shipping_method li label {
+  margin-bottom: 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  color: #111111;
+  display: block;
+}
+
+body #customer_details .col-3 #shipping_method li .shipping_method_description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #333333;
+}
+
+body #customer_details .col-3 #shipping_method li .shipping_method_description small {
+  font-size: 100%;
+}
+
+body #customer_details .col-2 .woocommerce-additional-fields__field-wrapper {
+  display: none;
+}
+
+body #customer_details .col-2 .woocommerce-additional-fields {
+  margin-bottom: 0 !important;
+}
+
+body #customer_details .woocommerce-checkout-payment {
+  background: none !important;
+}
+
+body #customer_details .woocommerce-checkout-payment ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  padding: 0 !important;
+  background: none !important;
+  margin-right: -10px;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  width: calc(50% - 20px) !important;
+  margin-bottom: 20px !important;
+  padding: 20px !important;
+  background: #FFFFFF;
+  border: 1px solid #DFDEE2;
+  position: relative;
+  text-align: center !important;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li input[type=radio] {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li input[type=radio]:checked + label {
+  color: #F1752A;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li label {
+  margin-bottom: 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  color: #111111;
+  display: block;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li .shipping_method_description,
+body #customer_details .woocommerce-checkout-payment ul li .payment_box,
+body #customer_details .woocommerce-checkout-payment ul li .payment_box p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #333333;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li .shipping_method_description small,
+body #customer_details .woocommerce-checkout-payment ul li .payment_box small,
+body #customer_details .woocommerce-checkout-payment ul li .payment_box p small {
+  font-size: 100%;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li .payment_box {
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: center !important;
+  background: none !important;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li .payment_box:before {
+  display: none !important;
 }
 
 .button__line {
@@ -7109,6 +7260,10 @@ body .fixed_panel .header__cart > span:before {
     font-size: 40px;
   }
 
+  body #customer_details .col-3 {
+    margin-top: 20px;
+  }
+
   .header {
     border-bottom: 1px solid #DFDEE2;
   }
@@ -8534,6 +8689,32 @@ body .fixed_panel .header__cart > span:before {
     margin-right: 0;
     width: 100%;
     margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 740px) {
+  body #customer_details .col-3 #shipping_method {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body #customer_details .col-3 #shipping_method li {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  body #customer_details .woocommerce-checkout-payment ul {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body #customer_details .woocommerce-checkout-payment ul li {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
   }
 }
 
