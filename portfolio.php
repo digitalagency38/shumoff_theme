@@ -47,7 +47,7 @@ $portfolio = get_posts( $args );
                         <?php endif; ?>
                     </div>
                     <div class="main_work__info">
-                        <a href="#" class="main_work__tit"><? the_title(); ?></a>
+                        <a href="<? the_permalink(); ?>" class="main_work__tit"><? the_title(); ?></a>
                         <div class="main_work__text"><?= get_field('description') ?></div>
                         <a href="<? the_permalink(); ?>" class="main_work__more button button__line">Подробнее</a>
                     </div>

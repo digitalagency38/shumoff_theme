@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Текстовая 3
+Template Name: Установочный центр
 */
 
 get_header();
@@ -8,17 +8,17 @@ get_header();
 ?>
 
 <main class="content">
-            <div class="breadcrums center_block">
-    <div class="breadcrums__item">
-        <div class="breadcrums__in">
-            <a href="/">Главная</a>
-            <div class="breadcrums__splash"></div>
-            <a href="#">Подкатегория</a>
-            <div class="breadcrums__splash"></div>
-            <span>Данная страница</span>
+    <div class="breadcrums center_block">
+        <div class="breadcrums__item">
+            <div class="breadcrums__in">
+                <a href="/">Главная</a>
+                <div class="breadcrums__splash"></div>
+                <a href="#">Подкатегория</a>
+                <div class="breadcrums__splash"></div>
+                <span>Данная страница</span>
+            </div>
         </div>
     </div>
-</div>
             <div class="page_service">
     <div class="page_service__first center_block">
         <div class="page_service__first--item" style="background: url('<?php echo get_theme_file_uri(); ?>/src/dist/img/bg_red.jpg') 50% / cover no-repeat;">
