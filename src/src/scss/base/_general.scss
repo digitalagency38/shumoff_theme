@@ -1530,5 +1530,8 @@ body {
             }
         }
     }
+    .added_to_cart.wc-forward {
+        display: none !important;
+    }
 }
 // wp theme end

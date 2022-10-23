@@ -2562,6 +2562,10 @@ body #customer_details .woocommerce-checkout-payment ul li .payment_box:before {
   display: none !important;
 }
 
+body .added_to_cart.wc-forward {
+  display: none !important;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;
