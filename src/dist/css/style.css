@@ -6191,6 +6191,33 @@ body #customer_details .woocommerce-checkout-payment ul li .payment_box:before {
   margin-bottom: 40px;
 }
 
+.main_work__filter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  align-items: flex-end;
+}
+
+.main_work__filter--select {
+  margin-right: 20px;
+  max-width: 305px;
+  width: 100%;
+}
+
+.main_work__filter--select > span {
+  margin-bottom: 5px;
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #111111;
+}
+
+.main_work__filter--refresh {
+  cursor: pointer;
+}
+
 .main_work__blocks {
   display: flex;
   flex-wrap: wrap;
@@ -8689,6 +8716,14 @@ body #customer_details .woocommerce-checkout-payment ul li .payment_box:before {
     margin-right: 0;
     width: 100%;
     margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 765px) {
+  .main_work__filter--select {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 }
 

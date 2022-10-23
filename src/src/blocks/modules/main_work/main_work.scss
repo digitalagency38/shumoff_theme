@@ -14,6 +14,34 @@
             line-height: 140%;
         }
     }
+    &__filter {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+        align-items: flex-end;
+        &--select {
+            margin-right: 20px;
+            max-width: 305px;
+            width: 100%;
+            > span {
+                margin-bottom: 5px;
+                display: block;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 150%;
+                color: #111111;
+            }
+            @media all and (max-width: 765px) {
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        &--refresh {
+            cursor: pointer;
+        }
+    }
     &__blocks {
         display: flex;
         flex-wrap: wrap;
