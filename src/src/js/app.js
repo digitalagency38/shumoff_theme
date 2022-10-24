@@ -10,8 +10,8 @@ import $ from 'jquery';
 import SlimSelect from 'slim-select';
 
 import gsap from 'gsap';
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// gsap.registerPlugin(ScrollTrigger); 
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+gsap.registerPlugin(ScrollTrigger); 
 
 import ProdBlock from '../blocks/modules/main_product/main_product.js';
 import HeaderBlock from '../blocks/modules/header/header.js';
@@ -137,17 +137,137 @@ document.addEventListener('DOMContentLoaded', function(){
                 },
                 y: 0,
             })
-            // gsap.to(jQuery(this).find('.main_services__r-side'), {
-            //     scrollTrigger: {
-            //         trigger: jQuery(this),
-            //         start: 'top bottom-=400',
-            //         end: 'bottom bottom-=400',
-            //         scrub: 2,
-            //         // markers: true,
-            //     },
-            //     y: 0,
-            // })
         });    
+        $('.work_slider').each(function() {
+            gsap.to($(this).find('.work_slider__top'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+            gsap.to($(this).find('.work_slider__slider'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+        });    
+        $('.more_block').each(function() {
+            gsap.to($(this).find('.more_block__title'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+            gsap.to($(this).find('.more_block__text'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+            gsap.to($(this).find('.more_block__btn'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+        }); 
+        $('.main_product').each(function() {
+            gsap.to($(this).find('.main_product__top'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+            gsap.to($(this).find('.main_product__bottom'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+        });   
+        $('.rev_block').each(function() {
+            gsap.to($(this).find('.rev_block__top'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+            gsap.to($(this).find('.rev_block__slider'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+        });    
+        $('.about_block').each(function() {
+            gsap.to($(this).find('.about_block__l-side'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+            gsap.to($(this).find('.about_block__r-side'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            }); 
+            gsap.to($(this).find('.about_block__bottom'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            });
+        });
     }, 0);
 });
 
