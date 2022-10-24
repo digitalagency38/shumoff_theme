@@ -81,6 +81,9 @@ const FirstBlock = class FirstBlock {
             clearTimeout(tick);
         }
         startProgressbar();
+        setTimeout(function() {
+            $('.first_slider').addClass('isLoad');
+        }, 1000);
     }
     blockRunner() {
         var marquee = $("#marquee"); 

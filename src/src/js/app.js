@@ -1,6 +1,8 @@
 import * as globalFunctions from './modules/functions.js';
 globalFunctions.isWebp();
 
+import Vue from 'vue/dist/vue.js';
+
 document.addEventListener("DOMContentLoaded", function () {
     new SlideMenu(document.getElementById('example-menu'));
 });
@@ -119,4 +121,18 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
     }, 0);
+});
+
+window.app = new Vue({
+    el: '#app',
+    data: () => ({
+        isLoaded: false
+    }),
+    mounted() {
+        document.onreadystatechange = () => {
+            if (document.readyState == "complete") {
+                this.isLoaded = true
+            }
+        }
+    }
 });

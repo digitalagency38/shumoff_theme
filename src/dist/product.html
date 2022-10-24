@@ -8,11 +8,16 @@
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap&_v=20221024011550" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?_v=20221024011550">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap&_v=20221024110152" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?_v=20221024110152">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="app">
+        <div class="preloader" :class="{isLoaded}">
+    <div class="preloader__in">
+        <img src="./img/preloader.svg" width="100%">
+    </div>
+</div>
         <header class="header">
     <div class="header__in center_block">
         <div class="header__top">
@@ -445,6 +450,6 @@
     <a href="#" class="fixed_panel__cart">Корзина</a>
 </div>
     </div>
-    <script src="js/app.min.js?_v=20221024011550"></script>
+    <script src="js/app.min.js?_v=20221024110152"></script>
 </body>
 </html>

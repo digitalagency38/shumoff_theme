@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="app">
+        @@include('blocks/components/preloader/preloader.html', {})
         @@include('blocks/modules/header/header.html', {})
         <main class="content">
             @@include('blocks/modules/breadcrums/breadcrums.html', {})
