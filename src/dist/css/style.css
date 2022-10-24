@@ -2566,6 +2566,79 @@ body .added_to_cart.wc-forward {
   display: none !important;
 }
 
+body .inner_page__right .post-thumbnail {
+  margin-bottom: 50px;
+}
+
+body .inner_page__right .post-thumbnail img,
+body .inner_page__right .post-thumbnail iframe {
+  width: 100% !important;
+}
+
+body .inner_page__right .wp-block-quote {
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #F1752A;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #FFFFFF;
+  padding: 40px 30px;
+}
+
+body .inner_page__right .wp-block-quote p:first-child {
+  margin-top: 0;
+}
+
+body .inner_page__right .wp-block-quote p:last-child {
+  margin-bottom: 0;
+}
+
+body .inner_page__right .entry-content {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #333333;
+  margin-bottom: 30px;
+}
+
+body .inner_page__right .entry-content p:first-child {
+  margin-top: 0;
+}
+
+body .inner_page__right .entry-content p:last-child {
+  margin-bottom: 0;
+}
+
+body .inner_page__right .entry-content img {
+  width: 100%;
+}
+
+body .inner_page__right h2 {
+  margin: 0;
+  margin-top: 50px;
+  font-style: normal;
+  font-family: "bebas", cursive;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 140%;
+  color: #111111;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+body .inner_page__right h2 strong {
+  font-family: "bebas", cursive;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 140%;
+  color: #111111;
+  text-transform: uppercase;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;
@@ -7319,6 +7392,39 @@ body .added_to_cart.wc-forward {
 
   body #customer_details .col-3 {
     margin-top: 20px;
+  }
+
+  body .inner_page__right .post-thumbnail {
+    margin-bottom: 30px;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  body .inner_page__right .post-thumbnail img,
+  body .inner_page__right .post-thumbnail iframe {
+    height: 100% !important;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  body .inner_page__right .wp-block-quote {
+    padding: 30px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  body .inner_page__right .entry-content {
+    margin-bottom: 20px;
+  }
+
+  body .inner_page__right h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    margin-top: 30px;
+  }
+
+  body .inner_page__right h2 strong {
+    font-size: 40px;
   }
 
   .header {
