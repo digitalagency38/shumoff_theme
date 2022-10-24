@@ -1,11 +1,17 @@
 import * as globalFunctions from './modules/functions.js';
 globalFunctions.isWebp();
 
+import Vue from 'vue/dist/vue.js';
+
 document.addEventListener("DOMContentLoaded", function () {
     new SlideMenu(document.getElementById('example-menu'));
 });
 import $ from 'jquery';
 import SlimSelect from 'slim-select';
+
+import gsap from 'gsap';
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger); 
 
 import ProdBlock from '../blocks/modules/main_product/main_product.js';
 import HeaderBlock from '../blocks/modules/header/header.js';
@@ -118,5 +124,43 @@ document.addEventListener('DOMContentLoaded', function(){
                 showSearch: false
             });
         });
+
+          
+        $('.cat_block').each(function() {
+            gsap.to($(this).find('.cat_block__block'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            })
+            // gsap.to(jQuery(this).find('.main_services__r-side'), {
+            //     scrollTrigger: {
+            //         trigger: jQuery(this),
+            //         start: 'top bottom-=400',
+            //         end: 'bottom bottom-=400',
+            //         scrub: 2,
+            //         // markers: true,
+            //     },
+            //     y: 0,
+            // })
+        });    
     }, 0);
+});
+
+window.app = new Vue({
+    el: '#app',
+    data: () => ({
+        isLoaded: false
+    }),
+    mounted() {
+        document.onreadystatechange = () => {
+            if (document.readyState == "complete") {
+                this.isLoaded = true
+            }
+        }
+    }
 });

@@ -2566,6 +2566,79 @@ body .added_to_cart.wc-forward {
   display: none !important;
 }
 
+body .inner_page__right .post-thumbnail {
+  margin-bottom: 50px;
+}
+
+body .inner_page__right .post-thumbnail img,
+body .inner_page__right .post-thumbnail iframe {
+  width: 100% !important;
+}
+
+body .inner_page__right .wp-block-quote {
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #F1752A;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #FFFFFF;
+  padding: 40px 30px;
+}
+
+body .inner_page__right .wp-block-quote p:first-child {
+  margin-top: 0;
+}
+
+body .inner_page__right .wp-block-quote p:last-child {
+  margin-bottom: 0;
+}
+
+body .inner_page__right .entry-content {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #333333;
+  margin-bottom: 30px;
+}
+
+body .inner_page__right .entry-content p:first-child {
+  margin-top: 0;
+}
+
+body .inner_page__right .entry-content p:last-child {
+  margin-bottom: 0;
+}
+
+body .inner_page__right .entry-content img {
+  width: 100%;
+}
+
+body .inner_page__right h2 {
+  margin: 0;
+  margin-top: 50px;
+  font-style: normal;
+  font-family: "bebas", cursive;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 140%;
+  color: #111111;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+body .inner_page__right h2 strong {
+  font-family: "bebas", cursive;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 140%;
+  color: #111111;
+  text-transform: uppercase;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;
@@ -3109,6 +3182,31 @@ body .added_to_cart.wc-forward {
 
 .button__all-arrow:hover:before {
   opacity: 0;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: #F7F7F7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.preloader__in {
+  width: 60px;
+  height: 60px;
+  font-size: 0;
+}
+
+.preloader.isLoaded {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .header {
@@ -4049,6 +4147,7 @@ body .added_to_cart.wc-forward {
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
+  display: flex;
   color: #333333;
 }
 
@@ -5171,6 +5270,7 @@ body .added_to_cart.wc-forward {
 .first_slider__in {
   padding-top: 80px;
   padding-bottom: 80px;
+  overflow: hidden;
 }
 
 .first_slider__block {
@@ -6965,6 +7065,10 @@ body .added_to_cart.wc-forward {
 }
 
 @media all and (min-width: 1024px) {
+  .cat_block__block {
+    transform: translateY(200px);
+  }
+
   .site-panel-wrap {
     display: none;
   }
@@ -6987,18 +7091,18 @@ body .added_to_cart.wc-forward {
     transform: translateX(-100%);
   }
 
-  .first_slider .slick-active .first_slider__l-side {
-    transform: translateY(0);
+  .first_slider.isLoad .slick-active .first_slider__l-side {
+    transform: translateY(0) !important;
+    transition: transform 1s;
+  }
+
+  .first_slider.isLoad .slick-active .first_slider__r-side {
+    transform: translateY(0) !important;
     transition: transform 1s;
   }
 
   .first_slider__r-side {
     transform: translateX(100%);
-  }
-
-  .first_slider .slick-active .first_slider__r-side {
-    transform: translateY(0);
-    transition: transform 1s;
   }
 }
 
@@ -7293,6 +7397,39 @@ body .added_to_cart.wc-forward {
 
   body #customer_details .col-3 {
     margin-top: 20px;
+  }
+
+  body .inner_page__right .post-thumbnail {
+    margin-bottom: 30px;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  body .inner_page__right .post-thumbnail img,
+  body .inner_page__right .post-thumbnail iframe {
+    height: 100% !important;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  body .inner_page__right .wp-block-quote {
+    padding: 30px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  body .inner_page__right .entry-content {
+    margin-bottom: 20px;
+  }
+
+  body .inner_page__right h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    margin-top: 30px;
+  }
+
+  body .inner_page__right h2 strong {
+    font-size: 40px;
   }
 
   .header {

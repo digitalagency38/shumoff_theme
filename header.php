@@ -28,7 +28,12 @@ $site_phone = get_option('site_phone');
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<div class="wrapper">
+	<div class="wrapper" id="app">
+	<div class="preloader" :class="{isLoaded}">
+		<div class="preloader__in">
+			<img src="<?= get_template_directory_uri();?>/src/dist/img/preloader.svg" width="100%">
+		</div>
+	</div>
 		<header class="header">
 			<div class="header__in center_block">
 				<div class="header__top">

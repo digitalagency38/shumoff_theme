@@ -12,9 +12,20 @@ $args = array(
 
 $portfolio = get_posts( $args );
 
+function url(){
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+        $url = "https://";   
+    else  
+        $url = "http://";   
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];
+    
+    return $url;  
+};
+
 ?>
 
-<main class="content">
+<main class="content" id="portfolio">
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
@@ -29,6 +40,21 @@ $portfolio = get_posts( $args );
     </div>
     <div class="main_work center_block">
         <h1 class="main_work__h1">Посмотрите наши работы</h1>
+        <div class="main_work__filter">
+        <div class="main_work__filter--select">
+            <span>Выберите марку машины:</span>
+            <select v-model="selectedBrand">
+                <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
+            </select>
+        </div>
+        <div class="main_work__filter--select">
+            <span>Выберите модель:</span>
+            <select name="" id="single-model" v-model="selectedModel">
+                <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
+            </select>
+        </div>
+        <div class="main_work__filter--refresh button button__line" @click="clearFilter">Сбросить</div>
+    </div>
         <div class="main_work__blocks">
         <?php foreach( $portfolio as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
             <?php setup_postdata($post); ?>
