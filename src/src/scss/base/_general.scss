@@ -137,6 +137,14 @@ textarea {
 }
 // select end
 
+// animate
+    @media all and (min-width: 1024px) {
+        .cat_block__block {
+            transform: translateY(200px);
+        }
+    }
+// animate end
+
 // wp theme
 body {
     div.asl_w {

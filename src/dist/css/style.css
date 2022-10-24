@@ -7065,6 +7065,10 @@ body .inner_page__right h2 strong {
 }
 
 @media all and (min-width: 1024px) {
+  .cat_block__block {
+    transform: translateY(200px);
+  }
+
   .site-panel-wrap {
     display: none;
   }

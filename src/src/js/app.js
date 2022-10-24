@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
 import $ from 'jquery';
 import SlimSelect from 'slim-select';
 
+import gsap from 'gsap';
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger); 
+
 import ProdBlock from '../blocks/modules/main_product/main_product.js';
 import HeaderBlock from '../blocks/modules/header/header.js';
 import FooterBlock from '../blocks/modules/footer/footer.js';
@@ -120,6 +124,30 @@ document.addEventListener('DOMContentLoaded', function(){
                 showSearch: false
             });
         });
+
+          
+        $('.cat_block').each(function() {
+            gsap.to($(this).find('.cat_block__block'), {
+                scrollTrigger: {
+                    trigger: $(this),
+                    start: 'top bottom-=400',
+                    end: 'bottom bottom-=400',
+                    scrub: 2,
+                    // markers: true,
+                },
+                y: 0,
+            })
+            // gsap.to(jQuery(this).find('.main_services__r-side'), {
+            //     scrollTrigger: {
+            //         trigger: jQuery(this),
+            //         start: 'top bottom-=400',
+            //         end: 'bottom bottom-=400',
+            //         scrub: 2,
+            //         // markers: true,
+            //     },
+            //     y: 0,
+            // })
+        });    
     }, 0);
 });
 
