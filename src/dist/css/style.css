@@ -4147,6 +4147,7 @@ body .inner_page__right h2 strong {
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
+  display: flex;
   color: #333333;
 }
 
