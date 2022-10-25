@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 <div class="main_product__block">
 	<div class="main_product__img">
-		<?= $product->get_image('thumbnail'); ?>
+		<?= $product->get_image('large'); ?>
 	</div>
 	<div class="main_product__info">
 		<a href="<?= $product->get_permalink(); ?>" class="main_product__tit"><?= $product->get_name(); ?></a>
