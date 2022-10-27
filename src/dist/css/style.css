@@ -2639,6 +2639,37 @@ body .inner_page__right h2 strong {
   text-transform: uppercase;
 }
 
+body .thanks_cart__btn a {
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: none !important;
+  border-radius: 0 !important;
+}
+
+body .thanks_cart__btn a span {
+  height: 58px;
+  padding: 19px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .thanks_cart__btn a:hover {
+  color: #fff !important;
+}
+
+body.woocommerce-order-received .inner_page {
+  padding-bottom: 0 !important;
+}
+
+body.woocommerce-order-received .entry-content {
+  margin-bottom: 0 !important;
+}
+
+body.woocommerce-order-received .thanks_cart {
+  padding-bottom: 0 !important;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;

@@ -124,7 +124,7 @@ $products = wc_get_products($args = array(
     <? }; ?>
     <div class="cat_block center_block">
         <? if ( $categories ) { ?>
-            <div class="cat_block__block big_block">
+            <div class="cat_block__block big_block wow fadeInUp">
                 <div class="cat_block__icon"><img src="<?= get_template_directory_uri();?>/src/dist/img/cat1.svg" alt=""></div>
                 <div class="cat_block__top">
                     <? if (!empty($tiles)) { ?>
@@ -151,7 +151,7 @@ $products = wc_get_products($args = array(
         <? }; ?>
         <div class="cat_block__item">
             <? if ($tiles['calc_link']) { ?>
-                <div class="cat_block__block">
+                <div class="cat_block__block wow fadeInUp">
                     <div class="cat_block__icon"><img src="<?= get_template_directory_uri();?>/src/dist/img/cat2.svg" alt=""></div>
                     <div class="cat_block__title">Калькулятор</div>
                     <div class="cat_block__text">Рассчитайте стоимость шумоизоляции для вашего автомобиля</div>
@@ -164,7 +164,7 @@ $products = wc_get_products($args = array(
                 </div>
             <? }; ?>
             <? if ($tiles['center_link']) { ?>
-                <div class="cat_block__block">
+                <div class="cat_block__block wow fadeInUp">
                     <div class="cat_block__icon"><img src="<?= get_template_directory_uri();?>/src/dist/img/cat3.svg" alt=""></div>
                     <div class="cat_block__title">Установочный центр</div>
                     <div class="cat_block__text">Установка шумозоляции в авторизованном центре в Иркутске</div>
@@ -180,7 +180,7 @@ $products = wc_get_products($args = array(
     </div>
     <? if (!empty($portfolio)) { ?>
         <div class="work_slider center_block">
-            <div class="work_slider__top">
+            <div class="work_slider__top wow fadeInUp">
                 <div class="work_slider__title"><?= $portfolio['title']; ?></div>
                 <div class="work_slider__buttons">
                     <div class="button button__all-arrow work_prev">
@@ -213,7 +213,7 @@ $products = wc_get_products($args = array(
                     </a>
                 </div>
             </div>
-            <div class="work_slider__slider js_sl4">
+            <div class="work_slider__slider js_sl4 wow fadeInUp">
                 <?php foreach( $portfolio['items'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
                     <?php setup_postdata($post); ?>
                     <div class="work_slider__slid">
@@ -251,9 +251,9 @@ $products = wc_get_products($args = array(
                         $thumb = $image['sizes'][ $size ];
                     ?>
                 <div class="more_block__item" style="background: url('<?php echo esc_url($thumb); ?>') 50% / cover no-repeat;">
-                    <div class="more_block__title"><?= $text_block['title']; ?></div>
-                    <div class="more_block__text"><?= $text_block['text']; ?></div>
-                    <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line">
+                    <div class="more_block__title wow fadeInUp"><?= $text_block['title']; ?></div>
+                    <div class="more_block__text wow fadeInUp"><?= $text_block['text']; ?></div>
+                    <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line wow fadeInUp">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -266,7 +266,7 @@ $products = wc_get_products($args = array(
     <? if (!empty($products)) { ?>
         <div class="main_product">
             <div class="main_product__in center_block">
-                <div class="main_product__top">
+                <div class="main_product__top wow fadeInUp">
                     <div class="main_product__title">Товары нашего магазина</div>
                     <div class="main_product__buttons">
                         <div class="button button__all-arrow prod_prev">
@@ -299,7 +299,7 @@ $products = wc_get_products($args = array(
                         </a>
                     </div>
                 </div>
-                <div class="main_product__bottom js_sl7">
+                <div class="main_product__bottom js_sl7 wow fadeInUp">
                     <? foreach($products as $product) { ?>
                         <div class="main_product__block">
                             <div class="main_product__img">
@@ -331,9 +331,9 @@ $products = wc_get_products($args = array(
     <? }; ?>
     <? if (!empty($reviews)) { ?>
         <div class="rev_block center_block">
-            <div class="rev_block__top">
-                <div class="rev_block__title"><?= $reviews['title']; ?></div>
-                <div class="button button__all-arrow rev_prev">
+            <div class="rev_block__top wow fadeInUp">
+                <div class="rev_block__title wow fadeInUp"><?= $reviews['title']; ?></div>
+                <div class="button button__all-arrow rev_prev wow fadeInUp">
                     <svg class="ln">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>
@@ -344,7 +344,7 @@ $products = wc_get_products($args = array(
                             fill="#333333" />
                     </svg>
                 </div>
-                <div class="button button__all-arrow rev_next">
+                <div class="button button__all-arrow rev_next wow fadeInUp">
                     <svg class="ln">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>
@@ -356,7 +356,7 @@ $products = wc_get_products($args = array(
                     </svg>
                 </div>
             </div>
-            <div class="rev_block__slider js_sl3">
+            <div class="rev_block__slider js_sl3 wow fadeInUp">
                 <?php foreach( $reviews['spisok'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
                     <?php setup_postdata($post); ?>
                     <div class="rev_block__block">
@@ -422,7 +422,7 @@ $products = wc_get_products($args = array(
     <? }; ?>
     <? if (!empty($seo_block)) { ?>
         <div class="about_block center_block">
-            <div class="about_block__top">
+            <div class="about_block__top wow fadeInUp">
                 <div class="about_block__l-side">
                     <div class="about_block__slider js_sl2">
                         <? foreach($seo_block['galereya'] as $item) { ?>
@@ -464,11 +464,11 @@ $products = wc_get_products($args = array(
                     </div>
                 </div>
                 <div class="about_block__r-side">
-                    <div class="about_block__title"><?= $seo_block['title']; ?></div>
-                    <div class="about_block__text">
+                    <div class="about_block__title wow fadeInUp"><?= $seo_block['title']; ?></div>
+                    <div class="about_block__text wow fadeInUp">
                         <?= $seo_block['text']; ?>
                     </div>
-                    <a href="<?= $seo_block['link']; ?>" class="about_block__btn button button__all-line">
+                    <a href="<?= $seo_block['link']; ?>" class="about_block__btn button button__all-line wow fadeInUp">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
                         </svg>
@@ -476,7 +476,7 @@ $products = wc_get_products($args = array(
                     </a>
                 </div>
             </div>
-            <div class="about_block__bottom slider-nav">
+            <div class="about_block__bottom slider-nav wow fadeInUp">
                 <? foreach($seo_block['galereya'] as $item) { ?>
                     <div class="about_block__blockss">
                         <?
@@ -496,28 +496,28 @@ $products = wc_get_products($args = array(
     <? }; ?>
     <div class="map_block center_block">
         <div class="map_block__in">
-            <div class="map_block__l-side">
+            <div class="map_block__l-side wow fadeInUp">
                 <div class="mapBlock" id="map" style="height: 100%;"></div>
             </div>
             <div class="map_block__r-side">
-                <div class="map_block__title">Контакты</div>
-                <div class="map_block__info">
+                <div class="map_block__title wow fadeInUp">Контакты</div>
+                <div class="map_block__info wow fadeInUp">
                     <span>Адрес</span>
                     г. Иваново, ул. Лежневская, д. 111
                 </div>
-                <div class="map_block__info">
+                <div class="map_block__info wow fadeInUp">
                     <span>Телефон</span>
                     <a href="tel:74932581403">+7 (4932) 58-14-03</a>
                 </div>
-                <div class="map_block__info">
+                <div class="map_block__info wow fadeInUp">
                     <span>Время работы</span>
                     Пн - Пт: 09:00 - 19:00 <br> Сб - Вс: 09:00 - 15:00
                 </div>
-                <div class="map_block__info">
+                <div class="map_block__info wow fadeInUp">
                     <span>Почта</span>
                     <a href="mailto:pro@shumoff.biz">pro@shumoff.biz</a>
                 </div>
-                <a href="#" class="map_block__btn button button__all-line">
+                <a href="#" class="map_block__btn button button__all-line wow fadeInUp">
                     <svg>
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>

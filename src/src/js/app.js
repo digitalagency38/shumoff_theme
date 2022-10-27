@@ -121,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
     }, 0);
+    
+    new WOW().init();
 });
 
 document.onreadystatechange = () => {
