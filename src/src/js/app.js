@@ -123,16 +123,8 @@ document.addEventListener('DOMContentLoaded', function(){
     }, 0);
 });
 
-window.app = new Vue({
-    el: '#app',
-    data: () => ({
-        isLoaded: false
-    }),
-    mounted() {
-        document.onreadystatechange = () => {
-            if (document.readyState == "complete") {
-                this.isLoaded = true
-            }
-        }
+document.onreadystatechange = () => {
+    if (document.readyState == "complete") {
+        $('.preloader').addClass('isLoaded');
     }
-});
+}
