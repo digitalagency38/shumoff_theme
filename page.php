@@ -16,29 +16,32 @@ $seo_block = get_field('seo_block');
 
 get_header();
 ?>
-	<div class="breadcrums center_block">
-        <div class="breadcrums__item">
-            <div class="breadcrums__in">
-                <?php
-                    if(function_exists('bcn_display'))
-                    {
-                        bcn_display();
-                    }
-                ?>
+    <?if (!is_wc_endpoint_url( 'order-received' )):?>
+        <div class="breadcrums center_block">
+            <div class="breadcrums__item">
+                <div class="breadcrums__in">
+                    <?php
+                        if(function_exists('bcn_display'))
+                        {
+                            bcn_display();
+                        }
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
-	<div class="page_top center_block">
-		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		</header><!-- .entry-header -->
-        <?if( is_category() ):?>
-            <div class="page_top__counter">
-                <?= do_shortcode('[product_count]'); ?> товаров
-            </div>
-        <?endif;?>
+        
+        <div class="page_top center_block">
+            <header class="entry-header">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+            </header><!-- .entry-header -->
+            <?if( is_category() ):?>
+                <div class="page_top__counter">
+                    <?= do_shortcode('[product_count]'); ?> товаров
+                </div>
+            <?endif;?>
 
-	</div>
+        </div>
+    <?endif;?>
 	
 	<main id="primary" class="content">
 		<div class="inner_page center_block">

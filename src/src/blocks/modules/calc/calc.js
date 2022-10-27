@@ -24,11 +24,16 @@ const Calculator = class Calculator {
                 uniqueModels: [],
                 effect: "max",
                 nonce: null,
+                isMounted: false,
             }),
             watch: {
                 selectedBrand: function(newValue, oldValue) {
                     if (newValue === oldValue) return;
-                    this.selectedModel = "";
+                    console.log(this.selectedModel);
+                    if (this.selectedModel !== "Все") {
+                        this.selectedModel = "";
+                    }
+                    console.log(this.selectedModel);
                     const selectedModels = this.models.filter(model => model.brand === newValue);
 
 
@@ -69,10 +74,13 @@ const Calculator = class Calculator {
                 this.setApiParams();
                 await this.getProducts().then(result => {
                     this.products = result;
+                    
                 });
                 this.models = loadModels();
                 this.filterBrands();
                 this.getNonce();
+                this.isMounted = true;
+                
             },
             computed: {
                 selectedProducts() {
@@ -143,6 +151,8 @@ const Calculator = class Calculator {
                         return model;
                     })
                     console.log(uniqueBrands);
+                    this.selectedBrand = 'Все';
+                    this.selectedModel = 'Все';
                 },
                 setModels(models) {
                     this.models = models;

@@ -7065,25 +7065,6 @@ body .inner_page__right h2 strong {
 }
 
 @media all and (min-width: 1024px) {
-  .cat_block__block,
-  .work_slider__top,
-  .work_slider__slider,
-  .main_product__top,
-  .main_product__bottom,
-  .rev_block__top,
-  .rev_block__slider,
-  .about_block__l-side,
-  .about_block__bottom {
-    transform: translateY(200px);
-  }
-
-  .more_block__title,
-  .more_block__text,
-  .more_block__btn,
-  .about_block__r-side {
-    transform: translateY(100px);
-  }
-
   .site-panel-wrap {
     display: none;
   }
