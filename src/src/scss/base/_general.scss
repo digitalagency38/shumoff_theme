@@ -1621,5 +1621,34 @@ body {
             }
         }
     }
+    .thanks_cart__btn {
+        a {
+            padding: 0 !important;
+            overflow: hidden !important;
+            background: none !important;
+            border-radius: 0 !important;
+            span {
+                height: 58px;
+                padding: 19px 34px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            &:hover {
+                color: #fff !important;
+            }
+        }
+    }
+    &.woocommerce-order-received {
+        .inner_page {
+            padding-bottom: 0 !important; 
+        }
+        .entry-content {
+            margin-bottom: 0 !important;
+        }
+        .thanks_cart {
+            padding-bottom: 0 !important;
+        }
+    }
 }
 // wp theme end
