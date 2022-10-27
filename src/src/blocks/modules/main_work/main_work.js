@@ -11,15 +11,17 @@ const MainWork = class MainWork {
                 selectedBrand: "",
                 selectedModel: "",
                 uniqueModels: [],
+                get: loadPortfolioGetParams()
             }),
             mounted() {
                 this.models = loadModels();
                 this.filterBrands();
+                console.log(this.get);
             },
             watch: {
                 selectedBrand: function(newValue, oldValue) {
                     if (newValue === oldValue) return;
-                    this.selectedModel = "";
+                    this.selectedModel = this.get.type;
                     const selectedModels = this.models.filter(model => model.brand === newValue);
 
 
@@ -65,9 +67,13 @@ const MainWork = class MainWork {
                         return model;
                     })
                     console.log(uniqueBrands);
+                    this.selectedBrand = this.get.vendor;
                 },
                 clearFilter() {
-                    this.selectedBrand = "";
+                    this.get.vendor = "Все";
+                    this.get.type = "Все";
+                    this.selectedModel = "Все";
+                    this.selectedBrand = "Все";
                 }
             }
         });

@@ -25,7 +25,7 @@ function url(){
 
 ?>
 
-<main class="content" id="portfolio">
+<main class="content фывфывфыв" id="portfolio">
     <div class="breadcrums center_block">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
@@ -58,7 +58,8 @@ function url(){
         <div class="main_work__blocks">
         <?php foreach( $portfolio as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
             <?php setup_postdata($post); ?>
-                <div class="main_work__slid">
+            <?= get_field('marka');?>
+                <div class="main_work__slid" data-vendor="<?= get_field('parametry')['marka']; ?>" data-model="<?= get_field('parametry')['model']; ?>" v-if="('<?= get_field('parametry')['marka']; ?>' == selectedBrand && '<?= get_field('parametry')['model']; ?>' == selectedModel) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == undefined) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == 'Все') || (selectedBrand == 'Все' && selectedModel == 'Все')">
                     <div class="main_work__images">
                         <div class="main_work__date"><?= get_the_date(); ?></div>
                         <?

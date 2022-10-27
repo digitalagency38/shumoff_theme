@@ -168,6 +168,12 @@ wp_reset_postdata();
 	function loadModels() {
 		return <?= json_encode($models_data); ?>
 	};
+	function loadPortfolioGetParams() {
+		return {
+			vendor: '<?= $_GET['vendor'] ?>' ? '<?= $_GET['vendor'] ?>' : 'Все',
+			type: '<?= $_GET['type'] ?>' ? '<?= $_GET['type'] ?>' : 'Все',
+		};
+	}
 </script>
 
 
