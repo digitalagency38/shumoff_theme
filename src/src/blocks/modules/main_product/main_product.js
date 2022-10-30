@@ -4,7 +4,7 @@ import 'slick-carousel';
 const ProdBlock = class ProdBlock {
     constructor() {}
     sliderProd() {
-        $('.js_sl7').slick({
+        $('.js_sl7 .catalog__wrapper_in').slick({
             infinite: true,
             slidesToShow: 4,
             slidesToScroll: 1,

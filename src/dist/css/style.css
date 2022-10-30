@@ -5380,6 +5380,10 @@ body.woocommerce-order-received .thanks_cart {
   margin-bottom: 50px;
 }
 
+.main_product .catalog__wrapper_in {
+  display: block;
+}
+
 .main_product__top {
   display: flex;
   align-items: center;

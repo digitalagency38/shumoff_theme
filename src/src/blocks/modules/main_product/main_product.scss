@@ -4,6 +4,9 @@
     padding-bottom: 100px;
     margin-top: 50px;
     margin-bottom: 50px;
+    .catalog__wrapper_in {
+        display: block;
+    }
     @media all and (max-width: 1023px) {
         padding-top: 60px;
         padding-bottom: 90px;
