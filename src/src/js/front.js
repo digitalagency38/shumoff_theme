@@ -17,6 +17,7 @@ import ProdBlock from '../blocks/modules/main_product/main_product.js';
 import RevBlock from '../blocks/modules/rev_block/rev_block.js';
 import AboutBlock from '../blocks/modules/about_block/about_block.js';
 import FooterBlock from '../blocks/modules/footer/footer.js';
+import MapBlock from '../blocks/modules/map_block/map_block.js';
 
 
 
@@ -29,6 +30,7 @@ $(function () {
     window.headerBlock = new HeaderBlock();
     window.firstBlock = new FirstBlock();
     window.prodBlock = new ProdBlock();
+    window.mapBlock = new MapBlock();
 
 
 
@@ -82,6 +84,7 @@ $(function () {
     workBlock.init();
     firstBlock.init();
     prodBlock.init();
+    mapBlock.init();
 
 
     
