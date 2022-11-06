@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 import $ from 'jquery';
+import SlimSelect from 'slim-select';
 
 
 import HeaderBlock from '../blocks/modules/header/header.js';
@@ -86,6 +87,15 @@ $(function () {
     if ('WOW' in window) {
         new WOW().init();
     }
+    setTimeout(() => {
+        const allSelects = document.querySelectorAll("select");
+        allSelects.forEach(function (el) {
+            new SlimSelect({
+                select: el,
+                showSearch: false
+            });
+        });
+    }, 0);
     $('.preloader').addClass('isLoaded');
 
 
