@@ -84,9 +84,7 @@ $(function () {
     prodBlock.init();
 
 
-    if ('WOW' in window) {
-        new WOW().init();
-    }
+    
     setTimeout(() => {
         const allSelects = document.querySelectorAll("select");
         allSelects.forEach(function (el) {
@@ -100,3 +98,8 @@ $(function () {
 
 
 });
+
+
+if ('WOW' in window) {
+    new WOW().init();
+}
