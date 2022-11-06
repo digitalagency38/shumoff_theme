@@ -11,6 +11,7 @@ import { html } from './gulp/tasks/html.js';
 import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
+import { front_js } from './gulp/tasks/front_js.js';
 import { images } from './gulp/tasks/images.js';
 import { svgSprites } from './gulp/tasks/svgSprites.js';
 import { otfToTtf, ttfToWoff, fontsStyle } from './gulp/tasks/fonts.js';
@@ -47,7 +48,7 @@ const watcher = () => {
 
 
 // Основные задачи
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images, svgSprites));
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, front_js, images, svgSprites));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));

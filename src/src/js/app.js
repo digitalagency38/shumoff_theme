@@ -120,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function(){
     
 });
 window.onload = function(){
-    new WOW().init();
+    if ('WOW' in window) {
+        new WOW().init();
+    }
     $('.preloader').addClass('isLoaded');
 };
