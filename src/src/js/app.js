@@ -121,9 +121,5 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 window.onload = function(){
     new WOW().init();
+    $('.preloader').addClass('isLoaded');
 };
-document.onreadystatechange = () => {
-    if (document.readyState == "complete") {
-        $('.preloader').addClass('isLoaded');
-    }
-}
