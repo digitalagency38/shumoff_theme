@@ -46,7 +46,6 @@ $(function () {
     window.productBlock = new ProductBlock();
     window.fixedBlock = new FixedBlock();
     window.calculator = new Calculator();
-    console.log(calculator);
     
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
     
@@ -87,9 +86,6 @@ $(function () {
         $input.val(parseInt(count));
     }); 
 
-
-
-
     headerBlock.init();
     mapBlock.init();
     footerBlock.init();
@@ -122,9 +118,10 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }, 0);
     
-    new WOW().init();
 });
-
+window.onload = function(){
+    new WOW().init();
+};
 document.onreadystatechange = () => {
     if (document.readyState == "complete") {
         $('.preloader').addClass('isLoaded');

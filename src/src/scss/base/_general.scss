@@ -1437,6 +1437,17 @@ body {
                         cursor: pointer;
                         color: #111111;
                         display: block;
+                        &:before {
+                            content: '';
+                            position: absolute; 
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            z-index: 20;
+                        }
                     }
                     .shipping_method_description {
                         font-style: normal;
@@ -1506,6 +1517,17 @@ body {
                         cursor: pointer;
                         color: #111111;
                         display: block;
+                        &:before {
+                            content: '';
+                            position: absolute; 
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            z-index: 20;
+                        }
                     }
                     .shipping_method_description, .payment_box, .payment_box p {
                         font-style: normal;

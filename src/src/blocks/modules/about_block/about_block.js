@@ -4,6 +4,7 @@ import 'slick-carousel';
 const AboutBlock = class AboutBlock {
     constructor() {}
     sliderText() {
+      $(document).ready(function() {
         $('.js_sl2').slick({
             infinite: true,
             slidesToShow: 1,
@@ -31,6 +32,7 @@ const AboutBlock = class AboutBlock {
             focusOnSelect: true,
             accessibility: false
         });
+      })
     }
     init() {
         this.sliderText();

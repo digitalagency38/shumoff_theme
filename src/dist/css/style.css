@@ -2468,6 +2468,18 @@ body #customer_details .col-3 #shipping_method li label {
   display: block;
 }
 
+body #customer_details .col-3 #shipping_method li label:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
 body #customer_details .col-3 #shipping_method li .shipping_method_description {
   font-style: normal;
   font-weight: 400;
@@ -2533,6 +2545,18 @@ body #customer_details .woocommerce-checkout-payment ul li label {
   cursor: pointer;
   color: #111111;
   display: block;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li label:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
 }
 
 body #customer_details .woocommerce-checkout-payment ul li .shipping_method_description,
