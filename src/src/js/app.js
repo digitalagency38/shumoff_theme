@@ -1,7 +1,6 @@
 import * as globalFunctions from './modules/functions.js';
 globalFunctions.isWebp();
 
-import Vue from 'vue/dist/vue.js';
 
 document.addEventListener("DOMContentLoaded", function () {
     new SlideMenu(document.getElementById('example-menu'));
@@ -119,9 +118,4 @@ document.addEventListener('DOMContentLoaded', function(){
     }, 0);
     
 });
-window.onload = function(){
-    if ('WOW' in window) {
-        new WOW().init();
-    }
-    $('.preloader').addClass('isLoaded');
-};
+$('.preloader').addClass('isLoaded');

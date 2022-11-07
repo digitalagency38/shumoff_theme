@@ -23,8 +23,8 @@ $site_phone = get_option('site_phone');
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap&_v=20220924035140" rel="stylesheet">
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=8a69628d-9012-482b-962d-9bd92d6f2d51&lang=ru_RU&_v=20220924033747" type="text/javascript"></script>
-	<link rel="stylesheet" href="<?= get_template_directory_uri();?>/css/animate.css">
-	<script src="<?= get_template_directory_uri();?>/js/wow.min.js"></script>
+	<!-- <link rel="stylesheet" href="<?= get_template_directory_uri();?>/css/animate.css">
+	<script src="<?= get_template_directory_uri();?>/js/wow.min.js"></script> -->
 	<?php wp_head(); ?>
 </head>
 

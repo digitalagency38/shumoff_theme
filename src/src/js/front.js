@@ -103,6 +103,6 @@ $(function () {
 });
 
 
-if ('WOW' in window) {
-    new WOW().init();
-}
+// if ('WOW' in window) {
+//     new WOW().init();
+// }
