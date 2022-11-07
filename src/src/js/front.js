@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     new SlideMenu(document.getElementById('example-menu'));
 });
 
+import Vue from 'vue/dist/vue.js';
 
 import $ from 'jquery';
 import SlimSelect from 'slim-select';
@@ -106,3 +107,28 @@ $(function () {
 // if ('WOW' in window) {
 //     new WOW().init();
 // }
+window.app = new Vue({
+    el: '#app',
+    data: () => ({
+        isMounted: false,
+        sizes: {
+            tablet: 1024,
+            mobile: 768,
+            window: window.innerWidth
+        },
+        isLoaded: false
+    }),
+    mounted() {   
+        window.addEventListener('resize', () => {
+            this.sizes.window = window.innerWidth;
+        });
+    },
+    computed: {
+        isMobile: function () {
+            return this.sizes.window < this.sizes.mobile;
+        },
+        isTablet: function () {
+            return this.sizes.window < this.sizes.tablet && this.sizes.window > this.sizes.mobile;
+        }
+    },
+});
