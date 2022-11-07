@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shumoff.ru | Текстовые работы</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap&_v=20221107211438" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?_v=20221107211438">
+</head>
+<body>
+    <div class="wrapper" id="app">
+        <div class="preloader" :class="{isLoaded}">
+    <div class="preloader__in">
+        <img src="./img/preloader.svg" width="100%">
+    </div>
+</div>
+        <header class="header">
+    <div class="header__in center_block">
+        <div class="header__top">
+            <div class="site-panel-wrap">
+                <div class="burger-wrap">
+                    <div class="burger-btn"></div>
+                    <div class="burger-body">
+                        <div class="burger-body__top">
+                            <div class="burger-close-btn"></div>
+                            <form action="" class="header__search">
+                                <input type="text" placeholder="Поиск">
+                                <button type="submit">Поиск</button>
+                            </form>
+                        </div>
+                        <div class="burger-body__catalog">каталог</div>
+                        <div class="burger-body__cat-block">
+                            <div class="header__cat--blocks">
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c1.webp" type="image/webp"><img src="img/c1.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Вибропоглощение <sup>99</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c2.webp" type="image/webp"><img src="img/c2.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Шумоизоляция <sup>105</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c3.webp" type="image/webp"><img src="img/c3.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Шумопоглощение <sup>52</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c4.webp" type="image/webp"><img src="img/c4.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Звукоизоляция <sup>87</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c5.webp" type="image/webp"><img src="img/c5.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Уплотнение <sup>34</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c6.webp" type="image/webp"><img src="img/c6.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Инструменты <sup>58</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c7.webp" type="image/webp"><img src="img/c7.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Аксессуары <sup>47</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c8.webp" type="image/webp"><img src="img/c8.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Набор "Тихие шины" <sup>54</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="header__cat--block">
+                                    <div class="header__cat--img"><picture><source srcset="img/c9.webp" type="image/webp"><img src="img/c9.jpg" alt=""></picture></div>
+                                    <div class="header__cat--info">
+                                        <div class="header__cat--title">Набор "Тихие трубы" <sup>87</sup></div>
+                                        <div class="header__cat--price">от 350 ₽</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <nav class="slide-menu" id="example-menu">
+                            <ul>
+                                <li><a href="#">Установка</a></li>
+                                <li><a href="#">О компании</a></li>
+                                <li><a href="#">Калькулятор</a></li>
+                                <li><a href="#">Портфолио</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Покупателям</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Документы</a></li>
+                                        <li><a href="#">Клиентский сервис</a></li>
+                                        <li><a href="#">Как строить</a></li>
+                                        <li><a href="#">Как выбрать</a></li>
+                                        <li><a href="#">Ошибки строительства</a></li>
+                                        <li><a href="#">Часто задаваемые вопросы</a></li>
+                                        <li><a href="#">Блог строителя</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__info">
+                            <a href="tel:79999999999" class="header__tel">+7 (999) 999-99-99</a>
+                            <a href="#" class="header__call button button__link">Заказать звонок</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/" class="header__logo"><img src="img/logo_head.svg" alt=""></a>
+            <div class="header__cat-btn isOpen button button__all-link">
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.375 14H2.625C2.39294 14 2.17038 14.0922 2.00628 14.2563C1.84219 14.4204 1.75 14.6429 1.75 14.875C1.75 15.1071 1.84219 15.3296 2.00628 15.4937C2.17038 15.6578 2.39294 15.75 2.625 15.75H11.375C11.6071 15.75 11.8296 15.6578 11.9937 15.4937C12.1578 15.3296 12.25 15.1071 12.25 14.875C12.25 14.6429 12.1578 14.4204 11.9937 14.2563C11.8296 14.0922 11.6071 14 11.375 14ZM2.625 7H18.375C18.6071 7 18.8296 6.90781 18.9937 6.74372C19.1578 6.57962 19.25 6.35706 19.25 6.125C19.25 5.89294 19.1578 5.67038 18.9937 5.50628C18.8296 5.34219 18.6071 5.25 18.375 5.25H2.625C2.39294 5.25 2.17038 5.34219 2.00628 5.50628C1.84219 5.67038 1.75 5.89294 1.75 6.125C1.75 6.35706 1.84219 6.57962 2.00628 6.74372C2.17038 6.90781 2.39294 7 2.625 7ZM18.375 9.625H2.625C2.39294 9.625 2.17038 9.71719 2.00628 9.88128C1.84219 10.0454 1.75 10.2679 1.75 10.5C1.75 10.7321 1.84219 10.9546 2.00628 11.1187C2.17038 11.2828 2.39294 11.375 2.625 11.375H18.375C18.6071 11.375 18.8296 11.2828 18.9937 11.1187C19.1578 10.9546 19.25 10.7321 19.25 10.5C19.25 10.2679 19.1578 10.0454 18.9937 9.88128C18.8296 9.71719 18.6071 9.625 18.375 9.625Z" fill="#E8610F"/>
+                </svg>
+                <span>Каталог</span>
+            </div>
+            <div class="header__cat-btn isClose isHide button button__all-link">
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.7337 10.4999L17.2462 4.99617C17.411 4.8314 17.5035 4.60793 17.5035 4.37492C17.5035 4.1419 17.411 3.91843 17.2462 3.75367C17.0814 3.5889 16.858 3.49634 16.6249 3.49634C16.3919 3.49634 16.1685 3.5889 16.0037 3.75367L10.4999 9.26617L4.9962 3.75367C4.83143 3.5889 4.60796 3.49634 4.37495 3.49634C4.14193 3.49634 3.91846 3.5889 3.7537 3.75367C3.58893 3.91843 3.49637 4.1419 3.49637 4.37492C3.49637 4.60793 3.58893 4.8314 3.7537 4.99617L9.2662 10.4999L3.7537 16.0037C3.67168 16.085 3.60659 16.1818 3.56217 16.2884C3.51774 16.395 3.49487 16.5094 3.49487 16.6249C3.49487 16.7404 3.51774 16.8548 3.56217 16.9614C3.60659 17.068 3.67168 17.1648 3.7537 17.2462C3.83504 17.3282 3.93182 17.3933 4.03844 17.4377C4.14507 17.4821 4.25944 17.505 4.37495 17.505C4.49046 17.505 4.60482 17.4821 4.71145 17.4377C4.81808 17.3933 4.91485 17.3282 4.9962 17.2462L10.4999 11.7337L16.0037 17.2462C16.085 17.3282 16.1818 17.3933 16.2884 17.4377C16.3951 17.4821 16.5094 17.505 16.6249 17.505C16.7405 17.505 16.8548 17.4821 16.9615 17.4377C17.0681 17.3933 17.1649 17.3282 17.2462 17.2462C17.3282 17.1648 17.3933 17.068 17.4377 16.9614C17.4821 16.8548 17.505 16.7404 17.505 16.6249C17.505 16.5094 17.4821 16.395 17.4377 16.2884C17.3933 16.1818 17.3282 16.085 17.2462 16.0037L11.7337 10.4999Z" fill="white"/>
+                </svg>
+                <span>Закрыть</span>
+            </div>
+            <form action="" class="header__search">
+                <input type="text" placeholder="Поиск">
+                <button type="submit">Поиск</button>
+            </form>
+            <a href="#" class="header__cart button button__all-link">
+                <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.4996 22.9999C17.8311 22.9999 18.1491 22.8682 18.3835 22.6338C18.6179 22.3994 18.7496 22.0815 18.7496 21.7499V19.2499C18.7496 18.9184 18.6179 18.6005 18.3835 18.3661C18.1491 18.1316 17.8311 17.9999 17.4996 17.9999C17.1681 17.9999 16.8502 18.1316 16.6157 18.3661C16.3813 18.6005 16.2496 18.9184 16.2496 19.2499V21.7499C16.2496 22.0815 16.3813 22.3994 16.6157 22.6338C16.8502 22.8682 17.1681 22.9999 17.4996 22.9999ZM12.4996 22.9999C12.8311 22.9999 13.1491 22.8682 13.3835 22.6338C13.6179 22.3994 13.7496 22.0815 13.7496 21.7499V19.2499C13.7496 18.9184 13.6179 18.6005 13.3835 18.3661C13.1491 18.1316 12.8311 17.9999 12.4996 17.9999C12.1681 17.9999 11.8502 18.1316 11.6157 18.3661C11.3813 18.6005 11.2496 18.9184 11.2496 19.2499V21.7499C11.2496 22.0815 11.3813 22.3994 11.6157 22.6338C11.8502 22.8682 12.1681 22.9999 12.4996 22.9999ZM23.7496 7.99994H22.0246L19.8621 3.68744C19.796 3.52876 19.6979 3.38541 19.574 3.26635C19.45 3.14729 19.3028 3.05509 19.1415 2.99549C18.9803 2.9359 18.8085 2.9102 18.6369 2.92C18.4653 2.9298 18.2975 2.97489 18.1441 3.05245C17.9907 3.13001 17.855 3.23838 17.7454 3.37078C17.6357 3.50318 17.5546 3.65676 17.507 3.82193C17.4594 3.98711 17.4464 4.16032 17.4688 4.33075C17.4912 4.50118 17.5485 4.66516 17.6371 4.81244L19.2246 7.99994H10.7746L12.3621 4.81244C12.4834 4.52108 12.4901 4.1946 12.3806 3.89855C12.2712 3.60251 12.0539 3.35881 11.7722 3.2164C11.4905 3.07399 11.1654 3.04339 10.8621 3.13077C10.5589 3.21814 10.2998 3.41701 10.1371 3.68744L7.97462 7.99994H6.24962C5.36611 8.01338 4.51571 8.33838 3.84843 8.91761C3.18115 9.49684 2.73984 10.2931 2.60233 11.166C2.46483 12.0388 2.63996 12.9322 3.09685 13.6885C3.55374 14.4448 4.26303 15.0155 5.09962 15.2999L6.02462 24.6249C6.1179 25.5532 6.5538 26.4133 7.24721 27.0373C7.94062 27.6614 8.84174 28.0046 9.77462 27.9999H20.2496C21.1825 28.0046 22.0836 27.6614 22.777 27.0373C23.4704 26.4133 23.9063 25.5532 23.9996 24.6249L24.9246 15.2999C25.763 15.0147 26.4734 14.4419 26.93 13.683C27.3866 12.9242 27.5598 12.0282 27.4191 11.1539C27.2783 10.2795 26.8327 9.48318 26.1611 8.90591C25.4895 8.32865 24.6352 8.00771 23.7496 7.99994ZM21.4871 24.3749C21.456 24.6843 21.3107 24.9711 21.0796 25.1791C20.8485 25.3871 20.5481 25.5015 20.2371 25.4999H9.76212C9.45116 25.5015 9.15079 25.3871 8.91965 25.1791C8.68851 24.9711 8.54321 24.6843 8.51212 24.3749L7.62462 15.4999H22.3746L21.4871 24.3749ZM23.7496 12.9999H6.24962C5.9181 12.9999 5.60016 12.8682 5.36574 12.6338C5.13132 12.3994 4.99962 12.0815 4.99962 11.7499C4.99962 11.4184 5.13132 11.1005 5.36574 10.8661C5.60016 10.6316 5.9181 10.4999 6.24962 10.4999H23.7496C24.0811 10.4999 24.3991 10.6316 24.6335 10.8661C24.8679 11.1005 24.9996 11.4184 24.9996 11.7499C24.9996 12.0815 24.8679 12.3994 24.6335 12.6338C24.3991 12.8682 24.0811 12.9999 23.7496 12.9999Z" fill="#F1752A"/>
+                </svg>
+                <span>Корзина</span>
+            </a>
+            <div class="header__info">
+                <a href="tel:79999999999" class="header__tel">+7 (999) 999-99-99</a>
+                <a href="#" class="header__call button button__link">Заказать звонок</a>
+            </div>
+        </div>
+        <div class="header__bottom">
+            <nav class="header__menu-bot">
+                <ul>
+                    <li><a href="#">Установка</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Калькулятор</a></li>
+                    <li><a href="#">Портфолио</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Покупателям</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Документы</a></li>
+                            <li><a href="#">Клиентский сервис</a></li>
+                            <li><a href="#">Как строить</a></li>
+                            <li><a href="#">Как выбрать</a></li>
+                            <li><a href="#">Ошибки строительства</a></li>
+                            <li><a href="#">Часто задаваемые вопросы</a></li>
+                            <li><a href="#">Блог строителя</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="header__cat">
+        <div class="header__cat--item center_block">
+            <div class="header__cat--blocks">
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c1.webp" type="image/webp"><img src="img/c1.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Вибропоглощение <sup>99</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c2.webp" type="image/webp"><img src="img/c2.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Шумоизоляция <sup>105</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c3.webp" type="image/webp"><img src="img/c3.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Шумопоглощение <sup>52</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c4.webp" type="image/webp"><img src="img/c4.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Звукоизоляция <sup>87</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c5.webp" type="image/webp"><img src="img/c5.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Уплотнение <sup>34</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c6.webp" type="image/webp"><img src="img/c6.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Инструменты <sup>58</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c7.webp" type="image/webp"><img src="img/c7.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Аксессуары <sup>47</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c8.webp" type="image/webp"><img src="img/c8.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Набор "Тихие шины" <sup>54</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+                <a href="#" class="header__cat--block">
+                    <div class="header__cat--img"><picture><source srcset="img/c9.webp" type="image/webp"><img src="img/c9.jpg" alt=""></picture></div>
+                    <div class="header__cat--info">
+                        <div class="header__cat--title">Набор "Тихие трубы" <sup>87</sup></div>
+                        <div class="header__cat--price">от 350 ₽</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+        <main class="content">
+            <div class="breadcrums center_block">
+    <div class="breadcrums__item">
+        <div class="breadcrums__in">
+            <a href="/">Главная</a>
+            <div class="breadcrums__splash"></div>
+            <a href="#">Подкатегория</a>
+            <div class="breadcrums__splash"></div>
+            <span>Данная страница</span>
+        </div>
+    </div>
+</div>
+            <div class="text_page center_block">
+    <h1 class="text_page__h1">Шумоизоляция дверей автомобиля</h1>
+    <div class="text_page__img"><picture><source srcset="img/img_t.webp" type="image/webp"><img src="img/img_t.jpg" alt="Шумоизоляция дверей автомобиля"></picture></div>
+    <div class="center_block2">
+        <div class="text_page__txt">
+            <div class="text_page__tit">Добрый день, это статью начнем с небольшой предыстории</div>
+            <div class="text_page__text">
+                <p>Несколько пар лет назад у шумофф, шумoff должен был появиться материал, который бы являлся финишным слоем в трёхслойной обработке. Его главными функциями был вес и изоляционные свойства. Но технология была относительно новая и мы не знали, будет ли спрос на такой материал. Поэтому было решено вывести этот материал на рынок в бюджетной линейке Practik, а материал получил название Finish, то есть название говорило бы само за себя.</p>
+                <p>Прошли года, и теперь мы все-таки решили, что такой материал должен быть в премиум линейке, так появился шумофф, шумoff Membrane. Это менее дорогая, но более гибкая и легкая альтернатива, бескомпромиссному изолятору шумофф, шумoff OUT. Тем более Membrane, в отличии от OUT имеет цветной внешний слой и более легок в применении, поэтому произвести установку сможет любой человек.</p>
+            </div>
+            <div class="text_page__slider">
+                <div class="text_page__slid js_sl1">
+                    <div class="text_page__slider"><picture><source srcset="img/img_t.webp" type="image/webp"><img src="img/img_t.jpg" alt=""></picture></div>
+                    <div class="text_page__slider"><picture><source srcset="img/img_t.webp" type="image/webp"><img src="img/img_t.jpg" alt=""></picture></div>
+                </div>
+                <div class="js_sl1_prev button button__all-arrow">
+                    <svg class="ln">
+                        <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                    </svg>
+                    <svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.39241 11.9996L12.9336 3.99962V0.799622L0.933594 11.9996L12.9336 23.1996V19.9996L4.39241 11.9996Z" fill="#333333"/>
+                    </svg>
+                </div>
+                <div class="js_sl1_next button button__all-arrow">
+                    <svg class="ln">
+                        <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                    </svg>
+                    <svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.60759 11.9996L0.0664062 3.99962V0.799622L12.0664 11.9996L0.0664062 23.1996V19.9996L8.60759 11.9996Z" fill="#333333"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="text_page__txt">
+            <div class="text_page__tit">А теперь немного технического описания и характеристик:</div>
+            <div class="text_page__text">
+                <p>шумофф, шумoff Membrane — самоклеящийся звукоизолирующий материал на основе мастики высокой плотности с верхним слоем из синтетического нетканого полотна синего цвета с принтом «шумофф, шумoff». Липкий слой защищен антиадгезионной бумагой с линовкой.</p>
+                <p>
+                    Размер: 750х540 мм <br>
+                    Толщина: 2.7 мм <br>
+                    Масса: 4.5 кг/м² <br>
+                    Рабочий диапазон температур: от -60 до +140 °C <br>
+                    В упаковке 7 листов (2.8 м²)
+                </p>
+            </div><div class="text_page__pic"><picture><source srcset="img/txt_img2.webp" type="image/webp"><img src="img/txt_img2.jpg" alt=""></picture></div>
+        </div>
+        <div class="text_page__txt">
+            <div class="text_page__text">
+                шумофф, шумoff Membrane применяется только в многослойном исполнении финальным третьим слоем, когда первым слоем нанесена виброизоляция, а вторым слоем шумопоглотитель (например, шумофф, шумoff Герметон «Л») или тепло-звукоизолятор (например, шумофф, шумoff "Комфорт"), для изоляции звуковых волн, проникающих в салон автомобиля со стороны улицы. Рекомендуется монтаж на горизонтальных поверхностях, а именно, на полу салона и багажника. Допускается нанесение на колесные арки в багажнике и на перегородку моторного отсека.
+            </div>
+            <div class="text_page__pic">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="text_page__txt">
+            <div class="text_page__tit">Звукоизолятор</div>
+            <div class="text_page__text">
+                <p>Membrane будет использоваться в калькуляторе материалов на нашем сайте (www.shumoff.biz/calc), для всех марок и кузовов автомобилей в варианте «Отличный».</p>
+                <p>Материал обладает высокими показателями липкости и адгезии, не требует предварительного нагрева (можно монтировать при температуре в помещении от +15 °C).
+                    Не впитывает влагу, не горит.</p>
+                <p>Так же, служит дополнительной защитой от механического воздействия на материалы второго слоя, особенно в области ног водителя и пассажиров.</p>
+            </div>
+            <div class="text_page__pic"><picture><source srcset="img/ps1.webp" type="image/webp"><img src="img/ps1.jpg" alt=""></picture></div>
+            <div class="text_page__tit"></div>
+            <div class="text_page__text">
+                <p>Но вы всегда можете уточнить и посоветоваться с нами о том, как с ним работать, куда его устанавливать, и будет ли он эффективен в том или ином исполнении. Для этого пишите нам в любую соц. сеть, в которой есть наши группы, ответим в тот же час.</p>
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="prev_block">
+    <div class="prev_block__in">
+        <div class="prev_block__items center_block">
+            <div class="prev_block__blocks js_sl5">
+                <div class="prev_block__block">
+                    <div class="prev_block__img"><picture><source srcset="img/s1.webp" type="image/webp"><img src="img/s1.jpg" alt=""></picture></div>
+                    <div class="prev_block__text">Улучшается качество звучания аудио системы</div>
+                </div>
+                <div class="prev_block__block">
+                    <div class="prev_block__img"><picture><source srcset="img/s2.webp" type="image/webp"><img src="img/s2.jpg" alt=""></picture></div>
+                    <div class="prev_block__text">Уменьшаются <br> вибрации металла</div>
+                </div>
+                <div class="prev_block__block">
+                    <div class="prev_block__img"><picture><source srcset="img/s3.webp" type="image/webp"><img src="img/s3.jpg" alt=""></picture></div>
+                    <div class="prev_block__text">Снижается уровень шума <br> от проезжающего мимо транспорта и ветра</div>
+                </div>
+                <div class="prev_block__block">
+                    <div class="prev_block__img"><picture><source srcset="img/s4.webp" type="image/webp"><img src="img/s4.jpg" alt=""></picture></div>
+                    <div class="prev_block__text">Двери закрываются более <br> четко и тихо</div>
+                </div>
+            </div>
+            <div class="button button__all-arrow prev_prev">
+                <svg class="ln">
+                    <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+                <svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.39241 11.9996L12.9336 3.99962V0.799622L0.933594 11.9996L12.9336 23.1996V19.9996L4.39241 11.9996Z" fill="#333333"/>
+                </svg>
+            </div>
+            <div class="button button__all-arrow prev_next">
+                <svg class="ln">
+                    <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+                <svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.60759 11.9996L0.0664062 3.99962V0.799622L12.0664 11.9996L0.0664062 23.1996V19.9996L8.60759 11.9996Z" fill="#333333"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="seo_block center_block">
+    <div class="seo_block__in">
+        <div class="seo_block__l-side"><picture><source srcset="img/seo_img.webp" type="image/webp"><img src="img/seo_img.jpg" alt=""></picture></div>
+        <div class="seo_block__r-side">
+            <div class="seo_block__title">Заголовок SEO блока</div>
+            <div class="seo_block__text">Термин шумоизоляция автомобиля, предполагает под собой действия, направленные на снижение уровня шума, как в салоне автомобиля, так и снаружи авто. Основное предназначение шумоизоляции — обеспечение тишины в салоне транспортного средства. Любой автомобиль, даже дорогой даже электрический, пропускает в салон определённое количество шума от движения колёс по дороге, от работы двигателя, от шума ветра, от попутного и встречного транспорта.</div>
+        </div>
+    </div>
+</div>
+        </main>
+        <footer class="footer">
+    <div class="footer__in center_block">
+        <div class="footer__top">
+            <div class="footer__info">
+                <a href="#" class="footer__logo"><img src="img/logo_foot.svg" alt=""></a>
+                <div class="footer__cont">
+                    <div class="footer__title">ООО «Шумoff»</div>
+                    <div class="footer__text">
+                        <span>ИНН:</span>
+                        3702579095
+                    </div>
+                    <div class="footer__text">
+                        <span>ОГРН:</span>
+                        1093702004043
+                    </div>
+                    <div class="footer__text">
+                        <span>Юр.адрес:</span>
+                        153000, Россия г. Иваново, ул.Зверева, д.13, оф.37
+                    </div>
+                </div>
+            </div>
+            <nav class="footer__menu">
+                <div class="footer__menu--item">
+                    <div class="footer__menu--tit">Продукция</div>
+                    <ul>
+                        <li><a href="#">Вибропоглощение</a></li>
+                        <li><a href="#">Шумоизоляция</a></li>
+                        <li><a href="#">Шумопоглощение</a></li>
+                        <li><a href="#">Звукоизоляция</a></li>
+                        <li><a href="#">Уплотнение</a></li>
+                        <li><a href="#">Инструменты</a></li>
+                        <li><a href="#">Инструменты</a></li>
+                        <li><a href="#">Аксессуары</a></li>
+                    </ul>
+                </div>
+                <div class="footer__menu--item">
+                    <div class="footer__menu--tit">Клиентам</div>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Калькулятор</a></li>
+                        <li><a href="#">Установка</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__menu--item">
+                    <div class="footer__menu--tit">Техническая поддержка</div>
+                    <ul>
+                        <li><a href="#">Установка своими руками</a></li>
+                        <li><a href="#">Необходимые инструменты</a></li>
+                        <li><a href="#">Решаемые задачи</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="footer__append"></div>
+            <div id="up_button" class="up_button">Наверх</div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__links">
+                <div class="footer__link">© Шумoff<div class="footer__delim"></div>2022</div>
+                <div class="footer__delim"></div>
+                <div class="footer__link">Все права защищены</div>
+                <div class="footer__delim"></div>
+                <a href="#" class="footer__link">Публичная оферта</a>
+                <div class="footer__delim"></div>
+                <a href="#" class="footer__link">Политика конфиденциальности</a>
+            </div>
+            <div class="footer__pays">
+                <div class="footer__pay"><img src="img/pay1.svg" alt=""></div>
+                <div class="footer__pay"><img src="img/pay2.svg" alt=""></div>
+                <div class="footer__pay"><img src="img/pay3.svg" alt=""></div>
+            </div>
+            <div class="footer__socs">
+                <a href="#" class="footer__soc button button__all-soc">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_377_11123)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.8438 6.69581C25.0167 6.12706 24.8438 5.70831 24.0156 5.70831H21.2813C20.5854 5.70831 20.2646 6.06977 20.0906 6.46873C20.0906 6.46873 18.7 9.7979 16.7302 11.9604C16.0927 12.5875 15.8031 12.7864 15.4552 12.7864C15.2813 12.7864 15.0198 12.5875 15.0198 12.0177V6.69581C15.0198 6.01248 14.8281 5.70831 14.249 5.70831H9.94896C9.51459 5.70831 9.25313 6.02498 9.25313 6.32602C9.25313 6.9729 10.2385 7.1229 10.3396 8.94373V12.9C10.3396 13.7677 10.1802 13.925 9.8323 13.925C8.90521 13.925 6.65001 10.5802 5.31146 6.7531C5.05209 6.00831 4.78959 5.70831 4.09063 5.70831H1.35417C0.572922 5.70831 0.416672 6.06977 0.416672 6.46873C0.416672 7.17915 1.34376 10.7083 4.73438 15.376C6.9948 18.5635 10.1771 20.2916 13.076 20.2916C14.8146 20.2916 15.0292 19.9083 15.0292 19.2469V16.8375C15.0292 16.0698 15.1938 15.9166 15.7448 15.9166C16.151 15.9166 16.8458 16.1166 18.4688 17.6531C20.3229 19.475 20.6281 20.2916 21.6719 20.2916H24.4063C25.1875 20.2916 25.5792 19.9083 25.3542 19.15C25.1063 18.3958 24.2208 17.301 23.0469 16.0021C22.4094 15.2625 21.4531 14.4656 21.1625 14.0666C20.7573 13.5552 20.8729 13.3271 21.1625 12.8719C21.1625 12.8719 24.4958 8.26144 24.8427 6.69581H24.8438Z" fill="#ffffff"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_377_11123">
+                        <rect width="25" height="25" fill="#ffffff" transform="translate(0.416672 0.5)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+                <a href="#" class="footer__soc button button__all-soc">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.5 7.62527C18.5 3.00027 12.375 1.62527 7.62498 4.50027C2.99998 7.37527 1.49998 13.6253 4.49998 18.2503L4.74998 18.6253L3.74998 22.3753L7.49998 21.3753L7.87498 21.6253C9.49998 22.5003 11.25 23.0003 13 23.0003C14.875 23.0003 16.75 22.5003 18.375 21.5003C23 18.5003 24.375 12.3753 21.5 7.62527ZM18.875 17.2503C18.375 18.0003 17.75 18.5003 16.875 18.6253C16.375 18.6253 15.75 18.8753 13.25 17.8753C11.125 16.8753 9.37498 15.2503 8.12498 13.3753C7.37498 12.5003 6.99998 11.3753 6.87498 10.2503C6.87498 9.25027 7.24998 8.37527 7.87498 7.75027C8.12498 7.50027 8.37498 7.37527 8.62498 7.37527H9.24998C9.49998 7.37527 9.74998 7.37527 9.87498 7.87527C10.125 8.50027 10.75 10.0003 10.75 10.1253C10.875 10.2503 10.875 10.5003 10.75 10.6253C10.875 10.8753 10.75 11.1253 10.625 11.2503C10.5 11.3753 10.375 11.6253 10.25 11.7503C9.99998 11.8753 9.87498 12.1253 9.99998 12.3753C10.5 13.1253 11.125 13.8753 11.75 14.5003C12.5 15.1253 13.25 15.6253 14.125 16.0003C14.375 16.1253 14.625 16.1253 14.75 15.8753C14.875 15.6253 15.5 15.0003 15.75 14.7503C16 14.5003 16.125 14.5003 16.375 14.6253L18.375 15.6253C18.625 15.7503 18.875 15.8753 19 16.0003C19.125 16.3753 19.125 16.8753 18.875 17.2503Z" fill="#ffffff"/>
+                    </svg>
+                </a>
+                <a href="#" class="footer__soc button button__all-soc">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.7909 5.31483L20.4901 20.8812C20.2409 21.9797 19.5917 22.2531 18.669 21.7359L13.6393 18.0297L11.2128 20.364C10.944 20.6328 10.7198 20.857 10.2018 20.857L10.5635 15.7351L19.8846 7.31248C20.2901 6.95155 19.7964 6.75076 19.2549 7.11248L7.73151 14.3687L2.77057 12.8156C1.69167 12.4789 1.67214 11.7367 2.99557 11.2187L22.3995 3.74295C23.2979 3.40623 24.0839 3.94295 23.7909 5.31561V5.31483Z" fill="#ffffff"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+        <div class="fixed_panel">
+    <a href="/" class="fixed_panel__main">Главная</a>
+    <div class="fixed_panel__menu">Меню</div>
+    <a href="#" class="fixed_panel__catalog">Каталог</a>
+    <a href="#" class="fixed_panel__cart">Корзина</a>
+</div>
+    </div>
+    <script src="js/app.min.js?_v=20221107211438"></script>
+</body>
+</html>
