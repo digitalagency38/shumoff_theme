@@ -116,15 +116,16 @@ window.app = new Vue({
         });
         this.isLoaded = true;
 
-        this.headerBlock.init();
-        this.footerBlock.init();
-        this.aboutBlock.init();
-        this.revBlock.init();
-        this.workBlock.init();
-        this.firstBlock.init();
-        this.prodBlock.init();
-        this.mapBlock.init();
-
+        setTimeout(() => {
+            this.headerBlock.init();
+            this.footerBlock.init();
+            this.aboutBlock.init();
+            this.revBlock.init();
+            this.workBlock.init();
+            this.firstBlock.init();
+            this.prodBlock.init();
+            this.mapBlock.init();
+        });
         
 
         
