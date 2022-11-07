@@ -21,17 +21,9 @@ import FooterBlock from '../blocks/modules/footer/footer.js';
 import MapBlock from '../blocks/modules/map_block/map_block.js';
 
 
-
 $(function () {
     
-    window.footerBlock = new FooterBlock();
-    window.aboutBlock = new AboutBlock();
-    window.revBlock = new RevBlock();
-    window.workBlock = new WorkBlock();
-    window.headerBlock = new HeaderBlock();
-    window.firstBlock = new FirstBlock();
-    window.prodBlock = new ProdBlock();
-    window.mapBlock = new MapBlock();
+   
 
 
 
@@ -78,14 +70,7 @@ $(function () {
 
 
 
-    headerBlock.init();
-    footerBlock.init();
-    aboutBlock.init();
-    revBlock.init();
-    workBlock.init();
-    firstBlock.init();
-    prodBlock.init();
-    mapBlock.init();
+    
 
 
     
@@ -116,12 +101,31 @@ window.app = new Vue({
             mobile: 768,
             window: window.innerWidth
         },
-        isLoaded: false
+        isLoaded: false,
+        footerBlock: new FooterBlock(),
+        aboutBlock: new AboutBlock(),
+        revBlock: new RevBlock(),
+        workBlock: new WorkBlock(),
+        headerBlock: new HeaderBlock(),
+        firstBlock: new FirstBlock(),
+        prodBlock: new ProdBlock(),
+        mapBlock: new MapBlock(),
     }),
     mounted() {   
         window.addEventListener('resize', () => {
             this.sizes.window = window.innerWidth;
         });
+
+        this.headerBlock.init();
+        this.footerBlock.init();
+        this.aboutBlock.init();
+        this.revBlock.init();
+        this.workBlock.init();
+        this.firstBlock.init();
+        this.prodBlock.init();
+        this.mapBlock.init();
+
+        
     },
     computed: {
         isMobile: function () {
