@@ -1,15 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shumoff.ru | Корзина</title>
+    <title>Shumoff.ru | Посмотрите наши работы</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap&_v=20221107211037" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?_v=20221107211037">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=8a69628d-9012-482b-962d-9bd92d6f2d51&lang=ru_RU&_v=20221107211037" type="text/javascript"></script>
 </head>
 <body>
     <div class="wrapper" id="app">
@@ -262,26 +264,296 @@
         </div>
     </div>
 </div>
-            <div class="cart_block center_block">
-    <h1 class="cart_block__h1">Корзина</h1>
-    <div class="cart_block__blocks">
-        <div class="cart_block__top">
-            <div>Товар</div>
-            <div>Цена</div>
-            <div>Количество</div>
-            <div>Стоимость</div>
-            <div>&nbsp;</div>
+            <div class="main_work center_block">
+    <h1 class="main_work__h1">Посмотрите наши работы</h1>
+    <div class="main_work__filter">
+        <div class="main_work__filter--select">
+            <span>Выберите марку машины:</span>
+            <select name="" id="">
+                <option value="Audi">Audi</option>
+                <option value="Chevrolet">Chevrolet</option>
+            </select>
         </div>
-        <div class="cart_block__block">
-            <div class="cart_block__block--info">
-                <picture><source srcset="./img/bg_cart.webp" type="image/webp"><img src="./img/bg_cart.jpg" alt=""></picture>
-                <div class="cart_block__block--tit"><b>Шумофф П4В</b> (Лист 750 х 560 мм)</div>
+        <div class="main_work__filter--select">
+            <span>Выберите модель:</span>
+            <select name="" id="">
+                <option value="Q7">Q7</option>
+                <option value="Q8">Q8</option>
+            </select>
+        </div>
+        <div class="main_work__filter--refresh button button__line">Сбросить</div>
+    </div>
+    <div class="main_work__blocks">
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
             </div>
-            <div class="cart_block__block--price"><div class="cart_block__block--item">Цена:</div><span>320 ₽ / лист</span></div> 
-            <div><div class="cart_block__block--item">Количество:</div>&nbsp;</div>
-            <div class="cart_block__block--price"><div class="cart_block__block--item">Стоимость:</div><span>3 200 ₽</span></div>
-            <div class="cart_block__block--del"></div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
         </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w2.webp" type="image/webp"><img src="img/w2.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Тепло-, шумо-, виброизоляция дверей для Hyundai Solaris</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w2.webp" type="image/webp"><img src="img/w2.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Тепло-, шумо-, виброизоляция дверей для Hyundai Solaris</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+        <div class="main_work__slid">
+            <div class="main_work__images">
+                <div class="main_work__date">16.08.2022</div>
+                <picture><source srcset="img/w1.webp" type="image/webp"><img src="img/w1.jpg" alt=""></picture>
+            </div>
+            <div class="main_work__info">
+                <a href="#" class="main_work__tit">Шумо-, виброизоляция для  Porsche Cayenne</a>
+                <div class="main_work__text">Устраняем недостатки заводской шумоизоляции и делаем управление автомобилем более комфортным.</div>
+                <a href="#" class="main_work__more button button__line">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    <div class="main_work__all button button__all-line">
+        <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+        <span>Загрузить ещё</span>
     </div>
 </div>
         </main>

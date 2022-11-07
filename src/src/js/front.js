@@ -83,7 +83,6 @@ $(function () {
             });
         });
     }, 0);
-    $('.preloader').addClass('isLoaded');
 
 
 });
@@ -95,7 +94,7 @@ $(function () {
 window.app = new Vue({
     el: '#app',
     data: () => ({
-        isMounted: false,
+        isLoaded: false,
         sizes: {
             tablet: 1024,
             mobile: 768,
@@ -115,6 +114,7 @@ window.app = new Vue({
         window.addEventListener('resize', () => {
             this.sizes.window = window.innerWidth;
         });
+        this.isLoaded = true;
 
         this.headerBlock.init();
         this.footerBlock.init();
@@ -124,6 +124,8 @@ window.app = new Vue({
         this.firstBlock.init();
         this.prodBlock.init();
         this.mapBlock.init();
+
+        
 
         
     },
