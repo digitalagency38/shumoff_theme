@@ -22,12 +22,6 @@ import MapBlock from '../blocks/modules/map_block/map_block.js';
 
 
 $(function () {
-    
-   
-
-
-
-
 
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
     
@@ -67,12 +61,6 @@ $(function () {
         count = count > parseInt($input.data('max-count')) ? parseInt($input.data('max-count')) : count;
         $input.val(parseInt(count));
     }); 
-
-
-
-    
-
-
     
     setTimeout(() => {
         const allSelects = document.querySelectorAll("select");
@@ -83,8 +71,6 @@ $(function () {
             });
         });
     }, 0);
-
-
 });
 
 
@@ -126,9 +112,6 @@ window.app = new Vue({
             this.prodBlock.init();
             this.mapBlock.init();
         });
-        
-
-        
     },
     computed: {
         isMobile: function () {
