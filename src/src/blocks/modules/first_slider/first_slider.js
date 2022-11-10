@@ -2,107 +2,58 @@ import $ from 'jquery';
 import 'slick-carousel';
 
 const FirstBlock = class FirstBlock {
-    constructor() {}
-    sliderFirst() {
-        $('.js_sl6').not('.slick-initialized').slick({
-            infinite: true,
-            slidesToShow: 1,
-            fade: true,
-            cssEase: 'linear',
-            swipe: false,
-            slidesToScroll: 1,
-            dots: true,
-            prevArrow: $('.first_slider__arrow--left'),
-            nextArrow: $('.first_slider__arrow--right')
-          });
-        var time = 5;
-        var $bar,
-          isPause,
-          tick,
-          percentTime;
-        var helpers = {
-        addZeros: function (n) {
-                return (n < 10) ? '0' + n : '' + n;
-            }
-        };
-          $('.js_sl6').on('afterChange', function(event, slick, currentSlide){
-            $('.slides-numbers .active').html(helpers.addZeros(currentSlide + 1));
-          });
-      
-          var sliderItemsNum = $('.js_sl6').find('.slick-slide').not('.slick-cloned').length;
-          $('.slides-numbers .total').html(helpers.addZeros(sliderItemsNum));
-
-          $bar = $('.slider-progress .progress');
-
-        $('.slider-wrapper').on({
-            mouseenter: function() {
-            isPause = true;
-            },
-            mouseleave: function() {
-            isPause = false;
-            }
-        })
-
-        function startProgressbar() {
-            resetProgressbar();
-            percentTime = 0;
-            isPause = false;
-            tick = setInterval(interval, 10);
-        }
-        $('.first_slider__arrow--right').on('click', function() {
-            resetProgressbar();
-            percentTime = 0;
-            isPause = false;
-            tick = setInterval(interval, 10);
-        })
-        $('.first_slider__arrow--left').on('click', function() {
-            resetProgressbar();
-            percentTime = 0;
-            isPause = false;
-            tick = setInterval(interval, 10);
-        })
-        function interval() {
-            if (isPause === false) {
-                percentTime += 1 / (time + 0.1);
-                $bar.css({
-                    width: percentTime + "%"
-                });
-                if (percentTime >= 100) {
-                    $('.js_sl6').slick('slickNext');
-                    startProgressbar();
-                }
-            }
-        }
-
-        function resetProgressbar() {
-            $bar.css({
-            width: 0 + '%'
-            });
-            clearTimeout(tick);
-        }
-        startProgressbar();
-        setTimeout(function() {
-            $('.first_slider').addClass('isLoad');
-        }, 1000);
+    constructor() {
+        this.slider = null;
+        this.index = 0;
     }
-    blockRunner() {
-        var marquee = $("#marquee"); 
-        marquee.css({"overflow": "hidden", "width": "100%"});
-        // оболочка для текста ввиде span (IE не любит дивы с inline-block)
-        marquee.wrapInner("<span>");
-        marquee.find("span").css({ "width": "50%", "display": "inline-block", "text-align":"center" }); 
-        marquee.append(marquee.find("span").clone()); // тут у нас два span с текстом
-        marquee.wrapInner("<div>");
-        marquee.find("div").css("width", "200%");
-        var reset = function() {
-            $(this).css("margin-left", "0%");
-            $(this).animate({ "margin-left": "-100%" }, 12000, 'linear', reset);
-        };
-        reset.call(marquee.find("div"));
+    initSlider() {
+        return new Promise((resolve, reject) => {
+            if (document.querySelector('.js_sl6')) {
+                this.slider = $('.js_sl6').not('.slick-initialized').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    fade: true,
+                    cssEase: 'linear',
+                    swipe: false,
+                    slidesToScroll: 1,
+                    dots: true,
+                    autoplay: true,
+                    autoplaySpeed: 4000,
+                    speed: 400,
+                    prevArrow: $('.first_slider__arrow--left'),
+                    nextArrow: $('.first_slider__arrow--right')
+                });
+                this.index = 1;
+                resolve(this.slider);
+            } else {
+                reject('Слайдер не инициализирован');
+            }
+        })
     }
     init() {
-        this.sliderFirst();
-        this.blockRunner();
+        this.initSlider().then(slider => {
+            $(slider[0]).on('beforeChange', (event, slick, currentSlide, nextSlide) =>{
+                this.index = currentSlide + 1;
+                console.log(this.index);
+            }).find('.progress').addClass('isInProgress');;
+        });
+
+
+        // On swipe event
+        // $('.your-element').on('swipe', function(event, slick, direction){
+        //     console.log(direction);
+        //     // left
+        // });
+        
+        // // On edge hit
+        // $('.your-element').on('edge', function(event, slick, direction){
+        //     console.log('edge was hit')
+        // });
+        
+        // // On before slide change
+        // $('.your-element').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        //     console.log(nextSlide);
+        // });
     }
 }
 

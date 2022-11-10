@@ -4,24 +4,22 @@ import 'slick-carousel';
 const WorkBlock = class WorkBlock {
     constructor() {}
     sliderText() {
-      setTimeout(() => {
-        $('.js_sl4').slick({
-            infinite: true,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            dots: false,
-            prevArrow: $('.work_prev'),
-            nextArrow: $('.work_next'),
-            responsive: [
-              {
-                breakpoint: 1023,
-                settings: {
-                    variableWidth: true
-                }
-              }
-            ]
-          });
-        }, 1000);
+      $('.js_sl4').slick({
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: false,
+        prevArrow: $('.work_prev'),
+        nextArrow: $('.work_next'),
+        responsive: [
+          {
+            breakpoint: 1023,
+            settings: {
+                variableWidth: true
+            }
+          }
+        ]
+      });
     }
     init() {
         this.sliderText();
