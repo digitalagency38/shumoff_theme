@@ -92,6 +92,3 @@ defined( 'ABSPATH' ) || exit;
 	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
 	
 </div>
-<div class="wc-proceed-to-checkout here_will_be_button">
-	<?php # do_action( 'woocommerce_proceed_to_checkout' ); ?>
-</div>

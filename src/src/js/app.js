@@ -51,6 +51,8 @@ $(function () {
     
     $('.flex-control-thumbs').wrapAll('<div class="flex_thumb_item">');   
     $('#order_review_heading, #order_review, .cart_totals').wrapAll('<div class="block_right_status"><div class="block_right_status--item">');
+    $('.block_right_status--item').append('<div class="here_will_be_button"></div>')
+    
     $('.filter_block_mobile').append('<div class="block_back_filter">Фильтры</div>');
     $('.berocket_ajax_group_filter_title').on('click', function () {
         $('.filter_block_mobile').addClass('isOpened');
