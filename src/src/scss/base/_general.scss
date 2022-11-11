@@ -1676,6 +1676,7 @@ body {
 // wp theme end
 
 
-.woocommerce-billing-fields__field-wrapper .address-field {
+.woocommerce-billing-fields__field-wrapper .address-field,
+.woocommerce-billing-fields__field-wrapper .email-field {
     display: none !important;
 }
