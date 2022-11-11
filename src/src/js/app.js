@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', function(){
     }, 0);
     
 });
+if (document.querySelector('.form-row.place-order')) {
+    $('.form-row.place-order').appendTo('.here_will_be_button');
+}
 window.onload = function(){
     // if ('WOW' in window) {
     //     new WOW().init();

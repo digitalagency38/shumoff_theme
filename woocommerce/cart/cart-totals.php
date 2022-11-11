@@ -88,8 +88,8 @@ defined( 'ABSPATH' ) || exit;
 
 	</table>
 
-	<div class="wc-proceed-to-checkout">
-		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
+	<div class="wc-proceed-to-checkout here_will_be_button">
+		<?php # do_action( 'woocommerce_proceed_to_checkout' ); ?>
 	</div>
 
 	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
