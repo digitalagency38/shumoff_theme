@@ -1674,3 +1674,8 @@ body {
     }
 }
 // wp theme end
+
+
+.woocommerce-billing-fields__field-wrapper .address-field {
+    display: none !important;
+}

@@ -2694,6 +2694,10 @@ body.woocommerce-order-received .thanks_cart {
   padding-bottom: 0 !important;
 }
 
+.woocommerce-billing-fields__field-wrapper .address-field {
+  display: none !important;
+}
+
 .button__line {
   font-style: normal;
   font-weight: 500;

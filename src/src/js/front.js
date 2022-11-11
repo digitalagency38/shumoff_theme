@@ -111,8 +111,6 @@ window.app = new Vue({
             this.sizes.window = window.innerWidth;
             
         });
-        this.isLoaded = true;
-
         setTimeout(() => {
             this.headerBlock.init();
             this.footerBlock.init();
@@ -122,7 +120,8 @@ window.app = new Vue({
             this.firstBlock.init();
             this.prodBlock.init();
             this.mapBlock.init();
-        });
+            this.isLoaded = true;
+        }, 0);
     },
     computed: {
         isMobile: function () {
