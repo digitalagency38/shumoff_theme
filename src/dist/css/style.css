@@ -5316,6 +5316,17 @@ body.woocommerce-order-received .thanks_cart {
   width: 100%;
   margin-top: -7.5520833333vw;
   height: 15.15625vw;
+  overflow: hidden;
+}
+
+.first_slider .block_runner_in {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.first_slider .block_runner span {
+  animation: marquee 12s linear infinite;
 }
 
 .first_slider .block_runner svg {
@@ -5394,6 +5405,22 @@ body.woocommerce-order-received .thanks_cart {
   width: 0%;
   height: 3px;
   background: #F1752A;
+  transition: width 0.4s linear;
+}
+
+.first_slider .slider-progress .progress.isInProgress {
+  transition: width 4s linear;
+  width: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .main_product {

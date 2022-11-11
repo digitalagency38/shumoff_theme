@@ -176,7 +176,7 @@ $site_email = get_option('site_email');
                                 if( $image ):
                             ?>
                                 <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
-                            <?php endif; ?>
+                            <?endif; ?>
                         </div>
                         <div class="work_slider__info">
                             <a href="#" class="work_slider__tit"><? the_title(); ?></a>

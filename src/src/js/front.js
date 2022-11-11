@@ -2,6 +2,7 @@ import * as globalFunctions from './modules/functions.js';
 globalFunctions.isWebp();
 
 document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById('example-menu')) return;
     new SlideMenu(document.getElementById('example-menu'));
 });
 
@@ -96,9 +97,19 @@ window.app = new Vue({
         prodBlock: new ProdBlock(),
         mapBlock: new MapBlock(),
     }),
+    watch: {
+        'firstBlock.index'(newValue) {
+            console.log('firstBlock.index changed', $(this.firstBlock.slider[0]).find('.progress'));
+            $('.slider-progress').find('.progress.isInProgress').removeClass('isInProgress');
+            setTimeout(() => {
+                $('.slider-progress').find('.progress').addClass('isInProgress');
+            }, 400);
+        }
+    },
     mounted() {   
         window.addEventListener('resize', () => {
             this.sizes.window = window.innerWidth;
+            
         });
         this.isLoaded = true;
 
@@ -122,3 +133,5 @@ window.app = new Vue({
         }
     },
 });
+
+

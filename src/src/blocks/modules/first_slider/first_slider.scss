@@ -15,6 +15,12 @@
         width: 100%;
         margin-top: vw(-145);
         height: vw(291);
+        overflow: hidden;
+        &_in {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
         @media all and (max-width: 900px) {
             height: 91px;
             margin-top: -45px;
@@ -24,13 +30,18 @@
             top: unset;
             bottom: calc(19% - -35px);
         }
+        span {
+            animation: marquee 12s linear infinite;
+        }
         svg {
             height: vw(291) !important;
+            
             @media all and (max-width: 900px) {
                 height: 91px !important;
             }
         }
     }
+    
     &__in {
         padding-top: 80px;
         padding-bottom: 80px;
@@ -159,5 +170,19 @@
         width: 0%;
         height: 3px;
         background: #F1752A;
+        transition: width .4s linear;
+    }
+    .slider-progress .progress.isInProgress {
+        transition: width 4s linear;
+        width: 100%;
+    }
+}
+
+@keyframes marquee {
+    0% {
+       transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%); 
     }
 }
