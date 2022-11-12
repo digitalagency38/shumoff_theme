@@ -120,8 +120,8 @@ window.app = new Vue({
             this.firstBlock.init();
             this.prodBlock.init();
             this.mapBlock.init();
-            this.isLoaded = true;
         }, 0);
+        this.isLoaded = true;
     },
     computed: {
         isMobile: function () {
