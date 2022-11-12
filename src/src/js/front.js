@@ -111,18 +111,16 @@ window.app = new Vue({
             this.sizes.window = window.innerWidth;
             
         });
-        setTimeout(() => {
-            this.headerBlock.init();
-            this.footerBlock.init();
-            this.aboutBlock.init();
-            this.revBlock.init();
-            this.workBlock.init();
-            this.firstBlock.init();
-            this.prodBlock.init();
-            this.mapBlock.init();
+        this.isLoaded = true;
+        this.headerBlock.init();
+        this.footerBlock.init();
+        this.aboutBlock.init();
+        this.revBlock.init();
+        this.workBlock.init();
+        this.firstBlock.init();
+        this.prodBlock.init();
+        this.mapBlock.init();
             
-            this.isLoaded = true;
-        }, 0);
         
     },
     computed: {
