@@ -23,7 +23,7 @@ $seo_block = get_field('seo_block');
 
 ?>
 
-<main class="content" v-if="isLoaded">
+<main class="content">
     <? if (!empty($mainSlider)) { ?>
         <div class="first_slider">
             <div class="block_runner">
