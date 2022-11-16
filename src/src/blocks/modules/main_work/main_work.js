@@ -1,5 +1,3 @@
-import Vue from 'vue/dist/vue.js';
-
 const MainWork = class MainWork {
     constructor() {}
     moreBlock() {

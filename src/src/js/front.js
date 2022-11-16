@@ -2,7 +2,9 @@ import * as globalFunctions from './modules/functions.js';
 globalFunctions.isWebp();
 
 document.addEventListener("DOMContentLoaded", function () {
-    new SlideMenu(document.getElementById('example-menu'));
+    if (document.getElementById('example-menu')) {
+        new SlideMenu(document.getElementById('example-menu'));
+    }
 });
 
 import Vue from 'vue/dist/vue.js';

@@ -3,9 +3,11 @@ globalFunctions.isWebp();
 
 import Vue from 'vue/dist/vue.js';
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     new SlideMenu(document.getElementById('example-menu'));
-// });
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById('example-menu')) {
+        new SlideMenu(document.getElementById('example-menu'));
+    }
+});
 import $ from 'jquery';
 import SlimSelect from 'slim-select';
 
