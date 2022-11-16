@@ -30,6 +30,11 @@ import Calculator from '../blocks/modules/calc/calc.js';
 window.app = new Vue({
     el: '#app',
     data: () => ({
+        brands: [],
+        selectedBrand: "",
+        selectedModel: "",
+        uniqueModels: [],
+        get: loadPortfolioGetParams(),
         isLoaded: false,
         sizes: {
             tablet: 1024,
@@ -60,7 +65,40 @@ window.app = new Vue({
                 document.querySelector('.slider-progress').querySelector('.progress').classList.add('isInProgress');
             }, 400);
             console.log('firstBlock.index');
-        }
+        },
+        selectedBrand: function(newValue, oldValue) {
+            if (newValue === oldValue) return;
+            this.selectedModel = this.get.type;
+            const selectedModels = this.models.filter(model => model.brand === newValue);
+
+
+
+            this.uniqueModels = [];
+            let isModelIncluded = false;
+            selectedModels.map(model => {
+                
+                this.uniqueModels.map(uModel => {
+                    if (uModel.name === model.name) {
+                        uModel.bodies.push(model.body);
+                        isModelIncluded = true;
+                    }
+                    return uModel;
+                });
+                if (!isModelIncluded) {
+                    this.uniqueModels.push({
+                        name: model.name,
+                        bodies: [model.body]
+                    })
+                }
+                isModelIncluded = false;
+                return model;
+            });
+            console.log(this.uniqueModels);
+        },
+        selectedModel: function(newValue, oldValue) {
+            if (newValue === oldValue) return;
+            // this.selectedBody = this.availableBodies[0];
+        },
     },
     mounted() {   
         window.addEventListener('resize', () => {
@@ -92,9 +130,36 @@ window.app = new Vue({
                     showSearch: false
                 });
             });
+
+            this.models = loadModels();
+            this.filterBrands();
+            console.log(this.get);
         }, 0);
             
         
+    },
+    methods: {
+        filterBrands() {
+            let uniqueBrands = [];
+            this.models.map(model => {
+                if (!uniqueBrands.includes(model.brand)) {
+                    uniqueBrands.push(model.brand);
+                    this.brands.push({
+                        name: model.brand,
+                        models: this.models.filter(item => item.brand === model.brand)
+                    })
+                }
+                return model;
+            })
+            console.log(uniqueBrands);
+            this.selectedBrand = this.get.vendor;
+        },
+        clearFilter() {
+            this.get.vendor = "Все";
+            this.get.type = "Все";
+            this.selectedModel = "Все";
+            this.selectedBrand = "Все";
+        }
     },
     computed: {
         isMobile: function () {
