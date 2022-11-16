@@ -5,7 +5,7 @@ const MainWork = class MainWork {
     constructor() {
         if (!document.querySelector('#portfolio')) return;
         this.app = new Vue({
-            el: '#portfolio',
+            el: '#app',
             data: () => ({
                 brands: [],
                 selectedBrand: "",

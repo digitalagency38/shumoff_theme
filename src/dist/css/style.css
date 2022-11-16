@@ -5236,7 +5236,7 @@ body.woocommerce-order-received .thanks_cart {
   grid-gap: 0;
 }
 
-.glide__track .main_product__block {
+.main_product__block {
   display: flex;
   flex-direction: column;
 }
@@ -5291,10 +5291,10 @@ body.woocommerce-order-received .thanks_cart {
 .main_product__info {
   padding: 20px;
   background: #FFFFFF;
-}
-
-.glide__track .main_product__info {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .main_product__tit {

@@ -18,34 +18,96 @@ import AboutBlock from '../blocks/modules/about_block/about_block.js';
 import RevBlock from '../blocks/modules/rev_block/rev_block.js';
 import WorkBlock from '../blocks/modules/work_slider/work_slider.js';
 import PrevBlock from '../blocks/modules/prev_block/prev_block.js';
-import FirstBlock from '../blocks/modules/first_slider/first_slider.js';
 import ContactsBlock from '../blocks/modules/contacts/contacts.js';
 import ExpBlock from '../blocks/modules/exp_block/exp_block.js';
 import ServBlock from '../blocks/modules/page_service/page_service.js';
-import MainWork from '../blocks/modules/main_work/main_work.js';
 import ProductBlock from '../blocks/modules/product_block/product_block.js';
 import FixedBlock from '../blocks/modules/fixed_panel/fixed_panel.js';
 import Calculator from '../blocks/modules/calc/calc.js';
 
 
+
+window.app = new Vue({
+    el: '#app',
+    data: () => ({
+        isLoaded: false,
+        sizes: {
+            tablet: 1024,
+            mobile: 768,
+            window: window.innerWidth
+        },
+        isLoaded: false,
+        footerBlock: new FooterBlock(),
+        textBlock: new TextBlock(),
+        mapBlock: new MapBlock(),
+        aboutBlock: new AboutBlock(),
+        revBlock: new RevBlock(),
+        workBlock: new WorkBlock(),
+        prevBlock: new PrevBlock(),
+        headerBlock: new HeaderBlock(),
+        prodBlock: new ProdBlock(),
+        contactsBlock: new ContactsBlock(),
+        expBlock: new ExpBlock(),
+        servBlock: new ServBlock(),
+        productBlock: new ProductBlock(),
+        fixedBlock: new FixedBlock(),
+        calculator: new Calculator(),
+    }),
+    watch: {
+        'firstBlock.index'(newValue) {
+            document.querySelector('.slider-progress').querySelector('.progress.isInProgress').classList.remove('isInProgress');
+            setTimeout(() => {
+                document.querySelector('.slider-progress').querySelector('.progress').classList.add('isInProgress');
+            }, 400);
+            console.log('firstBlock.index');
+        }
+    },
+    mounted() {   
+        window.addEventListener('resize', () => {
+            this.sizes.window = window.innerWidth;
+            
+        });
+        this.isLoaded = true;
+        setTimeout(() => {
+            this.headerBlock.init();
+            this.mapBlock.init();
+            this.footerBlock.init();
+            this.textBlock.init();
+            this.aboutBlock.init();
+            this.revBlock.init();
+            this.workBlock.init();
+            this.prevBlock.init();
+            this.prodBlock.init();
+            this.contactsBlock.init();
+            this.expBlock.init();
+            this.servBlock.init();
+            this.productBlock.init();
+            this.fixedBlock.init();
+            this.calculator.init();
+
+            const allSelects = document.querySelectorAll("select");
+            allSelects.forEach(function (el) {
+                new SlimSelect({
+                    select: el,
+                    showSearch: false
+                });
+            });
+        }, 0);
+            
+        
+    },
+    computed: {
+        isMobile: function () {
+            return this.sizes.window < this.sizes.mobile;
+        },
+        isTablet: function () {
+            return this.sizes.window < this.sizes.tablet && this.sizes.window > this.sizes.mobile;
+        }
+    },
+});
+
+
 $(function () {
-    
-    window.footerBlock = new FooterBlock();
-    window.textBlock = new TextBlock();
-    window.mapBlock = new MapBlock();
-    window.aboutBlock = new AboutBlock();
-    window.revBlock = new RevBlock();
-    window.workBlock = new WorkBlock();
-    window.prevBlock = new PrevBlock();
-    window.headerBlock = new HeaderBlock();
-    window.firstBlock = new FirstBlock();
-    window.prodBlock = new ProdBlock();
-    window.contactsBlock = new ContactsBlock();
-    window.expBlock = new ExpBlock();
-    window.servBlock = new ServBlock();
-    window.productBlock = new ProductBlock();
-    window.fixedBlock = new FixedBlock();
-    window.calculator = new Calculator();
     
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
     
@@ -91,43 +153,5 @@ $(function () {
         $input.val(parseInt(count));
     }); 
 
-    headerBlock.init();
-    mapBlock.init();
-    footerBlock.init();
-    textBlock.init();
-    aboutBlock.init();
-    revBlock.init();
-    workBlock.init();
-    prevBlock.init();
-    firstBlock.init();
-    prodBlock.init();
-    contactsBlock.init();
-    expBlock.init();
-    servBlock.init();
-    productBlock.init();
-    fixedBlock.init();
-    calculator.init();
-})
-document.addEventListener('DOMContentLoaded', function(){
-    setTimeout(() => {
-        const mainWork = new MainWork();
-        
-        mainWork.init();
-
-        const allSelects = document.querySelectorAll("select");
-        allSelects.forEach(function (el) {
-            new SlimSelect({
-                select: el,
-                showSearch: false
-            });
-        });
-    }, 0);
     
-});
-
-window.onload = function(){
-    // if ('WOW' in window) {
-    //     new WOW().init();
-    // }
-    $('.preloader').addClass('isLoaded');
-};
+})

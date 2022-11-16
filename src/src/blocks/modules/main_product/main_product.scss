@@ -18,7 +18,7 @@
         margin-bottom: 30px;
         position: relative;
     }
-    .glide__track &__block {
+    &__block {
         display: flex;
         flex-direction: column;
     }
@@ -107,9 +107,10 @@
     &__info {
         padding: 20px;
         background: #FFFFFF;
-    }
-    .glide__track &__info {
         flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     &__tit {
         margin-bottom: 15px;
