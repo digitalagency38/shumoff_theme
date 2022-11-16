@@ -8692,6 +8692,10 @@ body.woocommerce-order-received .thanks_cart {
 }
 
 @media all and (max-width: 860px) {
+  .site-panel-wrap .burger-wrap .burger-body .header__tel {
+    line-height: 26px;
+  }
+
   .site-panel-wrap .burger-wrap .burger-body__cat-block.isOpened .header__cat--blocks {
     margin-left: 0;
     margin-right: 0;

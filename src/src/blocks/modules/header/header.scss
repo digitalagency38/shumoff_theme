@@ -503,6 +503,9 @@
             background: transparent;
             font-size: 26px;
             line-height: 20px;
+            @media all and (max-width: 860px) {
+                line-height: 26px;
+            }
             &:after {
                 display: block;
             }
