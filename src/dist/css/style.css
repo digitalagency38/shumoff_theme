@@ -3573,6 +3573,7 @@ body.woocommerce-order-received .thanks_cart {
   align-items: flex-end;
   padding-top: 30px;
   padding-bottom: 30px;
+  background: #000;
 }
 
 .site-panel-wrap .burger-wrap .burger-body .header__tel {
