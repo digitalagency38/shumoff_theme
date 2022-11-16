@@ -18,6 +18,10 @@
         margin-bottom: 30px;
         position: relative;
     }
+    .glide__track &__block {
+        display: flex;
+        flex-direction: column;
+    }
     &__top {
         display: flex;
         align-items: center;
@@ -89,14 +93,6 @@
             margin-right: auto;
         }
     }
-    .slick-list {
-        margin-left: -10px;
-        margin-right: -10px;
-    }
-    .slick-slide {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
     &__img {
         font-size: 0;
         height: 270px;
@@ -111,6 +107,9 @@
     &__info {
         padding: 20px;
         background: #FFFFFF;
+    }
+    .glide__track &__info {
+        flex: 1 1 auto;
     }
     &__tit {
         margin-bottom: 15px;
