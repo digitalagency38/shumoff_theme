@@ -150,6 +150,8 @@ function shumof_scripts() {
 	else :
 		wp_enqueue_script( 'main.js', get_template_directory_uri() . '/src/dist/js/app.min.js', false, '1.1', true );
 	endif;
+
+	wp_enqueue_script( 'slidemenu.js', get_template_directory_uri() . '/js/slidemenu.js', false, '1.1', true );
 }
 add_action( 'wp_enqueue_scripts', 'shumof_scripts' );
 

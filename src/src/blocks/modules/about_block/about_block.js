@@ -1,41 +1,24 @@
-import $ from 'jquery';
-import 'slick-carousel';
+import Glide from '@glidejs/glide';
 
 const AboutBlock = class AboutBlock {
-    constructor() {}
-    sliderText() {
-      $(document).ready(function() {
-        $('.js_sl2').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: false,
-            adaptiveHeight: true,
-            prevArrow: $('.js_sl1_prev'),
-            nextArrow: $('.js_sl1_next'),
-            asNavFor: '.slider-nav',
-            responsive: [
-              {
-                breakpoint: 1023,
-                settings: {
-                    adaptiveHeight: true
-                }
-              }
-            ]
-          });
-        $('.slider-nav').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            asNavFor: '.js_sl2',
-            dots: false,
-            centerMode: false,
-            focusOnSelect: true,
-            accessibility: false
-        });
+    constructor() {
+      this.slider = null;
+      this.thumbs = null;
+      this.index = 0;
+    }
+    initSlider() {
+      this.slider = new Glide('.about_block__slider--js.glide', {
+        perView: 1,
+        gap: 0,
+      }).mount();
+      this.slider.on(['run'], () => {
+        this.index = this.slider.index;
       })
     }
     init() {
-        this.sliderText();
+      if (!document.querySelector('.about_block__slider--js.glide')) return;
+      this.initSlider();
+      console.log(this.slider);
     }
 }
 

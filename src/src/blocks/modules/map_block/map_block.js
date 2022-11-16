@@ -1,28 +1,28 @@
-import $ from 'jquery';
-
 const MapBlock = class MapBlock {
-    constructor() {}
-    mapContact() {
-        if ($('#map').length) {
-            ymaps.ready(function () {
-                var myMap = new ymaps.Map('map', {
-                    center: [57.001064, 40.968217],
-                    zoom: 16,
-                    controls: ['zoomControl', 'fullscreenControl',"geolocationControl"]
-                }, {
-                    searchControlProvider: 'yandex#search'
-                }),
-                myPlacemark2 = new ymaps.Placemark([57.001064, 40.968217], {
-                    hintContent: 'Shumoff',
-                    balloonContent: 'Shumoff'
-                });
-                myMap.geoObjects
-                .add(myPlacemark2)
+    constructor() {
+        this.map = null;
+        this.placemark = null;
+    }
+    initMap() {
+        ymaps.ready(() => {
+            this.map = new ymaps.Map('map', {
+                center: [57.001064, 40.968217],
+                zoom: 16,
+                controls: ['zoomControl', 'fullscreenControl',"geolocationControl"]
+            }, {
+                searchControlProvider: 'yandex#search'
             });
-        }
+            this.placemark = new ymaps.Placemark([57.001064, 40.968217], {
+                hintContent: 'Shumoff',
+                balloonContent: 'Shumoff'
+            });
+            this.map.geoObjects
+            .add(this.placemark)
+        });
     }
     init() {
-        this.mapContact();
+        if (!document.getElementById('map')) return;
+        this.initMap();
     }
 }
 

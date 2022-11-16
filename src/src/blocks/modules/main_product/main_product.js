@@ -1,40 +1,50 @@
-import $ from 'jquery';
-import 'slick-carousel';
+import Glide from '@glidejs/glide';
 
 const ProdBlock = class ProdBlock {
-    constructor() {}
-    sliderProd() {
-        $('.js_sl7 .catalog__wrapper_in').slick({
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            dots: false,
-            prevArrow: $('.prod_prev'),
-            nextArrow: $('.prod_next'),
-            responsive: [
-              {
-                breakpoint: 1240,
-                settings: {
-                  slidesToShow: 3,
+    constructor() {
+        this.slider = null;
+        this.index = 0;
+    }
+    initSlider() {
+        
+        document.querySelector('.main_product__bottom--js.glide .catalog__wrapper').classList.add('glide__track');
+        document.querySelector('.main_product__bottom--js.glide .catalog__wrapper').dataset.glideEl = 'track';
+        document.querySelector('.main_product__bottom--js.glide .catalog__wrapper_in').classList.add('glide__slides');
+
+        setTimeout(() => {
+            this.slider = new Glide('.main_product__bottom--js.glide', {
+                perView: 4,
+                swipeThreshold: false,
+                dragThreshold: false,
+                gap: 20,
+                breakpoints: {
+                    1360: {
+                        perView: 3,
+                    },
+                    1024: {
+                        perView: 2,
+                    },
+                    860: {
+                        perView: 1,
+                        swipeThreshold: 100,
+                        dragThreshold: 100,
+                        gap: 16,
+                    }
                 }
-              },
-              {
-                breakpoint: 960,
-                settings: {
-                  slidesToShow: 2,
-                }
-              },
-              {
-                breakpoint: 640,
-                settings: {
-                  slidesToShow: 1,
-                }
-              }
-            ]
-          });
+            }).mount();
+            this.slider.on(['run'], () => {
+                this.index = this.slider.index;
+            })
+            console.log(this.slider);
+        }, 0)
+    }
+    changeSlide(pattern) {
+        this.slider.go(pattern)
     }
     init() {
-        this.sliderProd();
+        if (!document.querySelector('.work_slider__slider--js.glide')) return;
+        this.initSlider();
+        
     }
 }
 

@@ -1,5 +1,5 @@
-import $ from 'jquery';
-import SlideMenu from '@grubersjoe/slide-menu';
+// import $ from 'jquery';
+// import SlideMenu from '@grubersjoe/slide-menu';
 
 const HeaderBlock = class HeaderBlock {
     constructor() {

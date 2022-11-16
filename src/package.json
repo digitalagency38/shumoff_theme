@@ -42,6 +42,7 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.6.0",
     "@grubersjoe/slide-menu": "^1.2.3",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "jquery": "^3.6.0",

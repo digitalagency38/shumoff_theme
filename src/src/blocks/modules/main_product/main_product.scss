@@ -4,8 +4,12 @@
     padding-bottom: 100px;
     margin-top: 50px;
     margin-bottom: 50px;
+    overflow: hidden;
     .catalog__wrapper_in {
-        display: block;
+        display: flex;
+        grid-template-columns: unset;
+        grid-gap: 0;
+        
     }
     @media all and (max-width: 1023px) {
         padding-top: 60px;
@@ -24,6 +28,14 @@
             flex-direction: column;
         }
     }
+    &__bottom {
+        @media all and (max-width: 1023px) {
+            padding-right: 90px;
+            .glide__track {
+                overflow: visible;
+            }
+        }
+    }
     &__title {
         font-family: 'bebas', cursive;
         font-style: normal;
@@ -34,6 +46,7 @@
         @media all and (max-width: 1023px) {
             font-size: 40px;
             margin-bottom: 20px;
+            width: 100%;
         }
     }
     &__buttons {

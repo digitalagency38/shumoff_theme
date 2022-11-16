@@ -159,7 +159,7 @@ wp_reset_postdata();
 	</footer>
 	<div class="fixed_panel">
 		<a href="/" class="fixed_panel__main">Главная</a>
-		<div class="fixed_panel__menu">Меню</div>
+		<div class="fixed_panel__menu" @click="headerBlock.isBurgerOpened = true;">Меню</div>
 		<a href="/shop" class="fixed_panel__catalog">Каталог</a>
 		<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 	</div>

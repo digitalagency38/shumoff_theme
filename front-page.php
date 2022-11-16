@@ -13,17 +13,16 @@
  */
 
 get_header();
-$mainSlider = get_field('main_slider');
-$categories = get_terms( 'product_cat');
-$tiles = get_field('tiles');
-$portfolio = get_field('portfolio');
-$text_block = get_field('text_block');
-$reviews = get_field('reviews');
-$seo_block = get_field('seo_block');
-
+    $mainSlider = get_field('main_slider');
+    $categories = get_terms( 'product_cat');
+    $tiles = get_field('tiles');
+    $portfolio = get_field('portfolio');
+    $text_block = get_field('text_block');
+    $reviews = get_field('reviews');
+    $seo_block = get_field('seo_block');
 ?>
 
-<main class="content" v-if="isLoaded">
+<main class="content">
     <? if (!empty($mainSlider)) { ?>
         <div class="first_slider">
             <div class="block_runner">
@@ -53,38 +52,42 @@ $seo_block = get_field('seo_block');
                 </div>
             </div>
             <div class="first_slider__in center_block">
-                <div class="first_slider__sl js_sl6">
-                    <? foreach ($mainSlider as $item) { ?>
-                        <div class="first_slider__block">
-                            <div class="first_slider__l-side">
-                                <div class="first_slider__title">
-                                    <?= $item['title'] ?>
-                                </div>
-                                <div class="first_slider__text"><?= $item['tekst'] ?></div>
-                                <a href="<?= $item['link'] ?>" class="first_slider__btn button button__all-line">
-                                    <svg>
-                                        <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                    </svg>
-                                    <span><?= $item['link_text'] ?></span>
-                                </a>
-                            </div>
-                            <div class="first_slider__r-side">
-                                <?
-                                    $image = $item['image'];
-                                    $size = 'large';
-                                    $alt = $image['alt'];
-                                    $thumb = $image['sizes'][ $size ];
+                <div class="first_slider__sl first_slider__sl--js glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <div class="glide__slides">
+                            <? foreach ($mainSlider as $item) { ?>
+                                <div class="first_slider__block">
+                                    <div class="first_slider__l-side">
+                                        <div class="first_slider__title">
+                                            <?= $item['title'] ?>
+                                        </div>
+                                        <div class="first_slider__text"><?= $item['tekst'] ?></div>
+                                        <a href="<?= $item['link'] ?>" class="first_slider__btn button button__all-line">
+                                            <svg>
+                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                            </svg>
+                                            <span><?= $item['link_text'] ?></span>
+                                        </a>
+                                    </div>
+                                    <div class="first_slider__r-side">
+                                        <?
+                                            $image = $item['image'];
+                                            $size = 'large';
+                                            $alt = $image['alt'];
+                                            $thumb = $image['sizes'][ $size ];
 
-                                    if( $image ):
-                                ?>
-                                    <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
-                                <?endif; ?>
-                            </div>
+                                            if( $image ):
+                                        ?>
+                                            <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+                                        <?endif; ?>
+                                    </div>
+                                </div>
+                            <? }; ?>
                         </div>
-                    <? }; ?>
+                    </div>
                 </div>
                 <div class="first_slider__arrows">
-                    <div class="first_slider__arrow--left button button__all-arrow">
+                    <div class="first_slider__arrow--left button button__all-arrow" @click="firstBlock.changeSlide('<').apply(firstBlock)">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -103,7 +106,7 @@ $seo_block = get_field('seo_block');
                             <div class="progress isInProgress"></div>
                         </div>
                     </div>
-                    <div class="first_slider__arrow--right button button__all-arrow">
+                    <div class="first_slider__arrow--right button button__all-arrow" @click="firstBlock.changeSlide('>').apply(firstBlock)">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -183,7 +186,7 @@ $seo_block = get_field('seo_block');
             <div class="work_slider__top">
                 <div class="work_slider__title"><?= $portfolio['title']; ?></div>
                 <div class="work_slider__buttons">
-                    <div class="button button__all-arrow work_prev">
+                    <div class="button button__all-arrow work_prev" :class="{'isDisabled': workBlock.index === 0}" @click.prevent="workBlock.slider.go('<')">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -194,7 +197,7 @@ $seo_block = get_field('seo_block');
                                 fill="#333333" />
                         </svg>
                     </div>
-                    <div class="button button__all-arrow work_next">
+                    <div class="button button__all-arrow work_next" :class="{'isDisabled': workBlock.index === <?= count($portfolio['items']) -2; ?>}" @click.prevent="workBlock.slider.go('>')">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -214,31 +217,35 @@ $seo_block = get_field('seo_block');
                 </div>
             </div>
             <!-- <div class="work_slider__slider js_sl4 wow fadeInUp"> -->
-            <div class="work_slider__slider js_sl4">
-                <?php foreach( $portfolio['items'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
-                    <?php setup_postdata($post); ?>
-                    <div class="work_slider__slid">
-                        <div class="work_slider__images">
-                            <div class="work_slider__date"><?= get_the_date(); ?></div>
-                            <?
-                                $image = get_field('image');
-                                $size = 'large';
-                                $alt = $image['alt'];
-                                $thumb = $image['sizes'][ $size ];
+            <div class="work_slider__slider work_slider__slider--js glide">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                        <?php foreach( $portfolio['items'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
+                            <?php setup_postdata($post); ?>
+                            <div class="work_slider__slid">
+                                <div class="work_slider__images">
+                                    <div class="work_slider__date"><?= get_the_date(); ?></div>
+                                    <?
+                                        $image = get_field('image');
+                                        $size = 'large';
+                                        $alt = $image['alt'];
+                                        $thumb = $image['sizes'][ $size ];
 
-                                if( $image ):
-                            ?>
-                                <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
-                            <?endif; ?>
-                        </div>
-                        <div class="work_slider__info">
-                            <a href="#" class="work_slider__tit"><? the_title(); ?></a>
-                            <div class="work_slider__text"><?= get_field('description') ?></div>
-                            <a href="<? the_permalink(); ?>" class="work_slider__more button button__line">Подробнее</a>
-                        </div>
+                                        if( $image ):
+                                    ?>
+                                        <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+                                    <?endif; ?>
+                                </div>
+                                <div class="work_slider__info">
+                                    <a href="#" class="work_slider__tit"><? the_title(); ?></a>
+                                    <div class="work_slider__text"><?= get_field('description') ?></div>
+                                    <a href="<? the_permalink(); ?>" class="work_slider__more button button__line">Подробнее</a>
+                                </div>
+                            </div>
+                        <?php }; ?>
+                        <?php wp_reset_postdata(); // ВАЖНО - сбросьте значение $post object чтобы избежать ошибок в дальнейшем коде ?>
                     </div>
-                <?php }; ?>
-                <?php wp_reset_postdata(); // ВАЖНО - сбросьте значение $post object чтобы избежать ошибок в дальнейшем коде ?>
+                </div>
             </div>
         </div>
     <? }; ?>
@@ -272,9 +279,9 @@ $seo_block = get_field('seo_block');
         <div class="main_product__in center_block">
             <!-- <div class="main_product__top wow fadeInUp"> -->
             <div class="main_product__top">
-                <div class="main_product__title">Товары нашего магазина</div>
+                <div class="main_product__title"><?= do_shortcode('[product_count]') - 4; ?> Товары нашего магазина</div>
                 <div class="main_product__buttons">
-                    <div class="button button__all-arrow prod_prev">
+                    <div class="button button__all-arrow prod_prev" :class="{'isDisabled': prodBlock.index === 0}" @click.prevent="prodBlock.slider.go('<')">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -285,7 +292,7 @@ $seo_block = get_field('seo_block');
                                 fill="#333333" />
                         </svg>
                     </div>
-                    <div class="button button__all-arrow prod_next">
+                    <div class="button button__all-arrow prod_next" :class="{'isDisabled': prodBlock.index === <?= do_shortcode('[product_count]') - 4; ?>}" @click.prevent="prodBlock.slider.go('>')">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -305,7 +312,7 @@ $seo_block = get_field('seo_block');
                 </div>
             </div>
             <!-- <div class="main_product__bottom js_sl7 wow fadeInUp"> -->
-            <div class="main_product__bottom js_sl7">
+            <div class="main_product__bottom main_product__bottom--js glide">
                 <?= do_shortcode('[products]'); ?>
             </div>
         </div>
@@ -317,7 +324,7 @@ $seo_block = get_field('seo_block');
                 <!-- <div class="rev_block__title wow fadeInUp"></div> -->
                 <div class="rev_block__title"><?= $reviews['title']; ?></div>
                 <!-- <div class="button button__all-arrow rev_prev wow fadeInUp"> -->
-                <div class="button button__all-arrow rev_prev">
+                <div class="button button__all-arrow rev_prev" :class="{'isDisabled': revBlock.index === 0}" @click.prevent="revBlock.slider.go('<')">
                     <svg class="ln">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>
@@ -329,7 +336,7 @@ $seo_block = get_field('seo_block');
                     </svg>
                 </div>
                 <!-- <div class="button button__all-arrow rev_next wow fadeInUp"> -->
-                <div class="button button__all-arrow rev_next">
+                <div class="button button__all-arrow rev_next" :class="{'isDisabled': revBlock.index === <?= count($reviews['spisok']) - 3; ?>}" @click.prevent="revBlock.slider.go('>')">
                     <svg class="ln">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>
@@ -342,67 +349,71 @@ $seo_block = get_field('seo_block');
                 </div>
             </div>
             <!-- <div class="rev_block__slider js_sl3 wow fadeInUp"> -->
-            <div class="rev_block__slider js_sl3">
-                <?php foreach( $reviews['spisok'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
-                    <?php setup_postdata($post); ?>
-                    <div class="rev_block__block">
-                        <div class="rev_block__block--top">
-                            <div class="rev_block__block--img">
-                                <?php echo get_the_post_thumbnail( $post->ID, 'thumbnail' ); ?>
-                            </div>
-                            <div class="rev_block__block--info">
-                                <div class="rev_block__block--name"><? the_title(); ?></div>
-                                <div class="rev_block__block--date"><?= get_the_date(); ?></div>
-                            </div>
-                        </div>
-                        <div class="rev_block__block--txt"><?= get_the_content(); ?></div>
-                        <div class="rev_block__block--bottom">
-                            <div class="rev_block__block--l-side">
-                                <span>Источник:</span>
-                                <a href="<?= get_field('source_link'); ?>">
-                                    <?
-                                        $image = get_field('source');
-                                        $size = 'thumbnail';
-                                        $alt = $image['alt'];
-                                        $thumb = $image['sizes'][ $size ];
+            <div class="rev_block__slider rev_block__slider--js glide">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                        <?php foreach( $reviews['spisok'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
+                            <?php setup_postdata($post); ?>
+                            <div class="rev_block__block">
+                                <div class="rev_block__block--top">
+                                    <div class="rev_block__block--img">
+                                        <?php echo get_the_post_thumbnail( $post->ID, 'thumbnail' ); ?>
+                                    </div>
+                                    <div class="rev_block__block--info">
+                                        <div class="rev_block__block--name"><? the_title(); ?></div>
+                                        <div class="rev_block__block--date"><?= get_the_date(); ?></div>
+                                    </div>
+                                </div>
+                                <div class="rev_block__block--txt"><?= get_the_content(); ?></div>
+                                <div class="rev_block__block--bottom">
+                                    <div class="rev_block__block--l-side">
+                                        <span>Источник:</span>
+                                        <a href="<?= get_field('source_link'); ?>">
+                                            <?
+                                                $image = get_field('source');
+                                                $size = 'thumbnail';
+                                                $alt = $image['alt'];
+                                                $thumb = $image['sizes'][ $size ];
 
-                                        if( $image ):
-                                    ?>
-                                        <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
-                                    <?endif; ?>
-                                </a>
+                                                if( $image ):
+                                            ?>
+                                                <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+                                            <?endif; ?>
+                                        </a>
+                                    </div>
+                                    <div class="rev_block__block--r-side">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
+                                                fill="#F1752A" />
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
+                                                fill="#F1752A" />
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
+                                                fill="#F1752A" />
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
+                                                fill="#F1752A" />
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
+                                                fill="#F1752A" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="rev_block__block--r-side">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
-                                        fill="#F1752A" />
-                                </svg>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
-                                        fill="#F1752A" />
-                                </svg>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
-                                        fill="#F1752A" />
-                                </svg>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
-                                        fill="#F1752A" />
-                                </svg>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.202 1.05662C10.6021 0.526842 11.3979 0.526843 11.798 1.05662L15.2601 5.64079C15.3798 5.79923 15.5439 5.91846 15.7315 5.98329L21.1612 7.85937C21.7887 8.07619 22.0346 8.83301 21.6544 9.37724L18.3644 14.0865C18.2507 14.2493 18.188 14.4422 18.1843 14.6407L18.0779 20.3843C18.0657 21.0481 17.4219 21.5159 16.7868 21.3224L11.2913 19.6487C11.1014 19.5909 10.8986 19.5909 10.7087 19.6487L5.21323 21.3224C4.57815 21.5159 3.93435 21.0481 3.92205 20.3843L3.81565 14.6407C3.81198 14.4422 3.74929 14.2493 3.63559 14.0865L0.345632 9.37724C-0.0345753 8.83301 0.211334 8.07618 0.838819 7.85937L6.26848 5.98329C6.45613 5.91846 6.62024 5.79923 6.73989 5.64079L10.202 1.05662Z"
-                                        fill="#F1752A" />
-                                </svg>
-                            </div>
-                        </div>
+                        <?php }; ?>
+                        <?php wp_reset_postdata(); // ВАЖНО - сбросьте значение $post object чтобы избежать ошибок в дальнейшем коде ?>
                     </div>
-                <?php }; ?>
-                <?php wp_reset_postdata(); // ВАЖНО - сбросьте значение $post object чтобы избежать ошибок в дальнейшем коде ?>
+                </div>
             </div>
         </div>
     <? }; ?>
@@ -411,23 +422,27 @@ $seo_block = get_field('seo_block');
             <!-- <div class="about_block__top wow fadeInUp"> -->
             <div class="about_block__top">
                 <div class="about_block__l-side">
-                    <div class="about_block__slider js_sl2">
-                        <? foreach($seo_block['galereya'] as $item) { ?>
-                            <div class="about_block__img">
-                                <?
-                                    $image = $item['image'];
-                                    $size = 'large';
-                                    $alt = $image['alt'];
-                                    $thumb = $image['sizes'][ $size ];
+                    <div class="about_block__slider about_block__slider--js glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <div class="glide__slides">
+                                <? foreach($seo_block['galereya'] as $item) { ?>
+                                    <div class="about_block__img">
+                                        <?
+                                            $image = $item['image'];
+                                            $size = 'large';
+                                            $alt = $image['alt'];
+                                            $thumb = $image['sizes'][ $size ];
 
-                                    if( $image ):
-                                ?>
-                                    <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
-                                <?endif; ?>
+                                            if( $image ):
+                                        ?>
+                                            <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+                                        <?endif; ?>
+                                    </div>
+                                <? }; ?>
                             </div>
-                        <? }; ?>
+                        </div>
                     </div>
-                    <div class="js_sl1_prev button button__all-arrow">
+                    <div class="js_sl1_prev button button__all-arrow" @click="aboutBlock.slider.go('<')">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -438,7 +453,7 @@ $seo_block = get_field('seo_block');
                                 fill="white" />
                         </svg>
                     </div>
-                    <div class="js_sl1_next button button__all-arrow">
+                    <div class="js_sl1_next button button__all-arrow" @click="aboutBlock.slider.go('>')">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -467,9 +482,9 @@ $seo_block = get_field('seo_block');
                 </div>
             </div>
             <!-- <div class="about_block__bottom slider-nav wow fadeInUp"> -->
-            <div class="about_block__bottom slider-nav">
-                <? foreach($seo_block['galereya'] as $item) { ?>
-                    <div class="about_block__blockss">
+            <div class="about_block__bottom slider-nav" style="--count: <?= count($seo_block['galereya']); ?>">
+                <? foreach($seo_block['galereya'] as $key=>$item) { ?>
+                    <div class="about_block__blockss" :class="{'isActive' : aboutBlock.index == <?= $key; ?>}" @click="aboutBlock.slider.go('=<?= $key; ?>')">
                         <?
                             $image = $item['image'];
                             $size = 'medium';
