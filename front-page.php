@@ -263,6 +263,13 @@ get_header();
                     <div class="more_block__title"><?= $text_block['title']; ?></div>
                     <!-- <div class="more_block__text wow fadeInUp"></div> -->
                     <div class="more_block__text"><?= $text_block['text']; ?></div>
+                    <div class="more_block__video">
+                        <video muted autoplay  poster="<?php echo esc_url($thumb); ?>">
+                            <source src="<?= $text_block['video']; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                            Тег video не поддерживается вашим браузером. 
+                            <a href="<?= $text_block['video']; ?>">Скачайте видео</a>.
+                        </video>
+                    </div>
                     <!-- <a href="" class="more_block__btn button button__all-line wow fadeInUp"> -->
                     <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line">
                         <svg>
