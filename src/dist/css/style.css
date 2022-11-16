@@ -1488,7 +1488,6 @@ body .single_variation_wrap tr .value {
 body .block_right_status {
   width: 411px;
   margin-left: 20px;
-  position: relative;
 }
 
 body .block_right_status .shipping-calculator-button {
@@ -1500,7 +1499,8 @@ body .block_right_status--item {
   padding: 40px 30px;
   background: #F5F5F6;
   position: sticky;
-  top: 10px;
+  position: -webkit-sticky;
+  top: 0;
 }
 
 body .block_right_status #order_review_heading {
