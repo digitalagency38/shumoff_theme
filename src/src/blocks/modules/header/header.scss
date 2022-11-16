@@ -141,7 +141,8 @@
         margin-left: 40px;
         @media all and (max-width: 1023px) {
             flex: none;
-            margin-left: 20px;
+            padding-left: 20px;
+            margin-left: 0;
         }
     }
     &__tel {

@@ -7340,7 +7340,8 @@ body.woocommerce-order-received .thanks_cart {
 
   .header__info {
     flex: none;
-    margin-left: 20px;
+    padding-left: 20px;
+    margin-left: 0;
   }
 
   .header__tel {
