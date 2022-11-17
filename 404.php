@@ -29,8 +29,10 @@ $categories = get_terms( 'product_cat');
 				<div class="page_404__tit">Попробуйте поискать здесь:</div>
 				<nav class="page_404__menu">
 					<ul>
-						<? foreach ( $categories as $category ) { ?>  
-							<li><a href="<?= esc_url( get_term_link( $category ) ); ?>"><?= $category->name; ?></a></li>
+						<? foreach ( $categories as $category ) { ?> 
+							<? if ($category->name != 'Misc'): ?>
+								<li><a href="<?= esc_url( get_term_link( $category ) ); ?>"><?= $category->name; ?></a></li>
+							<? endif; ?>
 						<? }; ?>
 					</ul>
 				</nav>

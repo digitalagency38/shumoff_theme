@@ -50,23 +50,25 @@ $site_phone = get_option('site_phone');
 								<div class="burger-body__catalog" @click="headerBlock.catalogClick.apply(headerBlock)" :class="{'isOpened': headerBlock.isCategoriesOpened}">каталог</div>
 								<div class="burger-body__cat-block" :class="{'isOpened': headerBlock.isCategoriesOpened}">
 									<div class="header__cat--blocks">
-										<? foreach ( $categories as $category ) { ?>                            
-											<a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block">
-											<?
-												$thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
-												$image = wp_get_attachment_image( $thumbnail_id, 'large', false, array( "class" => "img-responsive" ) );
+										<? foreach ( $categories as $category ) { ?>    
+											<? if ($category->name != 'Misc'): ?>                        
+												<a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block">
+												<?
+													$thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+													$image = wp_get_attachment_image( $thumbnail_id, 'large', false, array( "class" => "img-responsive" ) );
 
-												if ($image) {
-											?>
-												<div class="header__cat--img">
-													<?= $image ?>
-												</div>
-												<? }; ?>
-												<div class="header__cat--info">
-													<div class="header__cat--title"><?= $category->name; ?> <sup><?= $category->count; ?></sup></div>
-													<div class="header__cat--price">от 350 ₽</div>
-												</div>
-											</a>
+													if ($image) {
+												?>
+													<div class="header__cat--img">
+														<?= $image ?>
+													</div>
+													<? }; ?>
+													<div class="header__cat--info">
+														<div class="header__cat--title"><?= $category->name; ?> <sup><?= $category->count; ?></sup></div>
+														<div class="header__cat--price">от 350 ₽</div>
+													</div>
+												</a>
+											<? endif; ?>
 										<? }; ?>
 									</div>
 								</div>
@@ -153,23 +155,25 @@ $site_phone = get_option('site_phone');
 			<div class="header__cat" v-if="sizes.window > 1023" :class="{'isOpened': headerBlock.isCategoriesOpened}">
 				<div class="header__cat--item center_block">
 					<div class="header__cat--blocks">
-						<? foreach ( $categories as $category ) { ?>  
-							<a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block">
-							<?
-								$thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
-								$image = wp_get_attachment_image( $thumbnail_id, 'medium', false, array( "class" => "img-responsive" ) );
+						<? foreach ( $categories as $category ) { ?> 
+							<? if ($category->name != 'Misc'): ?> 
+								<a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block">
+								<?
+									$thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+									$image = wp_get_attachment_image( $thumbnail_id, 'medium', false, array( "class" => "img-responsive" ) );
 
-								if ($image) {
-							?>
-								<div class="header__cat--img">
-									<?= $image ?>
-								</div>
-								<? }; ?>
-								<div class="header__cat--info">
-									<div class="header__cat--title"><?= $category->name; ?> <sup><?= $category->count; ?></sup></div>
-									<div class="header__cat--price">от 350 ₽</div>
-								</div>
-							</a>
+									if ($image) {
+								?>
+									<div class="header__cat--img">
+										<?= $image ?>
+									</div>
+									<? }; ?>
+									<div class="header__cat--info">
+										<div class="header__cat--title"><?= $category->name; ?> <sup><?= $category->count; ?></sup></div>
+										<div class="header__cat--price">от 350 ₽</div>
+									</div>
+								</a>
+							<? endif; ?>
 						<? }; ?>
 					</div>
 				</div>

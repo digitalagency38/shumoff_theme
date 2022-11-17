@@ -42,7 +42,7 @@ const ProdBlock = class ProdBlock {
         this.slider.go(pattern)
     }
     init() {
-        if (!document.querySelector('.work_slider__slider--js.glide')) return;
+        if (!document.querySelector('.main_product__bottom--js.glide')) return;
         this.initSlider();
         
     }

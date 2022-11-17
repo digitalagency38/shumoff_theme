@@ -136,7 +136,9 @@ get_header();
                     <nav class="cat_block__menu">
                         <ul>
                             <? foreach ( $categories as $category ) { ?>
-                                <li><a href="<?= esc_url( get_term_link( $category ) ); ?>"><?= $category->name; ?> <sup><?= $category->count; ?></sup></a></li>
+                                <? if ($category->name != 'Misc'): ?>
+                                    <li><a href="<?= esc_url( get_term_link( $category ) ); ?>"><?= $category->name; ?> <sup><?= $category->count; ?></sup></a></li>
+                                <? endif; ?>
                             <? }; ?>
                         </ul>
                     </nav>

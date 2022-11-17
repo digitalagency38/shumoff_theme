@@ -546,3 +546,7 @@ function product_count_shortcode( ) {
 	return $count_posts->publish;
 }
 add_shortcode( 'product_count', 'product_count_shortcode' );
+
+
+add_filter( 'woocommerce_product_categories_widget_dropdown_args', 'rv_exclude_wc_widget_categories' );
+
