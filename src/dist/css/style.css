@@ -3373,14 +3373,14 @@ body.woocommerce-order-received .thanks_cart {
   overflow: hidden;
   display: inline-block;
   position: relative;
-  padding: 2px 0px;
+  padding: 2px 10px;
 }
 
 .header__menu-bot > ul > li > a:after {
   position: absolute;
   content: "";
   height: 2px;
-  background: #111111;
+  background: #E8610F;
   transform: scaleX(0) translateZ(0);
   width: 100%;
   left: 0;
@@ -6195,10 +6195,27 @@ body.woocommerce-order-received .thanks_cart {
   font-size: 18px;
   line-height: 150%;
   color: #111111;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cart_block__block--tit .variation {
+  margin: 0;
+  display: inline-block;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+}
+
+.cart_block__block--tit .variation dd {
+  margin-left: 3px;
 }
 
 .cart_block__block--tit a {
   color: #111111;
+  margin-right: 4px;
+  display: inline-block;
   text-decoration: none;
 }
 

@@ -240,12 +240,12 @@
                     overflow: hidden;
                     display: inline-block;
                     position: relative;
-                    padding: 2px 0px;
+                    padding: 2px 10px;
                     &:after {
                         position: absolute;
                         content: '';
                         height: 2px;
-                        background: #111111;
+                        background: #E8610F;
                         transform: scaleX(0) translateZ(0);
                         width: 100%;
                         left: 0;

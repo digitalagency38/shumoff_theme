@@ -10,15 +10,27 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main center_block">
+		<div class="breadcrums">
+			<div class="breadcrums__item">
+				<div class="breadcrums__in">
+					<?php
+						if(function_exists('bcn_display'))
+						{
+							bcn_display();
+						}
+					?>
+				</div>
+			</div>
+		</div>
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<header class="page-header page_top">
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'shumof' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Результаты поиска для: %s', 'shumof' ), '' . get_search_query() . '' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
