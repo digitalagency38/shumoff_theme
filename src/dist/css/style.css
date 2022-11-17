@@ -3373,7 +3373,9 @@ body.woocommerce-order-received .thanks_cart {
   overflow: hidden;
   display: inline-block;
   position: relative;
-  padding: 2px 10px;
+  padding: 2px 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .header__menu-bot > ul > li > a:after {
