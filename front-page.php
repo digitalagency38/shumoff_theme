@@ -20,6 +20,10 @@ get_header();
     $text_block = get_field('text_block');
     $reviews = get_field('reviews');
     $seo_block = get_field('seo_block');
+    $site_phone = get_option('site_phone');
+$site_address = get_option('site_address');
+$site_worktime = get_option('site_worktime');
+$site_email = get_option('site_email');
 ?>
 
 <main class="content">
@@ -142,7 +146,7 @@ get_header();
                             <? }; ?>
                         </ul>
                     </nav>
-                    <a href="<?= get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="cat_block__btn button button__all-line">
+                    <a href="/katalog" class="cat_block__btn button button__all-line">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -511,35 +515,36 @@ get_header();
     <? }; ?>
     <div class="map_block center_block">
         <div class="map_block__in">
-            <!-- <div class="map_block__l-side wow fadeInUp"> -->
             <div class="map_block__l-side">
                 <div class="mapBlock" id="map" style="height: 100%;"></div>
             </div>
             <div class="map_block__r-side">
-                <!-- <div class="map_block__title wow fadeInUp">Контакты</div> -->
                 <div class="map_block__title">Контакты</div>
-                <!-- <div class="map_block__info wow fadeInUp"> -->
-                <div class="map_block__info">
-                    <span>Адрес</span>
-                    г. Иваново, ул. Лежневская, д. 111
-                </div>
-                <!-- <div class="map_block__info wow fadeInUp"> -->
-                <div class="map_block__info">
-                    <span>Телефон</span>
-                    <a href="tel:74932581403">+7 (4932) 58-14-03</a>
-                </div>
-                <!-- <div class="map_block__info wow fadeInUp"> -->
-                <div class="map_block__info">
-                    <span>Время работы</span>
-                    Пн - Пт: 09:00 - 19:00 <br> Сб - Вс: 09:00 - 15:00
-                </div>
-                <!-- <div class="map_block__info wow fadeInUp"> -->
-                <div class="map_block__info">
-                    <span>Почта</span>
-                    <a href="mailto:pro@shumoff.biz">pro@shumoff.biz</a>
-                </div>
-                <!-- <a href="#" class="map_block__btn button button__all-line wow fadeInUp"> -->
-                <a href="#" class="map_block__btn button button__all-line">
+                <?if (!empty($site_address)):?>
+                    <div class="map_block__info">
+                        <span>Адрес</span>
+                        <?= $site_address; ?>
+                    </div>
+                <?endif;?>
+                <?if (!empty($site_phone)):?>
+                    <div class="map_block__info">
+                        <span>Телефон</span>
+                        <a href="tel:<?= $site_phone; ?>"><?= $site_phone; ?></a>
+                    </div>
+                <?endif;?>
+                <?if (!empty($site_worktime)):?>
+                    <div class="map_block__info">
+                        <span>Время работы</span>
+                        <?= $site_worktime; ?>
+                    </div>
+                <?endif;?>
+                <?if (!empty($site_email)):?>
+                    <div class="map_block__info">
+                        <span>Почта</span>
+                        <a href="mailto:<?= $site_email; ?>"><?= $site_email; ?></a>
+                    </div>
+                <?endif;?>
+                <a href="/kontakty" class="map_block__btn button button__all-line">
                     <svg>
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>

@@ -21,6 +21,10 @@ $models = get_posts( $args );
 
 $models_data = array();
 
+$footer_menu_1 = get_option('footer_menu_1');
+$footer_menu_2 = get_option('footer_menu_2');
+$footer_menu_3 = get_option('footer_menu_3');
+
 foreach( $models as $post) {
 	setup_postdata($post);
 	array_push($models_data, (object) array(
@@ -57,7 +61,7 @@ wp_reset_postdata();
 				</div>
 				<nav class="footer__menu">
 					<div class="footer__menu--item">
-						<div class="footer__menu--tit">Продукция</div>
+						<div class="footer__menu--tit"><?= $footer_menu_1 ?></div>
 						<?
 							wp_nav_menu( [
 								'theme_location'  => '',
@@ -80,7 +84,7 @@ wp_reset_postdata();
 						?>
 					</div>
 					<div class="footer__menu--item">
-						<div class="footer__menu--tit">Клиентам</div>
+						<div class="footer__menu--tit"><?= $footer_menu_2 ?></div>
 						<?
 							wp_nav_menu( [
 								'theme_location'  => '',
@@ -103,7 +107,7 @@ wp_reset_postdata();
 						?>
 					</div>
 					<div class="footer__menu--item">
-						<div class="footer__menu--tit">Техническая поддержка</div>
+						<div class="footer__menu--tit"><?= $footer_menu_3 ?></div>
 						<?
 							wp_nav_menu( [
 								'theme_location'  => '',

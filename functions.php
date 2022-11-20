@@ -268,11 +268,10 @@ register_post_type( 'model', $model_args );
 
 
 
-
-/**
- * Добавляет страницу настройки темы в админку Вордпресса
- */
 function mytheme_customize_register( $wp_customize ) {
+	
+
+	
 	/*
 	Добавляем секцию в настройки темы
 	*/
@@ -284,6 +283,83 @@ function mytheme_customize_register( $wp_customize ) {
 			'title' => 'Данные сайта',
 			'capability' => 'edit_theme_options',
 			'description' => "Тут можно указать данные сайта"
+		)
+	);
+
+
+
+	/*
+	Добавляем поле Телефон site_phone
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'footer_menu_1',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'footer_menu_1_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Заголовок меню 1",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'footer_menu_1'
+		)
+	);
+
+	/*
+	Добавляем поле Телефон site_phone
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'footer_menu_2',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'footer_menu_2_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Заголовок меню 2",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'footer_menu_2'
+		)
+	);
+
+	/*
+	Добавляем поле Телефон site_phone
+	*/
+	$wp_customize->add_setting(
+		// ID
+		'footer_menu_3',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		// ID
+		'footer_menu_3_control',
+		// Arguments array
+		array(
+			'type' => 'text',
+			'label' => "Заголовок меню 3",
+			'section' => 'data_site_section',
+			// This last one must match setting ID from above
+			'settings' => 'footer_menu_3'
 		)
 	);
 
