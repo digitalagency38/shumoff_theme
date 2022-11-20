@@ -215,7 +215,6 @@
         input {
             &[type=text], &[type=tel] {
                 background: #F5F5F6;
-                width: calc(50% - 10px);
                 padding: 15px;
                 font-style: normal;
                 font-weight: 400;
@@ -223,8 +222,8 @@
                 background: #fff;
                 color: #333333;
                 height: 49px;
-                margin-bottom: 20px;
                 border: 1px solid #DFDEE2;
+                width: 100%;
                 &:focus {
                     border-color: #111;
                 }
@@ -239,7 +238,6 @@
             background: none;
             cursor: pointer;
             margin-left: auto;
-            max-width: 376px;
             padding: 0;
             width: 100%;
             span {

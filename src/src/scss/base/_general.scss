@@ -1693,3 +1693,65 @@ body {
     padding: 0;
     margin: 0;
 }
+.page_service__form--item {
+    .wpcf7-form-control-wrap {
+        display: flex;
+        align-items: center;
+    }
+    .wpcf7-list-item {
+        margin-bottom: 0 !important;
+    }
+    form {
+        width: 100%;
+        & > p {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            @media all and (max-width: 840px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}
+.wpcf7-acceptance {
+    .wpcf7-list-item {
+        margin-left: 0;
+        margin-bottom: 20px;
+        
+        label {
+            cursor: pointer;
+            .wpcf7-list-item-label {
+                display: flex;
+                align-items: center;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px !important;
+                line-height: 150% !important;
+                color: #333333 !important;
+                a {
+                    color: #F1752A;
+                    margin-left: 10px;
+                }
+            }
+            [type="checkbox"] {
+                order: -2;
+                display: none;
+            }
+            .check {
+                content: "";
+                order: -1;
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.04348 1.04348H22.9565V22.9565H1.04348V19H0V24H24V0H0V5H1.04348V1.04348Z' fill='%23111111'/%3E%3C/svg%3E%0A") 50%/100% no-repeat;
+                margin-right: 10px;
+                left: 0px;
+            }
+            input[type="checkbox"]:checked ~ .wpcf7-list-item-label .check {
+                background: #F1752A url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.05732 8.04216L1.65043 5.0943L-2.22679e-07 5.0943L4.05732 10L12 5.24537e-07L10.3496 4.52394e-07L4.05732 8.04216Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
+            }
+        }
+        
+    }
+}

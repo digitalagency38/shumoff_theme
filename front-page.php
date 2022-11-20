@@ -270,7 +270,7 @@ $site_email = get_option('site_email');
                     <!-- <div class="more_block__text wow fadeInUp"></div> -->
                     <div class="more_block__text"><?= $text_block['text']; ?></div>
                     <div class="more_block__video">
-                        <video muted autoplay  poster="<?php echo esc_url($thumb); ?>">
+                        <video muted autoplay loop poster="<?php echo esc_url($thumb); ?>">
                             <source src="<?= $text_block['video']; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                             Тег video не поддерживается вашим браузером. 
                             <a href="<?= $text_block['video']; ?>">Скачайте видео</a>.
