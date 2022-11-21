@@ -25,6 +25,7 @@ import ExpBlock from '../blocks/modules/exp_block/exp_block.js';
 import ServBlock from '../blocks/modules/page_service/page_service.js';
 import ProductBlock from '../blocks/modules/product_block/product_block.js';
 import FixedBlock from '../blocks/modules/fixed_panel/fixed_panel.js';
+import MainWork from '../blocks/modules/main_work/main_work.js';
 // import Calculator from '../blocks/modules/calc/calc.js';
 
 
@@ -69,6 +70,7 @@ window.app = new Vue({
         servBlock: new ServBlock(),
         productBlock: new ProductBlock(),
         fixedBlock: new FixedBlock(),
+        mainWork: new MainWork(),
         get: loadPortfolioGetParams()
         // calculator: new Calculator(),
     }),

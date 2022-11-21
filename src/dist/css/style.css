@@ -2820,6 +2820,7 @@ body.woocommerce-order-received .thanks_cart {
   width: 100%;
   pointer-events: none;
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
 }
 
 .button__all-line rect {
@@ -6400,6 +6401,10 @@ body.woocommerce-order-received .thanks_cart {
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 40px;
+}
+
+.main_work__slid:nth-child(n+7) {
+  display: none;
 }
 
 .main_work__images {
