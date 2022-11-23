@@ -23,7 +23,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-
+		
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header page_top">
@@ -34,20 +34,25 @@ get_header();
 					?>
 				</h1>
 			</header><!-- .page-header -->
+			<div class="catalog__wrapper">
+				<div class="catalog__wrapper_in" style="--item_in_line:3;">
+				<?php
+				/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+						/**
+						 * Run the loop for the search to output the results.
+						 * If you want to overload this in a child theme then include a file
+						 * called content-search.php and that will be used instead.
+						 */
+						get_template_part( 'template-parts/content', 'search' );
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile;
+					endwhile;
+				?>
+				</div>
+			</div>
+		<?php
 
 			the_posts_navigation();
 
