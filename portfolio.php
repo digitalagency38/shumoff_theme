@@ -55,7 +55,7 @@ function url(){
         </div>
         <div class="main_work__filter--refresh button button__line" @click="clearFilter">Сбросить</div>
     </div>
-        <div class="main_work__blocks">
+        <div class="main_work__blocks" :style="`--blocksShowed: ${mainWork.vievedItems};`">
         <?php foreach( $portfolio as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
             <?php setup_postdata($post); ?>
                 <div class="main_work__slid wow zoomInUp" data-vendor="<?= get_field('parametry')['marka']; ?>" data-model="<?= get_field('parametry')['model']; ?>" v-if="('<?= get_field('parametry')['marka']; ?>' == selectedBrand && '<?= get_field('parametry')['model']; ?>' == selectedModel) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == undefined) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == 'Все') || (selectedBrand == 'Все' && selectedModel == 'Все')">
@@ -81,14 +81,12 @@ function url(){
                 <?php }; ?>
             <?php wp_reset_postdata(); // ВАЖНО - сбросьте значение $post object чтобы избежать ошибок в дальнейшем коде ?>
         </div>
-        <? if (count($portfolio) > 6) { ?>
-            <div class="main_work__all button button__all-line">
-                <svg>
-                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                </svg>
-                <span>Загрузить ещё</span>
-            </div>
-        <? }; ?>
+        <div class="main_work__all button button__all-line" @click="mainWork.showMore.apply(mainWork)" v-if="mainWork.vievedItems < mainWork.itemsCount">
+            <svg>
+                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+            </svg>
+            <span>Загрузить ещё</span>
+        </div>
     </div>
 </main>
 
