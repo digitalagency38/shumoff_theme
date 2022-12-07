@@ -17,10 +17,10 @@ get_header();
 
 <main id="primary" class="content">
 	<div class="inner_page center_block">
-		<div class="inner_page__left">
+		<div class="inner_page__left wow fadeInUp">
 			<? get_sidebar(); ?>
 		</div>
-		<div class="inner_page__right">
+		<div class="inner_page__right wow fadeInDown">
 			<?php
 		if ( have_posts() ) :
 

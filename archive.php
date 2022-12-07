@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<div class="breadcrums center_block">
+<div class="breadcrums center_block wow fadeInUp">
 	<div class="breadcrums__item">
 		<div class="breadcrums__in">
 			<?php
@@ -28,10 +28,10 @@ get_header();
 
 			<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<header class="page-header wow fadeInUp">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				the_archive_title( '<h1 class="page-title wow fadeInUp">', '</h1>' );
+				the_archive_description( '<div class="archive-description wow fadeInUp">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 

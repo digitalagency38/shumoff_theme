@@ -18,7 +18,7 @@ $site_ogrn = get_option('site_ogrn');
 
 
 <main class="content">
-    <div class="breadcrums center_block">
+    <div class="breadcrums center_block wow fadeInUp">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
                 <?php
@@ -32,10 +32,10 @@ $site_ogrn = get_option('site_ogrn');
     </div>
     <div class="contacts center_block">
         <div class="contacts__in">
-            <div class="contacts__l-side">
+            <div class="contacts__l-side wow zoomIn">
                 <div class="mapBlock" id="map2" style="height: 600px;"></div>
             </div>
-            <div class="contacts__r-side">
+            <div class="contacts__r-side wow fadeInUp">
                 <div class="contacts__title">Контакты</div>
                 <?if ($site_address):?>
                     <div class="contacts__info">
@@ -66,7 +66,7 @@ $site_ogrn = get_option('site_ogrn');
     </div>
     <div class="rekv_block center_block">
         <div class="rekv_block__title">Реквизиты</div>
-        <div class="rekv_block__blocks">
+        <div class="rekv_block__blocks wow zoomIn">
             <?if ($site_name):?>
                 <div class="rekv_block__block">
                     <span>Название:</span>

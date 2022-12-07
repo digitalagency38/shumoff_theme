@@ -20,7 +20,7 @@ $site_email = get_option('site_email');
 ?>
 
 <main class="content">
-    <div class="breadcrums center_block">
+    <div class="breadcrums center_block wow fadeInUp">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
                 <?php
@@ -44,11 +44,11 @@ $site_email = get_option('site_email');
                 ?>
                 <div class="page_service__first--item"
                     style="background: url('<?php echo esc_url($thumb); ?>') 50% / cover no-repeat;">
-                    <div class="page_service__first--l-side">
+                    <div class="page_service__first--l-side wow zoomInUp">
                         <div class="page_service__first--title"><?= $first_form_block['title']; ?></div>
                         <div class="page_service__first--text"><?= $first_form_block['text']; ?></div>
                     </div>
-                    <div class="page_service__first--r-side">
+                    <div class="page_service__first--r-side  wow zoomInDown">
                         <div class="page_service__first--form">
                             <div class="page_service__first--tit">Оставьте заявку</div>
                             <?= do_shortcode($first_form_block['form_shortcode']); ?>
@@ -69,7 +69,7 @@ $site_email = get_option('site_email');
         <? }; ?>
         <? if (!empty($prices)) { ?>
             <div class="page_service__info center_block">
-                <div class="page_service__info--l-side">
+                <div class="page_service__info--l-side wow fadeInUp">
                     <div class="page_service__info--title"><?= $prices['title'] ?></div>
                     <div class="page_service__info--list">
                         <?foreach ($prices['list'] as $price):?>
@@ -81,7 +81,7 @@ $site_email = get_option('site_email');
 
                     </div>
                 </div>
-                <div class="page_service__info--r-side">
+                <div class="page_service__info--r-side wow zoomInDown">
                     <?
                         $image = $prices['image'];
                         $size = 'large';
@@ -96,7 +96,7 @@ $site_email = get_option('site_email');
             </div>
         <? }; ?>
         <? if (!empty($form_shortcode)) { ?>
-            <div class="page_service__form center_block">
+            <div class="page_service__form center_block wow zoomInDown">
                 <div class="page_service__form--item">
                     <div class="page_service__form--title">Оставьте заявку</div>
                     <?= do_shortcode($form_shortcode); ?>
@@ -105,16 +105,16 @@ $site_email = get_option('site_email');
         <? }; ?>
         <? if (!empty($questions)) { ?>
             <div class="tabs_blockss center_block">
-                <div class="review__title"><?= $questions['title']; ?></div>
+                <div class="review__title wow zoomInUp"><?= $questions['title']; ?></div>
                 <div class="review">
-                    <div class="review__tabs">
+                    <div class="review__tabs wow fadeInUp">
                         <ul>
                             <?foreach($questions['list'] as $key=>$title):?>
                                 <li class="review__btn<?if ($key == '0'):?> isActive<?endif;?>" id="review__block-<?= $key; ?>"><?= $title['title']; ?></li>
                             <?endforeach;?>
                         </ul>
                     </div>
-                    <div class="review__blocks">
+                    <div class="review__blocks wow zoomInUp">
                         <?foreach($questions['list'] as $key=>$text):?>
                             <div class="review__block review__block-<?= $key; ?><?if ($key == '0'):?> isActive<?endif;?>">
                                 <?= $text['text']; ?>
@@ -129,7 +129,7 @@ $site_email = get_option('site_email');
     <? if (!empty($portfolio)) { ?>
         <div class="work_slider center_block">
             <!-- <div class="work_slider__top wow fadeInUp"> -->
-            <div class="work_slider__top">
+            <div class="work_slider__top wow zoomInDown">
                 <div class="work_slider__title"><?= $portfolio['title']; ?></div>
                 <div class="work_slider__buttons">
                     <div class="button button__all-arrow work_prev" :class="{'isDisabled': workBlock.index === 0}" @click.prevent="workBlock.slider.go('<')">
@@ -163,7 +163,7 @@ $site_email = get_option('site_email');
                 </div>
             </div>
             <!-- <div class="work_slider__slider js_sl4 wow fadeInUp"> -->
-            <div class="work_slider__slider work_slider__slider--js glide">
+            <div class="work_slider__slider work_slider__slider--js glide wow fadeIn">
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides">
                         <?php foreach( $portfolio['items'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
@@ -196,8 +196,8 @@ $site_email = get_option('site_email');
         </div>
     <? }; ?>
     <div class="exp_block center_block">
-        <div class="exp_block__title">Наш опыт</div>
-        <div class="exp_block__slider exp_block__slider--js glide">
+        <div class="exp_block__title  wow zoomIn">Наш опыт</div>
+        <div class="exp_block__slider exp_block__slider--js glide  wow fadeInUp">
             <div class="glide__track" data-glide-el="track">
                 <div class="glide__slides">
                     <a href="#" class="exp_block__block">
@@ -299,7 +299,7 @@ $site_email = get_option('site_email');
                 </div>
             </div>
         </div>
-        <a href="#" class="exp_block__show button button__all-line">
+        <a href="#" class="exp_block__show button button__all-line  wow fadeInUp">
             <svg>
                 <rect x="0" y="0" fill="none" width="100%" height="100%" />
             </svg>
@@ -316,8 +316,8 @@ $site_email = get_option('site_email');
                         $thumb = $image['sizes'][ $size ];
                     ?>
                 <div class="more_block__item" style="background: url('<?php echo esc_url($thumb); ?>') 50% / cover no-repeat;">
-                    <div class="more_block__title"><?= $text_block['title']; ?></div>
-                    <div class="more_block__text"><?= $text_block['text']; ?></div>
+                    <div class="more_block__title  wow zoomInUp"><?= $text_block['title']; ?></div>
+                    <div class="more_block__text wow zoomInUp"><?= $text_block['text']; ?></div>
                     <div class="more_block__video">
                         <video muted autoplay loop poster="<?php echo esc_url($thumb); ?>">
                             <source src="<?= $text_block['video']; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
@@ -325,7 +325,7 @@ $site_email = get_option('site_email');
                             <a href="<?= $text_block['video']; ?>">Скачайте видео</a>.
                         </video>
                     </div>
-                    <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line">
+                    <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line wow zoomInUp">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -338,7 +338,7 @@ $site_email = get_option('site_email');
     <div class="main_product">
         <div class="main_product__in center_block">
             <!-- <div class="main_product__top wow fadeInUp"> -->
-            <div class="main_product__top">
+            <div class="main_product__top wow fadeInUp">
                 <div class="main_product__title"><?= do_shortcode('[product_count]') - 4; ?> Товары нашего магазина</div>
                 <div class="main_product__buttons">
                     <div class="button button__all-arrow prod_prev" :class="{'isDisabled': prodBlock.index === 0}" @click.prevent="prodBlock.slider.go('<')">
@@ -372,7 +372,7 @@ $site_email = get_option('site_email');
                 </div>
             </div>
             <!-- <div class="main_product__bottom js_sl7 wow fadeInUp"> -->
-            <div class="main_product__bottom main_product__bottom--js glide">
+            <div class="main_product__bottom main_product__bottom--js glide  wow fadeInUp">
                 <?= do_shortcode('[products]'); ?>
             </div>
         </div>
@@ -380,10 +380,10 @@ $site_email = get_option('site_email');
     <? if (!empty($contacts)) { ?>
         <div class="map_block center_block">
             <div class="map_block__in">
-                <div class="map_block__l-side">
+                <div class="map_block__l-side  wow fadeInLeft">
                     <div class="mapBlock" id="map" style="height: 100%;"></div>
                 </div>
-                <div class="map_block__r-side">
+                <div class="map_block__r-side  wow fadeInUp">
                     <div class="map_block__title"><?= $contacts['title']; ?></div>
                     <?if (!empty($site_address)):?>
                         <div class="map_block__info">

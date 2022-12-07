@@ -38,7 +38,7 @@ $site_phone = get_option('site_phone');
 	</div>
 		<header class="header">
 			<div class="header__in center_block">
-				<div class="header__top">
+				<div class="header__top wow fadeInDown">
 					<div class="site-panel-wrap" v-if="sizes.window < 1023">
 						<div class="burger-wrap" :class="{'opened': headerBlock.isBurgerOpened}">
 							<div class="burger-btn" @click="headerBlock.burgCatClick.apply(headerBlock)" :class="{'isOpened': headerBlock.isBurgerOpened}"></div>
@@ -129,7 +129,7 @@ $site_phone = get_option('site_phone');
 						<a href="#" class="header__call button button__link">Заказать звонок</a>
 					</div>
 				</div>
-				<div class="header__bottom">
+				<div class="header__bottom wow fadeInUp">
 					<?
 						wp_nav_menu( [
 							'theme_location'  => '',

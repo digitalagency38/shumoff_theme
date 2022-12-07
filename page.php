@@ -17,7 +17,7 @@ $seo_block = get_field('seo_block');
 get_header();
 ?>
     <?if (!is_wc_endpoint_url( 'order-received' )):?>
-        <div class="breadcrums center_block">
+        <div class="breadcrums center_block wow fadeInUp">
             <div class="breadcrums__item">
                 <div class="breadcrums__in">
                     <?php
@@ -31,11 +31,11 @@ get_header();
         </div>
         
         <div class="page_top center_block">
-            <header class="entry-header">
+            <header class="entry-header wow fadeInUp">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
             </header><!-- .entry-header -->
             <?if( is_category() ):?>
-                <div class="page_top__counter">
+                <div class="page_top__counter wow fadeInUp">
                     <?= do_shortcode('[product_count]'); ?> товаров
                 </div>
             <?endif;?>
@@ -46,11 +46,11 @@ get_header();
 	<main id="primary" class="content">
 		<div class="inner_page center_block">
 			<? if( is_product_category() || is_shop() ) { ?>
-				<div class="inner_page__left">
+				<div class="inner_page__left wow fadeInDown">
 					<? get_sidebar(); ?>
 				</div>
 			<? }; ?>
-			<div class="inner_page__right">
+			<div class="inner_page__right wow fadeInUp">
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -70,7 +70,7 @@ get_header();
 	<? if (!empty($seo_block)) { ?>
         <div class="seo_block center_block">
             <div class="seo_block__in">
-                <div class="seo_block__l-side">
+                <div class="seo_block__l-side wow fadeInUp">
                     <?
                         $image = $seo_block['image'];
                         $size = 'large';
@@ -82,7 +82,7 @@ get_header();
                         <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
                     <?php endif; ?>
                 </div>
-                <div class="seo_block__r-side">
+                <div class="seo_block__r-side wow fadeInDown">
                     <div class="seo_block__title"><?= $seo_block['title']; ?></div>
                     <div class="seo_block__text"><?= $seo_block['text']; ?></div>
                 </div>

@@ -12,7 +12,7 @@ $seo_block = get_field('seo_block');
 ?>
 
 <main class="content">
-    <div class="breadcrums center_block">
+    <div class="breadcrums center_block wow fadeInUp">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
                 <?php
@@ -25,12 +25,12 @@ $seo_block = get_field('seo_block');
         </div>
     </div>
     <div class="catalog_block center_block">
-        <h1 class="catalog_block__h1">Категории товаров</h1>
+        <h1 class="catalog_block__h1 wow fadeInUp">Категории товаров</h1>
         <div class="burger-body__cat-block">
             <div class="header__cat--blocks">
                 <? foreach ( $categories as $category ) { ?>
                     <? if ($category->name != 'Misc'): ?>
-                        <a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block">
+                        <a href="<?= esc_url( get_term_link( $category ) ); ?>" class="header__cat--block wow fadeInUp">
                         <?
                             $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
                             $image = wp_get_attachment_image( $thumbnail_id, 'medium', false, array( "class" => "img-responsive" ) );

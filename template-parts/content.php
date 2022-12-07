@@ -19,7 +19,7 @@ if ($type === 'portfolio') {
 
 <?if ($type === 'portfolio'):?>
 <main class="content">
-	<div class="breadcrums center_block">
+	<div class="breadcrums center_block wow fadeInUp">
 		<div class="breadcrums__item">
 			<div class="breadcrums__in">
 				<?php
@@ -164,7 +164,7 @@ if ($type === 'portfolio') {
 <?else:?>
 
 	<main class="content">
-		<div class="breadcrums center_block">
+		<div class="breadcrums center_block wow fadeInUp">
 			<div class="breadcrums__item">
 				<div class="breadcrums__in">
 					<?php

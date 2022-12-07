@@ -74,6 +74,7 @@ window.app = new Vue({
                     showSearch: false
                 });
             });
+            new WOW().init();
         }, 0);
             
         

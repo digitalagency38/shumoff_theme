@@ -26,7 +26,7 @@ function url(){
 ?>
 
 <main class="content фывфывфыв" id="portfolio">
-    <div class="breadcrums center_block">
+    <div class="breadcrums center_block wow fadeInUp">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
                 <?php
@@ -39,15 +39,15 @@ function url(){
         </div>
     </div>
     <div class="main_work center_block">
-        <h1 class="main_work__h1">Посмотрите наши работы</h1>
+        <h1 class="main_work__h1 wow fadeInUp">Посмотрите наши работы</h1>
         <div class="main_work__filter">
-        <div class="main_work__filter--select">
+        <div class="main_work__filter--select wow fadeInUp">
             <span>Выберите марку машины:</span>
             <select v-model="selectedBrand">
                 <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
             </select>
         </div>
-        <div class="main_work__filter--select">
+        <div class="main_work__filter--select wow fadeInUp">
             <span>Выберите модель:</span>
             <select name="" id="single-model" v-model="selectedModel">
                 <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
@@ -58,7 +58,7 @@ function url(){
         <div class="main_work__blocks">
         <?php foreach( $portfolio as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
             <?php setup_postdata($post); ?>
-                <div class="main_work__slid" data-vendor="<?= get_field('parametry')['marka']; ?>" data-model="<?= get_field('parametry')['model']; ?>" v-if="('<?= get_field('parametry')['marka']; ?>' == selectedBrand && '<?= get_field('parametry')['model']; ?>' == selectedModel) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == undefined) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == 'Все') || (selectedBrand == 'Все' && selectedModel == 'Все')">
+                <div class="main_work__slid wow zoomInUp" data-vendor="<?= get_field('parametry')['marka']; ?>" data-model="<?= get_field('parametry')['model']; ?>" v-if="('<?= get_field('parametry')['marka']; ?>' == selectedBrand && '<?= get_field('parametry')['model']; ?>' == selectedModel) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == undefined) || ('<?= get_field('parametry')['marka']; ?>' == selectedBrand && selectedModel == 'Все') || (selectedBrand == 'Все' && selectedModel == 'Все')">
                     <div class="main_work__images">
                         <div class="main_work__date"><?= get_the_date(); ?></div>
                         <?

@@ -61,7 +61,7 @@ $site_email = get_option('site_email');
                         <div class="glide__slides">
                             <? foreach ($mainSlider as $item) { ?>
                                 <div class="first_slider__block">
-                                    <div class="first_slider__l-side">
+                                    <div class="first_slider__l-side wow fadeInUp">
                                         <div class="first_slider__title">
                                             <?= $item['title'] ?>
                                         </div>
@@ -73,7 +73,7 @@ $site_email = get_option('site_email');
                                             <span><?= $item['link_text'] ?></span>
                                         </a>
                                     </div>
-                                    <div class="first_slider__r-side">
+                                    <div class="first_slider__r-side wow fadeInRight">
                                         <?
                                             $image = $item['image'];
                                             $size = 'large';
@@ -90,7 +90,7 @@ $site_email = get_option('site_email');
                         </div>
                     </div>
                 </div>
-                <div class="first_slider__arrows">
+                <div class="first_slider__arrows wow fadeInUp">
                     <div class="first_slider__arrow--left button button__all-arrow" @click="firstBlock.changeSlide('<').apply(firstBlock)">
                         <svg class="ln">
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
@@ -128,7 +128,7 @@ $site_email = get_option('site_email');
     <div class="cat_block center_block">
         <? if ( $categories ) { ?>
             <!-- <div class="cat_block__block big_block wow fadeInUp"> -->
-            <div class="cat_block__block big_block">
+            <div class="cat_block__block big_block wow fadeInLeft">
                 <div class="cat_block__icon"><img src="<?= get_template_directory_uri();?>/src/dist/img/cat1.svg" alt=""></div>
                 <div class="cat_block__top">
                     <? if (!empty($tiles)) { ?>
@@ -158,7 +158,7 @@ $site_email = get_option('site_email');
         <div class="cat_block__item">
             <? if ($tiles['calc_link']) { ?>
                 <!-- <div class="cat_block__block wow fadeInUp"> -->
-                <div class="cat_block__block">
+                <div class="cat_block__block wow fadeInDown">
                     <div class="cat_block__icon"><img src="<?= get_template_directory_uri();?>/src/dist/img/cat2.svg" alt=""></div>
                     <div class="cat_block__title">Калькулятор</div>
                     <div class="cat_block__text">Рассчитайте стоимость шумоизоляции для вашего автомобиля</div>
@@ -172,7 +172,7 @@ $site_email = get_option('site_email');
             <? }; ?>
             <? if ($tiles['center_link']) { ?>
                 <!-- <div class="cat_block__block wow fadeInUp"> -->
-                <div class="cat_block__block">
+                <div class="cat_block__block wow fadeInUp">
                     <div class="cat_block__icon"><img src="<?= get_template_directory_uri();?>/src/dist/img/cat3.svg" alt=""></div>
                     <div class="cat_block__title">Установочный центр</div>
                     <div class="cat_block__text">Установка шумозоляции в авторизованном центре в Иркутске</div>
@@ -189,7 +189,7 @@ $site_email = get_option('site_email');
     <? if (!empty($portfolio)) { ?>
         <div class="work_slider center_block">
             <!-- <div class="work_slider__top wow fadeInUp"> -->
-            <div class="work_slider__top">
+            <div class="work_slider__top wow fadeInUp">
                 <div class="work_slider__title"><?= $portfolio['title']; ?></div>
                 <div class="work_slider__buttons">
                     <div class="button button__all-arrow work_prev" :class="{'isDisabled': workBlock.index === 0}" @click.prevent="workBlock.slider.go('<')">
@@ -223,7 +223,7 @@ $site_email = get_option('site_email');
                 </div>
             </div>
             <!-- <div class="work_slider__slider js_sl4 wow fadeInUp"> -->
-            <div class="work_slider__slider work_slider__slider--js glide">
+            <div class="work_slider__slider work_slider__slider--js glide wow fadeInUp">
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides">
                         <?php foreach( $portfolio['items'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
@@ -266,10 +266,10 @@ $site_email = get_option('site_email');
                     ?>
                 <div class="more_block__item" style="background: url('<?php echo esc_url($thumb); ?>') 50% / cover no-repeat;">
                     <!-- <div class="more_block__title wow fadeInUp"></div> -->
-                    <div class="more_block__title"><?= $text_block['title']; ?></div>
+                    <div class="more_block__title wow fadeInUp"><?= $text_block['title']; ?></div>
                     <!-- <div class="more_block__text wow fadeInUp"></div> -->
-                    <div class="more_block__text"><?= $text_block['text']; ?></div>
-                    <div class="more_block__video">
+                    <div class="more_block__text wow fadeInUp"><?= $text_block['text']; ?></div>
+                    <div class="more_block__video wow fadeInUp">
                         <video muted autoplay loop poster="<?php echo esc_url($thumb); ?>">
                             <source src="<?= $text_block['video']; ?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                             Тег video не поддерживается вашим браузером. 
@@ -277,7 +277,7 @@ $site_email = get_option('site_email');
                         </video>
                     </div>
                     <!-- <a href="" class="more_block__btn button button__all-line wow fadeInUp"> -->
-                    <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line">
+                    <a href="<?= $text_block['link']; ?>" class="more_block__btn button button__all-line wow fadeInUp">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>
@@ -291,7 +291,7 @@ $site_email = get_option('site_email');
     <div class="main_product">
         <div class="main_product__in center_block">
             <!-- <div class="main_product__top wow fadeInUp"> -->
-            <div class="main_product__top">
+            <div class="main_product__top wow fadeInUp">
                 <div class="main_product__title"><?= do_shortcode('[product_count]') - 4; ?> Товары нашего магазина</div>
                 <div class="main_product__buttons">
                     <div class="button button__all-arrow prod_prev" :class="{'isDisabled': prodBlock.index === 0}" @click.prevent="prodBlock.slider.go('<')">
@@ -325,19 +325,19 @@ $site_email = get_option('site_email');
                 </div>
             </div>
             <!-- <div class="main_product__bottom js_sl7 wow fadeInUp"> -->
-            <div class="main_product__bottom main_product__bottom--js glide">
-                <?= do_shortcode('[products]'); ?>
+            <div class="main_product__bottom main_product__bottom--js glide wow fadeInUp">
+                <?= do_shortcode('[product_attribute attribute="inblock" filter="is_on_main" /]'); ?>
             </div>
         </div>
     </div>
     <? if (!empty($reviews)) { ?>
         <div class="rev_block center_block">
             <!-- <div class="rev_block__top wow fadeInUp"> -->
-            <div class="rev_block__top">
+            <div class="rev_block__top wow fadeInUp">
                 <!-- <div class="rev_block__title wow fadeInUp"></div> -->
-                <div class="rev_block__title"><?= $reviews['title']; ?></div>
+                <div class="rev_block__title wow fadeInUp"><?= $reviews['title']; ?></div>
                 <!-- <div class="button button__all-arrow rev_prev wow fadeInUp"> -->
-                <div class="button button__all-arrow rev_prev" :class="{'isDisabled': revBlock.index === 0}" @click.prevent="revBlock.slider.go('<')">
+                <div class="button button__all-arrow rev_prev wow fadeInUp" :class="{'isDisabled': revBlock.index === 0}" @click.prevent="revBlock.slider.go('<')">
                     <svg class="ln">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>
@@ -349,7 +349,7 @@ $site_email = get_option('site_email');
                     </svg>
                 </div>
                 <!-- <div class="button button__all-arrow rev_next wow fadeInUp"> -->
-                <div class="button button__all-arrow rev_next" :class="{'isDisabled': revBlock.index === <?= count($reviews['spisok']) - 3; ?>}" @click.prevent="revBlock.slider.go('>')">
+                <div class="button button__all-arrow rev_next wow fadeInUp" :class="{'isDisabled': revBlock.index === <?= count($reviews['spisok']) - 3; ?>}" @click.prevent="revBlock.slider.go('>')">
                     <svg class="ln">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                     </svg>
@@ -362,7 +362,7 @@ $site_email = get_option('site_email');
                 </div>
             </div>
             <!-- <div class="rev_block__slider js_sl3 wow fadeInUp"> -->
-            <div class="rev_block__slider rev_block__slider--js glide">
+            <div class="rev_block__slider rev_block__slider--js glide wow fadeInUp">
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides">
                         <?php foreach( $reviews['spisok'] as $post) { // Переменная должна быть названа обязательно $post (IMPORTANT) ?>
@@ -433,7 +433,7 @@ $site_email = get_option('site_email');
     <? if (!empty($seo_block)) { ?>
         <div class="about_block center_block">
             <!-- <div class="about_block__top wow fadeInUp"> -->
-            <div class="about_block__top">
+            <div class="about_block__top wow fadeInUp">
                 <div class="about_block__l-side">
                     <div class="about_block__slider about_block__slider--js glide">
                         <div class="glide__track" data-glide-el="track">
@@ -480,13 +480,13 @@ $site_email = get_option('site_email');
                 </div>
                 <div class="about_block__r-side">
                     <!-- <div class="about_block__title wow fadeInUp"></div> -->
-                    <div class="about_block__title"><?= $seo_block['title']; ?></div>
+                    <div class="about_block__title wow fadeInUp"><?= $seo_block['title']; ?></div>
                     <!-- <div class="about_block__text wow fadeInUp"> -->
-                    <div class="about_block__text">
+                    <div class="about_block__text wow fadeInUp">
                         <?= $seo_block['text']; ?>
                     </div>
                     <!-- <a href="" class="about_block__btn button button__all-line wow fadeInUp"> -->
-                    <a href="<?= $seo_block['link']; ?>" class="about_block__btn button button__all-line">
+                    <a href="<?= $seo_block['link']; ?>" class="about_block__btn button button__all-line wow fadeInUp">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
                         </svg>
@@ -495,7 +495,7 @@ $site_email = get_option('site_email');
                 </div>
             </div>
             <!-- <div class="about_block__bottom slider-nav wow fadeInUp"> -->
-            <div class="about_block__bottom slider-nav" style="--count: <?= count($seo_block['galereya']); ?>">
+            <div class="about_block__bottom slider-nav wow fadeInUp" style="--count: <?= count($seo_block['galereya']); ?>">
                 <? foreach($seo_block['galereya'] as $key=>$item) { ?>
                     <div class="about_block__blockss" :class="{'isActive' : aboutBlock.index == <?= $key; ?>}" @click="aboutBlock.slider.go('=<?= $key; ?>')">
                         <?
@@ -515,10 +515,10 @@ $site_email = get_option('site_email');
     <? }; ?>
     <div class="map_block center_block">
         <div class="map_block__in">
-            <div class="map_block__l-side">
+            <div class="map_block__l-side wow fadeInLeft">
                 <div class="mapBlock" id="map" style="height: 100%;"></div>
             </div>
-            <div class="map_block__r-side">
+            <div class="map_block__r-side wow fadeInUp">
                 <div class="map_block__title">Контакты</div>
                 <?if (!empty($site_address)):?>
                     <div class="map_block__info">

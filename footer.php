@@ -43,7 +43,7 @@ wp_reset_postdata();
 			<div class="footer__top">
 				<div class="footer__info">
 					<? the_custom_logo(); ?>
-					<div class="footer__cont">
+					<div class="footer__cont wow fadeInLeft">
 						<div class="footer__title">ООО «Шумoff»</div>
 						<div class="footer__text">
 							<span>ИНН:</span>
@@ -60,7 +60,7 @@ wp_reset_postdata();
 					</div>
 				</div>
 				<nav class="footer__menu">
-					<div class="footer__menu--item">
+					<div class="footer__menu--item  wow fadeInLeft">
 						<div class="footer__menu--tit"><?= $footer_menu_1 ?></div>
 						<?
 							wp_nav_menu( [
@@ -83,7 +83,7 @@ wp_reset_postdata();
 							] );
 						?>
 					</div>
-					<div class="footer__menu--item">
+					<div class="footer__menu--item wow fadeInRight">
 						<div class="footer__menu--tit"><?= $footer_menu_2 ?></div>
 						<?
 							wp_nav_menu( [
@@ -106,7 +106,7 @@ wp_reset_postdata();
 							] );
 						?>
 					</div>
-					<div class="footer__menu--item">
+					<div class="footer__menu--item wow fadeInRight">
 						<div class="footer__menu--tit"><?= $footer_menu_3 ?></div>
 						<?
 							wp_nav_menu( [
@@ -133,7 +133,7 @@ wp_reset_postdata();
 				<div class="footer__append"></div>
 				<div id="up_button" class="up_button">Наверх</div>
 			</div>
-			<div class="footer__bottom">
+			<div class="footer__bottom wow zoomInUp">
 				<div class="footer__links">
 					<div class="footer__link">© Шумoff<div class="footer__delim"></div>2022</div>
 					<div class="footer__delim"></div>

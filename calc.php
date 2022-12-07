@@ -23,7 +23,7 @@ function url(){
 
 ?>
 <main class="content" id="calculator">
-    <div class="breadcrums center_block">
+    <div class="breadcrums center_block wow fadeInUp">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
                 <?php

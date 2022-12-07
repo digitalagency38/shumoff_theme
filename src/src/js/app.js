@@ -156,6 +156,7 @@ window.app = new Vue({
             this.models = loadModels();
             this.filterBrands();
             this.getNonce();
+            new WOW().init();
             this.isMounted = true;
         }, 0);
             
