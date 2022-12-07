@@ -3933,6 +3933,12 @@ body.woocommerce-order-received .thanks_cart {
   background: #F1752A url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.05732 8.04216L1.65043 5.0943L-2.22679e-07 5.0943L4.05732 10L12 5.24537e-07L10.3496 4.52394e-07L4.05732 8.04216Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
 }
 
+.single_variation_wrap table {
+  width: 100%;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+}
+
 .button {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -4171,6 +4177,7 @@ body.woocommerce-order-received .thanks_cart {
   width: 100%;
   pointer-events: none;
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
 }
 
 .button__all-line rect {
@@ -7751,6 +7758,10 @@ body.woocommerce-order-received .thanks_cart {
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 40px;
+}
+
+.main_work__slid:nth-child(n+7) {
+  display: none;
 }
 
 .main_work__images {

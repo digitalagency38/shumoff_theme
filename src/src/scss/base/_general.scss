@@ -1756,3 +1756,10 @@ body {
         
     }
 }
+
+
+.single_variation_wrap table {
+    width: 100%;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+}

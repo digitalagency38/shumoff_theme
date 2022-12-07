@@ -213,6 +213,7 @@
             width: 100%; 
             pointer-events: none;
             transition: all .6s cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
         }
 
         rect {
