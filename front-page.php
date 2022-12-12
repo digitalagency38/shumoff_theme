@@ -292,7 +292,7 @@ $site_email = get_option('site_email');
         <div class="main_product__in center_block">
             <!-- <div class="main_product__top wow fadeInUp"> -->
             <div class="main_product__top wow fadeInUp">
-                <div class="main_product__title"><?= do_shortcode('[product_count]') - 4; ?> Товары нашего магазина</div>
+                <div class="main_product__title">Товары нашего магазина</div>
                 <div class="main_product__buttons">
                     <div class="button button__all-arrow prod_prev" :class="{'isDisabled': prodBlock.index === 0}" @click.prevent="prodBlock.slider.go('<')">
                         <svg class="ln">
