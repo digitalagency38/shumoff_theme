@@ -54,3 +54,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .header__cart strong {
     display: none;
 }
+.footer {
+    overflow: hidden;
+}
