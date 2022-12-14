@@ -3859,8 +3859,7 @@ body.woocommerce-order-received .thanks_cart {
   padding-bottom: 0 !important;
 }
 
-.woocommerce-billing-fields__field-wrapper .address-field,
-.woocommerce-billing-fields__field-wrapper .email-field {
+.woocommerce-billing-fields__field-wrapper .address-field {
   display: none !important;
 }
 

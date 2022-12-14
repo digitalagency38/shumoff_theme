@@ -21,9 +21,9 @@ get_header();
     $reviews = get_field('reviews');
     $seo_block = get_field('seo_block');
     $site_phone = get_option('site_phone');
-$site_address = get_option('site_address');
-$site_worktime = get_option('site_worktime');
-$site_email = get_option('site_email');
+    $site_address = get_option('site_address');
+    $site_worktime = get_option('site_worktime');
+    $site_email = get_option('site_email');
 ?>
 
 <main class="content">

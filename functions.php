@@ -627,3 +627,13 @@ add_shortcode( 'product_count', 'product_count_shortcode' );
 
 add_filter( 'woocommerce_product_categories_widget_dropdown_args', 'rv_exclude_wc_widget_categories' );
 
+
+
+
+// Display variation's price even if min and max prices are the same
+add_filter('woocommerce_available_variation', function ($value, $object = null, $variation = null) {
+	if ($value['price_html'] == '') {
+	  $value['price_html'] = '<span class="price">' . $variation->get_price_html() . '</span>';
+	}
+	return $value;
+}, 10, 3);

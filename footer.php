@@ -11,6 +11,15 @@
 
 $site_socials = get_theme_mod('site_socials');
 $site_socials_decoded = json_decode($site_socials);
+$site_address = get_option('site_address');
+$site_worktime = get_option('site_worktime');
+$site_email = get_option('site_email');
+
+
+$site_name = get_option('site_name');
+$site_inn = get_option('site_inn');
+$site_kpp = get_option('site_kpp');
+$site_ogrn = get_option('site_ogrn');
 
 $args = array(
     'numberposts' => -1,
@@ -44,18 +53,18 @@ wp_reset_postdata();
 				<div class="footer__info">
 					<? the_custom_logo(); ?>
 					<div class="footer__cont wow fadeInLeft">
-						<div class="footer__title">ООО «Шумoff»</div>
+						<div class="footer__title"><?= $site_name; ?></div>
 						<div class="footer__text">
 							<span>ИНН:</span>
-							3702579095
+							<?= $site_inn; ?>
 						</div>
 						<div class="footer__text">
 							<span>ОГРН:</span>
-							1093702004043
+							<?= $site_ogrn; ?>
 						</div>
 						<div class="footer__text">
 							<span>Юр.адрес:</span>
-							153000, Россия г. Иваново, ул.Зверева, д.13, оф.37
+							<?= $site_address; ?>
 						</div>
 					</div>
 				</div>
