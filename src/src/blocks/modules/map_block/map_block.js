@@ -6,13 +6,13 @@ const MapBlock = class MapBlock {
     initMap() {
         ymaps.ready(() => {
             this.map = new ymaps.Map('map', {
-                center: [57.001064, 40.968217],
+                center: [52.279914, 104.311293],
                 zoom: 16,
                 controls: ['zoomControl', 'fullscreenControl',"geolocationControl"]
             }, {
                 searchControlProvider: 'yandex#search'
             });
-            this.placemark = new ymaps.Placemark([57.001064, 40.968217], {
+            this.placemark = new ymaps.Placemark([52.279914, 104.311293], {
                 hintContent: 'Shumoff',
                 balloonContent: 'Shumoff'
             });
