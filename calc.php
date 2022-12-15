@@ -51,7 +51,7 @@ function url(){
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите модель:</div>
                             <select name="" id="single-model" v-model="selectedModel">
-                                <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
+                                <option v-for="model in uniqueModels.reverse()" :key="model.index" :value="model.name">{{ model.name }}</option>
                             </select>
                         </div>
                     </div>
