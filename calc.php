@@ -45,7 +45,7 @@ function url(){
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите марку машины:</div>
                             <select name="" id="single" v-model="selectedBrand">
-                                <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
+                                <option v-for="brand in brands.reverse()" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
                             </select>
                         </div>
                         <div class="calc_model__selects">
