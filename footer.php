@@ -172,7 +172,7 @@ wp_reset_postdata();
 	</footer>
 	<div class="fixed_panel">
 		<a href="/" class="fixed_panel__main">Главная</a>
-		<div class="fixed_panel__menu" @click="headerBlock.burgCatClick.apply(headerBlock)">Меню {{ headerBlock.isBurgerOpened }}</div>
+		<div class="fixed_panel__menu" @click="headerBlock.burgCatClick.apply(headerBlock)">Меню</div>
 		<a href="/katalog" class="fixed_panel__catalog">Каталог</a>
 		<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 	</div>
