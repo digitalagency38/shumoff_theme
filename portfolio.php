@@ -25,7 +25,7 @@ function url(){
 
 ?>
 
-<main class="content фывфывфыв" id="portfolio">
+<main class="content" id="portfolio">
     <div class="breadcrums center_block wow fadeInUp">
         <div class="breadcrums__item">
             <div class="breadcrums__in">
@@ -50,7 +50,7 @@ function url(){
         <div class="main_work__filter--select wow fadeInUp">
             <span>Выберите модель:</span>
             <select name="" id="single-model" v-model="selectedModel">
-                <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
+                <option v-for="model in uniqueModels.reverse()" :key="model.index" :value="model.name">{{ model.name }}</option>
             </select>
         </div>
         <div class="main_work__filter--refresh button button__line" @click="clearFilter">Сбросить</div>
