@@ -3990,6 +3990,15 @@ body.woocommerce-order-received .thanks_cart {
   visibility: hidden;
 }
 
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  color: #f1752a;
+}
+
+.woocommerce div.product form.cart div.quantity {
+  margin: 0;
+}
+
 .button {
   -webkit-user-select: none;
      -moz-user-select: none;

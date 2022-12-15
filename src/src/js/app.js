@@ -409,7 +409,6 @@ $(function () {
     
     $('.berocket_single_filter_widget').wrapAll('<div class="filter_block_mobile">');
     
-    $('.flex-control-thumbs').wrapAll('<div class="flex_thumb_item">');   
     $('#order_review_heading, #order_review, .cart_totals').wrapAll('<div class="block_right_status"><div class="block_right_status--item">');
     $('.block_right_status').append('<div class="sticky_bottom"></div>');
     // $('.block_right_status').prepend('<div class="sticky_top"></div>');

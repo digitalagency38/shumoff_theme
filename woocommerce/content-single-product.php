@@ -81,7 +81,7 @@ if ( post_password_required() ) {
 		<div class="product__description" id="prod_description">
 			<div class="product__description_title">Полное описание</div>
 			<div class="product__description_value">
-				<?= $product->get_description(); ?>
+				asdas<?= print_r($product->get_description()); ?>
 			</div>
 		</div>
 	<?endif;?>
