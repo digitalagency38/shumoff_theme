@@ -2806,6 +2806,7 @@ body button[name=update_cart]:after {
 
 body .cart-collaterals > form {
   display: flex;
+  align-items: flex-start;
   margin-top: 50px;
 }
 
@@ -2837,8 +2838,9 @@ body .single_variation_wrap tr .value {
 }
 
 body .block_right_status {
-  width: 411px;
+  width: 411px !important;
   margin-left: 20px;
+  position: relative;
 }
 
 body .block_right_status .shipping-calculator-button {
@@ -2849,9 +2851,6 @@ body .block_right_status .shipping-calculator-button {
 body .block_right_status--item {
   padding: 40px 30px;
   background: #F5F5F6;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
 }
 
 body .block_right_status #order_review_heading {
@@ -3604,11 +3603,24 @@ body #customer_details .col-3 #shipping_method li {
   margin-right: 10px;
   width: calc(33.3% - 20px);
   margin-bottom: 20px;
-  padding: 20px;
   background: #FFFFFF;
   border: 1px solid #DFDEE2;
   position: relative;
   text-align: center;
+}
+
+body #customer_details .col-3 #shipping_method li .shipping_bg {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F1752A;
+  opacity: 0;
+  visibility: hidden;
 }
 
 body #customer_details .col-3 #shipping_method li input[type=radio] {
@@ -3618,11 +3630,27 @@ body #customer_details .col-3 #shipping_method li input[type=radio] {
   position: absolute;
 }
 
-body #customer_details .col-3 #shipping_method li input[type=radio]:checked + label {
-  color: #F1752A;
+body #customer_details .col-3 #shipping_method li input[type=radio]:checked + .shipping_title,
+body #customer_details .col-3 #shipping_method li:hover .shipping_title {
+  color: #fff;
+  position: relative;
+  z-index: 2;
 }
 
-body #customer_details .col-3 #shipping_method li label {
+body #customer_details .col-3 #shipping_method li input[type=radio]:checked ~ .shipping_bg,
+body #customer_details .col-3 #shipping_method li:hover .shipping_bg {
+  opacity: 1;
+  visibility: visible;
+}
+
+body #customer_details .col-3 #shipping_method li input[type=radio]:checked ~ .shipping_method_description small,
+body #customer_details .col-3 #shipping_method li:hover .shipping_method_description small {
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+body #customer_details .col-3 #shipping_method li .shipping_title {
   margin-bottom: 12px;
   font-style: normal;
   font-weight: 600;
@@ -3633,16 +3661,11 @@ body #customer_details .col-3 #shipping_method li label {
   display: block;
 }
 
-body #customer_details .col-3 #shipping_method li label:before {
-  content: "";
-  position: absolute;
-  width: 100%;
+body #customer_details .col-3 #shipping_method li label {
+  cursor: pointer;
+  display: block;
+  padding: 20px;
   height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 20;
 }
 
 body #customer_details .col-3 #shipping_method li .shipping_method_description {
@@ -3683,11 +3706,24 @@ body #customer_details .woocommerce-checkout-payment ul li {
   margin-right: 10px !important;
   width: calc(50% - 20px) !important;
   margin-bottom: 20px !important;
-  padding: 20px !important;
   background: #FFFFFF;
   border: 1px solid #DFDEE2;
   position: relative;
   text-align: center !important;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li .payment_bg {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F1752A;
+  opacity: 0;
+  visibility: hidden;
 }
 
 body #customer_details .woocommerce-checkout-payment ul li input[type=radio] {
@@ -3697,12 +3733,25 @@ body #customer_details .woocommerce-checkout-payment ul li input[type=radio] {
   position: absolute;
 }
 
-body #customer_details .woocommerce-checkout-payment ul li input[type=radio]:checked + label {
-  color: #F1752A;
+body #customer_details .woocommerce-checkout-payment ul li input[type=radio]:checked + .payment_title,
+body #customer_details .woocommerce-checkout-payment ul li:hover .payment_title {
+  color: #fff;
 }
 
-body #customer_details .woocommerce-checkout-payment ul li label {
-  margin-bottom: 12px;
+body #customer_details .woocommerce-checkout-payment ul li input[type=radio]:checked ~ .payment_bg,
+body #customer_details .woocommerce-checkout-payment ul li:hover .payment_bg {
+  opacity: 1;
+  visibility: visible;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li input[type=radio]:checked ~ .payment_box p,
+body #customer_details .woocommerce-checkout-payment ul li:hover .payment_box p {
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+body #customer_details .woocommerce-checkout-payment ul li .payment_title {
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -3710,18 +3759,17 @@ body #customer_details .woocommerce-checkout-payment ul li label {
   cursor: pointer;
   color: #111111;
   display: block;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 12px;
 }
 
-body #customer_details .woocommerce-checkout-payment ul li label:before {
-  content: "";
-  position: absolute;
-  width: 100%;
+body #customer_details .woocommerce-checkout-payment ul li label {
+  padding: 20px !important;
+  display: block;
   height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 20;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 body #customer_details .woocommerce-checkout-payment ul li .shipping_method_description,
@@ -3936,6 +3984,10 @@ body.woocommerce-order-received .thanks_cart {
   width: 100%;
   table-layout: fixed;
   overflow-wrap: break-word;
+}
+
+.wow {
+  visibility: hidden;
 }
 
 .button {
@@ -5436,7 +5488,7 @@ body.woocommerce-order-received .thanks_cart {
 }
 
 .footer__soc {
-  margin-left: 20px;
+  margin-left: 20px !important;
   display: flex !important;
   padding: 0 !important;
   border-radius: 0 !important;
@@ -5734,41 +5786,32 @@ body.woocommerce-order-received .thanks_cart {
 
 .text_page__slider {
   position: relative;
-  padding-bottom: 70px;
 }
 
 .text_page__slider .js_sl1_prev {
-  position: absolute;
-  bottom: 0px;
-  right: 60px;
-  z-index: 5;
-}
-
-.text_page__slider .js_sl1_next {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  z-index: 5;
+  margin-right: 20px;
 }
 
 .text_page__slider .js_sl1_next:before {
   background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M38.2609 1.73913H1.73913V38.2609H38.2609V31.6667H40V40H0V0H40V8.33333H38.2609V1.73913Z' fill='%23111111'/%3E%3C/svg%3E%0A") 50%/100% no-repeat;
 }
 
-.text_page__slid {
-  margin-bottom: 0 !important;
+.text_page__navigations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 70px;
+  position: relative;
+  z-index: 20;
 }
 
-.text_page__slid .slick-dots {
-  width: calc(100% - 110px);
-  position: absolute;
-  bottom: 10px;
+.text_page__bullets {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.text_page__slid .slick-dots li {
+.text_page__bullets div {
   padding: 0;
   width: auto;
   height: auto;
@@ -5776,29 +5819,35 @@ body.woocommerce-order-received .thanks_cart {
   margin-right: 20px;
 }
 
-.text_page__slid .slick-dots li button {
+.text_page__bullets div button {
   width: 20px;
   height: 20px;
   padding: 0;
   background: #F8E7D1;
   transition: all 0.3s ease-out;
+  border: none;
+  cursor: pointer;
 }
 
-.text_page__slid .slick-dots li button:before {
+.text_page__bullets div button:before {
   display: none;
 }
 
-.text_page__slid .slick-dots li.slick-active button {
+.text_page__bullets div.glide__bullet--active button {
   background: #F1752A;
 }
 
-.text_page__slider {
-  font-size: 0;
-  height: 500px;
-  overflow: hidden;
+.text_page__slid {
+  margin-bottom: 0 !important;
 }
 
-.text_page__slider img {
+.text_page__slide {
+  font-size: 0;
+  overflow: hidden;
+  height: 500px;
+}
+
+.text_page__slide img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -8718,7 +8767,7 @@ body.woocommerce-order-received .thanks_cart {
   }
 
   body .block_right_status {
-    width: 100%;
+    width: 100% !important;
     margin-left: 0;
   }
 
@@ -9043,7 +9092,7 @@ body.woocommerce-order-received .thanks_cart {
   }
 
   .footer__soc {
-    margin-left: 0;
+    margin-left: 0 !important;
     margin-right: 12px;
   }
 
@@ -9177,11 +9226,11 @@ body.woocommerce-order-received .thanks_cart {
     padding-bottom: 60px;
   }
 
-  .text_page__slid .slick-dots li {
+  .text_page__bullets div {
     margin-right: 10px;
   }
 
-  .text_page__slider {
+  .text_page__slide {
     height: 300px;
   }
 

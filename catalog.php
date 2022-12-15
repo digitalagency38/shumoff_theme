@@ -43,7 +43,7 @@ $seo_block = get_field('seo_block');
                             <? }; ?>
                             <div class="header__cat--info">
                                 <div class="header__cat--title"><?= $category->name ?> <sup><?= $category->count ?></sup></div>
-                                <div class="header__cat--price">от 350 ₽</div>
+                                <div class="header__cat--price"><?= get_field('price_from', $category); ?></div>
                             </div>
                         </a>
                     <? endif; ?>

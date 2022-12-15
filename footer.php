@@ -148,9 +148,7 @@ wp_reset_postdata();
 					<div class="footer__delim"></div>
 					<div class="footer__link">Все права защищены</div>
 					<div class="footer__delim"></div>
-					<a href="#" class="footer__link">Публичная оферта</a>
-					<div class="footer__delim"></div>
-					<a href="#" class="footer__link">Политика конфиденциальности</a>
+					<a href="<?= get_privacy_policy_url(); ?>" class="footer__link">Политика конфиденциальности</a>
 				</div>
 				<div class="footer__pays">
 					<div class="footer__pay"><img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/pay1.svg" alt=""></div>

@@ -316,7 +316,7 @@ get_header();
                                 fill="#333333" />
                         </svg>
                     </div>
-                    <a href="<?= get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="main_product__btn button button__all-line">
+                    <a href="/katalog" class="main_product__btn button button__all-line">
                         <svg>
                             <rect x="0" y="0" fill="none" width="100%" height="100%" />
                         </svg>

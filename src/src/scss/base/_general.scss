@@ -606,6 +606,7 @@ body {
     }
     .cart-collaterals > form {
         display: flex;
+        align-items: flex-start;
         margin-top: 50px;
         @media all and (max-width: 1023px) {
             margin-top: 30px;
@@ -657,8 +658,9 @@ body {
         }
     }
     .block_right_status {
-        width: 411px;
+        width: 411px !important;
         margin-left: 20px;
+        position: relative;
         .shipping-calculator-button {
             font-size: 14px !important;
             color: #F1752A !important;
@@ -666,15 +668,15 @@ body {
         &--item {
             padding: 40px 30px;
             background: #F5F5F6;
-            position: sticky;
-            position: -webkit-sticky;
-            top: 0;
+            // position: sticky;
+            // position: -webkit-sticky;
+            // top: 0;
             @media all and (max-width: 1023px) {
                 padding: 30px 20px;
             }
         }
         @media all and (max-width: 1023px) {
-            width: 100%;
+            width: 100% !important;
             margin-left: 0;
         }
         #order_review_heading {
@@ -1410,11 +1412,24 @@ body {
                     margin-right: 10px;
                     width: calc(33.3% - 20px);
                     margin-bottom: 20px;
-                    padding: 20px;
+                    
                     background: #FFFFFF;
                     border: 1px solid #DFDEE2;
                     position: relative;
                     text-align: center;
+                    .shipping_bg {
+                        content: '';
+                        position: absolute; 
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: #F1752A;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
                     @media all and (max-width: 740px) {
                         width: 100%;
                         margin-left: 0;
@@ -1427,10 +1442,24 @@ body {
                         opacity: 0;
                         position: absolute;
                     }
-                    input[type="radio"]:checked + label {
-                        color: #F1752A;
+                    input[type="radio"]:checked + .shipping_title,
+                    &:hover .shipping_title {
+                        color: #fff;
+                        position: relative;
+                        z-index: 2;
                     }
-                    label {
+                    input[type="radio"]:checked ~ .shipping_bg,
+                    &:hover .shipping_bg {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    input[type="radio"]:checked ~  .shipping_method_description small,
+                    &:hover .shipping_method_description small {
+                        color: #fff;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    .shipping_title {
                         margin-bottom: 12px;
                         font-style: normal;
                         font-weight: 600;
@@ -1439,17 +1468,12 @@ body {
                         cursor: pointer;
                         color: #111111;
                         display: block;
-                        &:before {
-                            content: '';
-                            position: absolute; 
-                            width: 100%;
-                            height: 100%;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            z-index: 20;
-                        }
+                    }
+                    label {
+                        cursor: pointer;
+                        display: block;
+                        padding: 20px;
+                        height: 100%;
                     }
                     .shipping_method_description {
                         font-style: normal;
@@ -1486,11 +1510,23 @@ body {
                     margin-right: 0;
                 }
                 li {
+                    .payment_bg {
+                        content: '';
+                        position: absolute; 
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: #F1752A;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
                     margin-left: 10px !important;
                     margin-right: 10px !important;
                     width: calc(50% - 20px) !important;
                     margin-bottom: 20px !important;
-                    padding: 20px !important;
                     background: #FFFFFF;
                     border: 1px solid #DFDEE2;
                     position: relative;
@@ -1507,11 +1543,22 @@ body {
                         opacity: 0;
                         position: absolute;
                     }
-                    input[type="radio"]:checked + label {
-                        color: #F1752A;
+                    input[type="radio"]:checked + .payment_title,
+                    &:hover .payment_title {
+                        color: #fff;
                     }
-                    label {
-                        margin-bottom: 12px;
+                    input[type="radio"]:checked ~ .payment_bg,
+                    &:hover .payment_bg {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    input[type="radio"]:checked ~ .payment_box p,
+                    &:hover .payment_box p {
+                        color: #fff;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    .payment_title {
                         font-style: normal;
                         font-weight: 600;
                         font-size: 16px;
@@ -1519,17 +1566,16 @@ body {
                         cursor: pointer;
                         color: #111111;
                         display: block;
-                        &:before {
-                            content: '';
-                            position: absolute; 
-                            width: 100%;
-                            height: 100%;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            z-index: 20;
-                        }
+                        position: relative;
+                        z-index: 2;
+                        margin-bottom: 12px;
+                    }
+                    label {
+                        padding: 20px !important;
+                        display: block;
+                        height: 100%;
+                        box-sizing: border-box;
+                        cursor: pointer;
                     }
                     .shipping_method_description, .payment_box, .payment_box p {
                         font-style: normal;
@@ -1761,4 +1807,9 @@ body {
     width: 100%;
     table-layout: fixed;
     overflow-wrap: break-word;
+}
+
+
+.wow {
+    visibility: hidden;
 }

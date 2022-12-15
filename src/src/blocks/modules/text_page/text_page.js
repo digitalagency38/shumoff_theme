@@ -1,17 +1,19 @@
-import $ from 'jquery';
-import 'slick-carousel';
+// import $ from 'jquery';
+// import 'slick-carousel';
+import Glide from '@glidejs/glide';
 
 const TextBlock = class TextBlock {
     constructor() {}
     sliderText() {
-        $('.js_sl1').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            prevArrow: $('.js_sl1_prev'),
-            nextArrow: $('.js_sl1_next'),
-          });
+        if (!document.querySelector('.text_page__slider.glide')) return;
+        document.querySelectorAll('.text_page__slider.glide').forEach(slider => {
+            new Glide(slider, {
+                perView: 1,
+                swipeThreshold: false,
+                dragThreshold: false,
+                gap: 20,
+            }).mount();
+        });
     }
     init() {
         this.sliderText();

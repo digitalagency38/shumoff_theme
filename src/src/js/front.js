@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new SlideMenu(document.getElementById('example-menu'));
     }
 });
-
+import $ from 'jquery';
 import Vue from 'vue/dist/vue.js';
 
 import SlimSelect from 'slim-select';
@@ -20,6 +20,24 @@ import RevBlock from '../blocks/modules/rev_block/rev_block.js';
 import AboutBlock from '../blocks/modules/about_block/about_block.js';
 import FooterBlock from '../blocks/modules/footer/footer.js'; 
 import MapBlock from '../blocks/modules/map_block/map_block.js';
+
+
+// Убавляем кол-во по клику
+$(document).on('click', '.product__quantity .product__quantity_minus', function() {
+    console.log(123123);
+    let $input = $(this).parent().find('.qty');
+    let count = parseInt($input.val()) - 1;
+    count = count < 1 ? 1 : count;
+    $input.val(count);
+});
+// Прибавляем кол-во по клику
+$(document).on('click', '.product__quantity .product__quantity_plus', function() {
+    console.log(123123);
+    let $input = $(this).parent().find('.qty');
+    let count = parseInt($input.val()) + 1;
+    count = count > parseInt($input.data('max-count')) ? parseInt($input.data('max-count')) : count;
+    $input.val(parseInt(count));
+}); 
 
 // TODO нужно оптимизировать футер
 

@@ -9,10 +9,10 @@ const FixedBlock = class FixedBlock {
             console.log('tratatata');
             $(".burger-btn").click();
           });
-        }
+    }
     init() {
         console.log('asdasdasdasd');
-        this.PanelClick();
+        // this.PanelClick();
     }
 }
 

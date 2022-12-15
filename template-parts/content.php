@@ -49,38 +49,49 @@ if ($type === 'portfolio') {
 							</div>
 						<?endif;?>
 						<?if ($content_block['slider']):?>
-							<div class="text_page__slider">
-								<div class="text_page__slid js_sl1">
-									<?foreach ($content_block['slider'] as $slide):?>
-										<div class="text_page__slider">
-											<?
-												$image = $slide['image'];
-												$size = 'large';
-												$alt = $image['alt'];
-												$thumb = $image['sizes'][ $size ];
+							<div class="text_page__slider glide">
+								<div class="glide__track" data-glide-el="track">
+									<div class="text_page__slid glide__slides">
+										<?foreach ($content_block['slider'] as $slide):?>
+											<div class="text_page__slide">
+												<?
+													$image = $slide;
+													$size = 'large';
+													$alt = $image['alt'];
+													$thumb = $image['sizes'][ $size ];
 
-												if( $image ):
-											?>
-												<img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
-											<?php endif; ?>
+													if( $image ):
+												?>
+													<img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+												<?php endif; ?>
+											</div>
+										<?endforeach;?>						
+									</div>
+								</div>
+								<div class="text_page__navigations">
+									<div class="text_page__bullets glide__bullets" data-glide-el="controls[nav]">
+										<?foreach ($content_block['slider'] as $key=>$slide):?>
+											<div class="text_page__bullet glide__bullet" data-glide-dir="=<?= $key; ?>"><button></button></div>
+										<?endforeach;?>
+									</div>
+									<div data-glide-el="controls">
+										<div class="js_sl1_prev button button__all-arrow" data-glide-dir="<">
+											<svg class="ln">
+												<rect x="0" y="0" fill="none" width="100%" height="100%"/>
+											</svg>
+											<svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M4.39241 11.9996L12.9336 3.99962V0.799622L0.933594 11.9996L12.9336 23.1996V19.9996L4.39241 11.9996Z" fill="#333333"/>
+											</svg>
 										</div>
-									<?endforeach;?>						
-								</div>
-								<div class="js_sl1_prev button button__all-arrow">
-									<svg class="ln">
-										<rect x="0" y="0" fill="none" width="100%" height="100%"/>
-									</svg>
-									<svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.39241 11.9996L12.9336 3.99962V0.799622L0.933594 11.9996L12.9336 23.1996V19.9996L4.39241 11.9996Z" fill="#333333"/>
-									</svg>
-								</div>
-								<div class="js_sl1_next button button__all-arrow">
-									<svg class="ln">
-										<rect x="0" y="0" fill="none" width="100%" height="100%"/>
-									</svg>
-									<svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M8.60759 11.9996L0.0664062 3.99962V0.799622L12.0664 11.9996L0.0664062 23.1996V19.9996L8.60759 11.9996Z" fill="#333333"/>
-									</svg>
+										<div class="js_sl1_next button button__all-arrow" data-glide-dir=">">
+											<svg class="ln">
+												<rect x="0" y="0" fill="none" width="100%" height="100%"/>
+											</svg>
+											<svg class="ar" width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.60759 11.9996L0.0664062 3.99962V0.799622L12.0664 11.9996L0.0664062 23.1996V19.9996L8.60759 11.9996Z" fill="#333333"/>
+											</svg>
+										</div>
+									</div>
 								</div>
 							</div>
 						<?endif;?>

@@ -65,7 +65,7 @@ $site_phone = get_option('site_phone');
 													<? }; ?>
 													<div class="header__cat--info">
 														<div class="header__cat--title"><?= $category->name; ?> <sup><?= $category->count; ?></sup></div>
-														<div class="header__cat--price">от 350 ₽</div>
+														<div class="header__cat--price"><?= get_field('price_from', $category); ?></div>
 													</div>
 												</a>
 											<? endif; ?>
@@ -96,7 +96,7 @@ $site_phone = get_option('site_phone');
 									<? if (!empty($site_phone)) { ?>
 										<a href="tel:<?= $site_phone; ?>" class="header__tel"><?= $site_phone; ?></a>
 									<? }; ?>
-									<a href="#" class="header__call button button__link">Заказать звонок</a>
+									<!-- <a href="#" class="header__call button button__link">Заказать звонок</a> -->
 								</div>
 							</div>
 						</div>
@@ -126,7 +126,7 @@ $site_phone = get_option('site_phone');
 						<? if (!empty($site_phone)) { ?>
 							<a href="tel:<?= $site_phone; ?>" class="header__tel"><?= $site_phone; ?></a>
 						<? }; ?>
-						<a href="#" class="header__call button button__link">Заказать звонок</a>
+						<!-- <a href="#" class="header__call button button__link">Заказать звонок</a> -->
 					</div>
 				</div>
 				<div class="header__bottom wow fadeInUp">
@@ -170,7 +170,7 @@ $site_phone = get_option('site_phone');
 									<? }; ?>
 									<div class="header__cat--info">
 										<div class="header__cat--title"><?= $category->name; ?> <sup><?= $category->count; ?></sup></div>
-										<div class="header__cat--price">от 350 ₽</div>
+										<div class="header__cat--price"><?= get_field('price_from', $category); ?></div>
 									</div>
 								</a>
 							<? endif; ?>

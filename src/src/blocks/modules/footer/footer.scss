@@ -289,13 +289,13 @@
         }
     }
     &__soc {
-        margin-left: 20px;
+        margin-left: 20px !important;
         display: flex !important;
         padding: 0 !important;
         border-radius: 0 !important;
         background: transparent !important;
         @media all and (max-width: 1023px) {
-            margin-left: 0;
+            margin-left: 0 !important;
             margin-right: 12px;
         }
         &:hover {
