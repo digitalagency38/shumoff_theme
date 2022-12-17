@@ -169,9 +169,9 @@ wp_reset_postdata();
 		</div>
 	</footer>
 	<div class="fixed_panel">
-		<a href="/" class="fixed_panel__main">Главная</a>
+		<a href="/" class="fixed_panel__main<? if (is_front_page()): ?> isActive<? endif; ?>">Главная</a>
 		<div class="fixed_panel__menu" @click="headerBlock.burgCatClick.apply(headerBlock)">Меню</div>
-		<a href="/katalog" class="fixed_panel__catalog">Каталог</a>
+		<a href="/katalog" class="fixed_panel__catalog<? if (get_relative_permalink(get_page_link( get_the_ID() )) == '/katalog/'): ?> isActive<? endif; ?>">Каталог</a>
 		<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 	</div>
 </div><!-- #page -->

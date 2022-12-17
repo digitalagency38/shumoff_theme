@@ -153,7 +153,7 @@ function shumof_scripts() {
 	else :
 		wp_enqueue_script( 'main.js', get_template_directory_uri() . '/src/dist/js/app.min.js', false, '1.1', true );
 	endif;
-
+	wp_enqueue_script( 'customizer.js', get_template_directory_uri() . '/js/customizer.js', false, '1.1', true );
 	wp_enqueue_script( 'slidemenu.js', get_template_directory_uri() . '/js/slidemenu.js', false, '1.1', true );
 }
 add_action( 'wp_enqueue_scripts', 'shumof_scripts' );
@@ -639,3 +639,9 @@ add_filter('woocommerce_available_variation', function ($value, $object = null, 
 	}
 	return $value;
 }, 10, 3);
+
+
+function get_relative_permalink( $url ) {
+    $url = get_permalink();
+    return str_replace( home_url(), "", $url );
+}

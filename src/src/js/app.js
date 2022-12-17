@@ -26,6 +26,7 @@ import ServBlock from '../blocks/modules/page_service/page_service.js';
 import ProductBlock from '../blocks/modules/product_block/product_block.js';
 import FixedBlock from '../blocks/modules/fixed_panel/fixed_panel.js';
 import MainWork from '../blocks/modules/main_work/main_work.js';
+import ProductPage from '../blocks/modules/product_page/product_page.js';
 // import Calculator from '../blocks/modules/calc/calc.js';
 
 
@@ -71,6 +72,7 @@ window.app = new Vue({
         productBlock: new ProductBlock(),
         fixedBlock: new FixedBlock(),
         mainWork: new MainWork(),
+        productPage: new ProductPage(),
         get: loadPortfolioGetParams()
         // calculator: new Calculator(),
     }),
@@ -140,6 +142,7 @@ window.app = new Vue({
             this.servBlock.init();
             this.productBlock.init();
             this.fixedBlock.init();
+            this.productPage.init();
             // this.calculator.init();
 
             const allSelects = document.querySelectorAll("select");

@@ -46,6 +46,7 @@
     "@grubersjoe/slide-menu": "^1.2.3",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "jquery": "^3.6.0",
+    "lightgallery": "^2.7.0",
     "slick-carousel": "^1.8.1",
     "slim-select": "^1.27.1",
     "vue": "^2.7.10"
