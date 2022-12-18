@@ -1039,6 +1039,12 @@ body {
     .woocommerce-variation-add-to-cart {
         margin-top: 15px;
     }
+    .main_product__info_top {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     .quantity.product__quantity {
         background: #FFFFFF;
         display: flex;
