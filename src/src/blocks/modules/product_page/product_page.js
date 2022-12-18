@@ -1,5 +1,5 @@
 import Glide from '@glidejs/glide';
-import lightGallery from 'lightgallery';
+// import lightGallery from 'lightgallery';
 // import lgAutoplay from 'lg-autoplay';
 
 const ProductPage = class ProductPage {
@@ -24,7 +24,7 @@ const ProductPage = class ProductPage {
     initGallerySlider() {
         if (document.querySelector('.product__gallery--slide')) {
             this.gallery.mount();
-            lightGallery(document.querySelector('#lightgallery'), {});
+            // lightGallery(document.querySelector('#lightgallery'), {});
         }
 
         if (document.querySelector('.product__thumbnails--slide')) {
