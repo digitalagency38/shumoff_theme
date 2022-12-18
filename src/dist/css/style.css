@@ -4637,6 +4637,7 @@ body .quantity.product__quantity {
   border-radius: 0;
   border: 1px solid #DFDEE2;
   height: 49px;
+  width: 100%;
 }
 
 body .quantity.product__quantity .product__quantity_button {
