@@ -50,7 +50,6 @@ $site_email = get_option('site_email');
                     </div>
                     <div class="page_service__first--r-side  wow zoomInDown">
                         <div class="page_service__first--form">
-                            <div class="page_service__first--tit">Оставьте заявку</div>
                             <?= do_shortcode($first_form_block['form_shortcode']); ?>
                             <!-- <form action="">
                                 <input type="text" placeholder="Ваше имя">
@@ -98,7 +97,6 @@ $site_email = get_option('site_email');
         <? if (!empty($form_shortcode)) { ?>
             <div class="page_service__form center_block wow zoomInDown">
                 <div class="page_service__form--item">
-                    <div class="page_service__form--title">Оставьте заявку</div>
                     <?= do_shortcode($form_shortcode); ?>
                 </div>
             </div>

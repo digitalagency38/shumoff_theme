@@ -1901,3 +1901,50 @@ body {
 .woocommerce div.product form.cart div.quantity {
     margin: 0;
 }
+
+
+
+.wpcf7-form {
+    .wpcf7-response-output {
+        display: none;
+    }
+    &.sent {
+        & > p {
+            display: none;
+        }
+        & > .page_service__form--title {
+            display: none;
+        }
+    }
+    &:not(.sent) {
+        .form_success {
+            display: none;
+        }
+    }
+}
+
+
+
+.form_success {
+    width: 100%;
+    &__title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 140%;
+        color: #111111;
+        margin-bottom: 30px;
+        font-family: "bebas",cursive;
+    }
+    &__text {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #333333;
+    }
+}
+
+.page_service__form--item form.sent {
+    text-align: center;
+}

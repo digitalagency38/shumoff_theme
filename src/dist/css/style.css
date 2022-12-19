@@ -5477,6 +5477,48 @@ body.woocommerce-order-received .thanks_cart {
   margin: 0;
 }
 
+.wpcf7-form .wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7-form.sent > p {
+  display: none;
+}
+
+.wpcf7-form.sent > .page_service__form--title {
+  display: none;
+}
+
+.wpcf7-form:not(.sent) .form_success {
+  display: none;
+}
+
+.form_success {
+  width: 100%;
+}
+
+.form_success__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+  color: #111111;
+  margin-bottom: 30px;
+  font-family: "bebas", cursive;
+}
+
+.form_success__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: #333333;
+}
+
+.page_service__form--item form.sent {
+  text-align: center;
+}
+
 .button {
   -webkit-user-select: none;
      -moz-user-select: none;
