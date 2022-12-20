@@ -12,6 +12,7 @@ $portfolio = get_field('portfolio');
 $text_block = get_field('text_block');
 $seo_block = get_field('seo_block');
 $contacts = get_field('contacts');
+$experience = get_field('experience');
 
 $site_phone = get_option('site_phone');
 $site_address = get_option('site_address');
@@ -114,6 +115,14 @@ $site_email = get_option('site_email');
                     </div>
                     <div class="review__blocks wow zoomInUp">
                         <?foreach($questions['list'] as $key=>$text):?>
+                            <div class="review__block--opener" data-accordeon-id="<?= $key; ?>">
+                                <div class="text"><?= $title['title']; ?></div>
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 28 15" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14 10.6765L24 -1.74846e-07L28 0L14 15L0 -1.22392e-06L4 -1.04907e-06L14 10.6765Z" fill="#F1752A"/>
+                                    </svg>
+                                </div>
+                            </div>
                             <div class="review__block review__block-<?= $key; ?><?if ($key == '0'):?> isActive<?endif;?>">
                                 <?= $text['text']; ?>
                             </div>
@@ -193,117 +202,40 @@ $site_email = get_option('site_email');
             </div>
         </div>
     <? }; ?>
-    <div class="exp_block center_block">
-        <div class="exp_block__title  wow zoomIn">Наш опыт</div>
-        <div class="exp_block__slider exp_block__slider--js glide  wow fadeInUp">
-            <div class="glide__track" data-glide-el="track">
-                <div class="glide__slides">
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp1.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp1.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">27 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp2.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp2.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp3.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp3.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp4.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp4.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp5.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp5.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp6.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp6.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp1.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp1.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">27 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp2.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp2.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp3.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp3.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp4.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp4.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp5.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp5.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
-                    <a href="#" class="exp_block__block">
-                        <div class="exp_block__img">
-                            <picture>
-                                <source srcset="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp6.webp" type="image/webp">
-                                <img src="<?php echo get_theme_file_uri(); ?>/src/dist/img/exp6.png" alt=""></picture>
-                        </div>
-                        <div class="exp_block__tit button button__link">10 работ</div>
-                    </a>
+    <? if (!empty($experience)) { ?>
+        <div class="exp_block center_block">
+            <div class="exp_block__title  wow zoomIn"><?= $experience['title']; ?></div>
+            <div class="exp_block__slider exp_block__slider--js glide  wow fadeInUp">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                        <? foreach ( $experience['elements'] as $element ): ?>
+                            <a href="<?= $element['link']; ?>" class="exp_block__block">
+                                <div class="exp_block__img">
+                                    <?
+                                        $image = $element['image'];
+                                        $size = 'large';
+                                        $alt = $image['alt'];
+                                        $thumb = $image['sizes'][ $size ];
+
+                                        if( $image ):
+                                    ?>
+                                        <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($alt); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="exp_block__tit button button__link"><?= $element['text']; ?></div>
+                            </a>
+                        <? endforeach; ?>
+                    </div>
                 </div>
             </div>
+            <a href="<?= $experience['main_link']; ?>" class="exp_block__show button button__all-line  wow fadeInUp">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <span>Показать всё</span>
+            </a>
         </div>
-        <a href="#" class="exp_block__show button button__all-line  wow fadeInUp">
-            <svg>
-                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-            </svg>
-            <span>Показать всё</span>
-        </a>
-    </div>
+    <? }; ?>
     <? if (!empty($text_block)) { ?>
         <div class="more_block">
             <div class="more_block__in center_block">

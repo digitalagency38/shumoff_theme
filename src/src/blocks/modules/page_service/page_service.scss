@@ -261,9 +261,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media all and (max-width: 1023px) {
-        display: none;
-    }
     &__title {
         margin-bottom: 30px;
         font-style: normal;
@@ -281,6 +278,10 @@
         flex: 0 0 420px;
         margin-right: 32px;
         width: 420px;
+        
+        @media all and (max-width: 1023px) {
+            display: none;
+        }
         ul {
             list-style: none;
             margin: 0;
@@ -305,6 +306,33 @@
     }
     &__blocks {
         width: 100%;
+        @media all and (max-width: 1023px) {
+            border-top: 1px solid #DFDEE2;
+        }
+    }
+    &__block--opener {
+        display: none;
+        padding: 20px;
+        border-bottom: 1px solid #DFDEE2;
+        .text {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            color: #111111;
+        }
+        .icon {
+            width: 15px;
+            font-size: 0;
+        }
+        &.isActive .icon {
+            transform: rotate(180deg);
+        }
+        @media all and (max-width: 1023px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
     &__block {
         display: none;
@@ -321,6 +349,13 @@
         @media all and (max-width: 1280px) {
             padding: 30px;
         }
+        
+        @media all and (max-width: 1023px) {
+            border: none;
+            padding: 21px 0;
+            font-size: 16px;
+            line-height: 150%;
+        }
         &:before {
             position: absolute;
             content: '';
@@ -329,6 +364,9 @@
             top: 0;
             left: 0;
             height: 60px;
+            @media all and (max-width: 1023px) {
+                display: none;
+            }
         }
         &:after {
             position: absolute;
@@ -338,6 +376,9 @@
             bottom: 0;
             left: 0;
             height: 60px;
+            @media all and (max-width: 1023px) {
+                display: none;
+            }
         }
         p {
             &:first-child {
@@ -347,8 +388,10 @@
                 margin-bottom: 0;
             }
         }
-        &.isActive {
-            display: block;
+        @media all and (min-width: 1024px) {
+            &.isActive {
+                display: block;
+            }
         }
     }
 }

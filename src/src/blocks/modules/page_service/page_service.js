@@ -2,6 +2,19 @@ import $ from 'jquery';
 
 const ServBlock = class ServBlock {
     constructor() {}
+    addMobileAccordionHandler() {
+        if (!document.querySelector('.review__block--opener')) return;
+        
+        document.querySelectorAll('.review__block--opener').forEach(item => {
+            item.addEventListener('click', () => {
+                console.log(item.dataset.accordeonId);
+                $('.review__block--opener').removeClass('isActive');
+                $(`.review__block--opener[data-accordeon-id="${item.dataset.accordeonId}"]`).addClass('isActive');
+                $('.review__block.isActive').slideUp('fast').removeClass('isActive');
+                $(`.review__block.review__block-${item.dataset.accordeonId}`).slideDown('fast').addClass('isActive');
+            })
+        })
+    }
     tabsBlock() {
         var slideEl = $(".review__block");
         var slideBt = $(".review__btn");
@@ -27,6 +40,9 @@ const ServBlock = class ServBlock {
     init() {
         this.tabsBlock();
         this.accordBlock();
+        if (window.innerWidth) {
+            this.addMobileAccordionHandler();
+        }
     }
 }
 
