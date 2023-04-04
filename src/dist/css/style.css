@@ -1161,7 +1161,6 @@ Copyright (c) 2013 Daniel Eden
 }
 
 .animated.flip {
-  -webkit-backface-visibility: visible;
   backface-visibility: visible;
   animation-name: flip;
 }
@@ -1193,7 +1192,6 @@ Copyright (c) 2013 Daniel Eden
 }
 
 .flipInX {
-  -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   animation-name: flipInX;
 }
@@ -1225,7 +1223,6 @@ Copyright (c) 2013 Daniel Eden
 }
 
 .flipInY {
-  -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   animation-name: flipInY;
 }
@@ -1249,7 +1246,6 @@ Copyright (c) 2013 Daniel Eden
 .flipOutX {
   animation-name: flipOutX;
   animation-duration: 0.75s;
-  -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
 }
 
@@ -1270,7 +1266,6 @@ Copyright (c) 2013 Daniel Eden
 }
 
 .flipOutY {
-  -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   animation-name: flipOutY;
   animation-duration: 0.75s;
@@ -1750,8 +1745,7 @@ Copyright (c) 2013 Daniel Eden
   position: relative;
   width: 100%;
   list-style: none;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transform-style: preserve-3d;
   touch-action: pan-Y;
   overflow: hidden;
@@ -2797,7 +2791,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
 .lg-outer .lg-item.lg-complete.lg-zoomable .lg-img-wrap {
   transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -2805,7 +2798,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 .lg-outer .lg-item.lg-complete.lg-zoomable .lg-dummy-img {
   transform: scale3d(1, 1, 1);
   transition: transform 0.5s cubic-bezier(0.12, 0.415, 0.01, 1.19) 0s, opacity 0.15s !important;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -3552,7 +3544,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 }
 
 .lg-css3.lg-use-css3 .lg-item {
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 

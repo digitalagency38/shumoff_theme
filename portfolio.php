@@ -44,13 +44,13 @@ function url(){
         <div class="main_work__filter--select wow fadeInUp">
             <span>Выберите марку машины:</span>
             <select v-model="selectedBrand">
-                <option v-for="brand in brands.reverse()" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
+                <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
             </select>
         </div>
         <div class="main_work__filter--select wow fadeInUp">
             <span>Выберите модель:</span>
             <select name="" id="single-model" v-model="selectedModel">
-                <option v-for="model in uniqueModels.reverse()" :key="model.index" :value="model.name">{{ model.name }}</option>
+                <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
             </select>
         </div>
         <div class="main_work__filter--refresh button button__line" @click="clearFilter">Сбросить</div>

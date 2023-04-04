@@ -37,8 +37,8 @@ window.app = new Vue({
         message: 'Calculator inited',
         models: [],
         url: '',
-        wooClientKey: 'ck_a942f49a79ed49679c1688d561f4db349b5487dd',
-        wooClientSecret: 'cs_cdc1f129e2de70b47b1f196f785820632210e30a',
+        wooClientKey: 'ck_bc454a7c635d85eaae23f6581f07fd3dba9d4b57',
+        wooClientSecret: 'cs_887e96ad3c71f303eecaad58f5c2416e4afd8058',
         authHeader: '',
         perPage: 1000,
         products: [],
@@ -156,7 +156,7 @@ window.app = new Vue({
             this.setApiParams();
             await this.getProducts().then(result => {
                 this.products = result;
-                
+                console.log('this.products', this.products )
             });
             this.models = loadModels();
             this.filterBrands();
@@ -295,34 +295,41 @@ window.app = new Vue({
             console.log(this.nonce);
         },
         addToCart() {
-            console.log(this.areas);
-            this.areas.map(area => {
-                area.products.map(product => {
-                    console.log(product);
-                    $.ajax({
-                        type: 'POST',
-                        url: `${this.url}/wp-json/wc/store/cart/add-item`,
-                        dataType: 'json',
-                        headers: {
-                          'X-WC-Store-API-Nonce': this.nonce
-                        },
-                        data: {
-                          id : product.id,
-                          quantity: 1,
-                          variation: [
-                            {
-                                attribute: "size",
-                                value: '1 шт',
-                            }
-                          ],
-                        },
-                        success: function(result) {
-                            console.log(result);
-                        }
-                    });
-                    return product;
+            console.log(this.selectedAreas, this.areas);
+            this.selectedAreas.map(area => {
+              for (let i = 0; i < area.products.length; i++) {
+                console.log({
+                  product: area.products[i],
+                  attribute: area.products[i].attributes[0].name,
+                  value: area.products[i].attributes[0].options[0],
+                  type: area.products[i].type
                 });
-                return area;
+                setTimeout(() => {
+                  $.ajax({
+                    type: 'POST',
+                    url: `${this.url}/wp-admin/admin-ajax.php`,
+                    dataType: 'json',
+                    headers: {
+                      'X-WC-Store-API-Nonce': this.nonce,
+                      "Authorization": this.authHeader
+                    },
+                    data: {
+                      product_id : area.products[i].id,
+                      quantity: 1,
+                      action: 'woocommerce_add_to_cart_variable_rc',
+                      variation_id: area.products[i].variations[0]
+                    },
+                    success: function(result) {
+                        console.log(result);
+                        if ('fragments' in result) {
+                          $('.widget_shopping_cart_content').replaceWith(result.fragments['div.widget_shopping_cart_content']);
+                        }
+                    }
+                  });
+                }, 500)
+              }
+                
+              return area;
             })
            
         },

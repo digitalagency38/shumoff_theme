@@ -13,7 +13,7 @@ function url(){
     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
         $url = "https://";   
     else  
-        $url = "http://";   
+        $url = "https://";   
     // Append the host(domain name, ip) to the URL.   
     $url.= $_SERVER['HTTP_HOST'];
     
@@ -40,18 +40,18 @@ function url(){
         <div class="calc_block__items">
             <div class="calc_block__l-side">
                 <div class="calc_model">
-                    <div class="calc_model__l-side" data-models=''>
+                    <div class="calc_model__l-side" v-show="false" data-models=''>
                         <div class="calc_model__tit">Рассчитать по марке и модели</div>
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите марку машины:</div>
                             <select name="" id="single" v-model="selectedBrand">
-                                <option v-for="brand in brands.reverse()" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
+                                <option v-for="brand in brands" :key="brand.index" :value="brand.name">{{ brand.name }}</option>
                             </select>
                         </div>
                         <div class="calc_model__selects">
                             <div class="calc_model__selects--span">Выберите модель:</div>
                             <select name="" id="single-model" v-model="selectedModel">
-                                <option v-for="model in uniqueModels.reverse()" :key="model.index" :value="model.name">{{ model.name }}</option>
+                                <option v-for="model in uniqueModels" :key="model.index" :value="model.name">{{ model.name }}</option>
                             </select>
                         </div>
                     </div>
