@@ -37,8 +37,8 @@ window.app = new Vue({
         message: 'Calculator inited',
         models: [],
         url: '',
-        wooClientKey: 'ck_a942f49a79ed49679c1688d561f4db349b5487dd',
-        wooClientSecret: 'cs_cdc1f129e2de70b47b1f196f785820632210e30a',
+        wooClientKey: 'ck_7ed5cedf52e81d223ea51d8e81bd7c6a2d1a0de7',
+        wooClientSecret: 'cs_800796e0098384d6f325c53a677005fd5c1a7971',
         authHeader: '',
         perPage: 1000,
         products: [],
@@ -156,6 +156,7 @@ window.app = new Vue({
             this.setApiParams();
             await this.getProducts().then(result => {
                 this.products = result;
+                console.log('this.products', this.products);
                 
             });
             this.models = loadModels();
@@ -172,6 +173,7 @@ window.app = new Vue({
             if (effect === this.effect) return;
             this.effect = effect;
             this.reloadAreas(this.effect);
+            console.log(this.effect)
         },
         filterBrands() {
             let uniqueBrands = [];
@@ -269,6 +271,7 @@ window.app = new Vue({
                 const response = await fetch(`${this.url}/wp-json/wc/v3/products?per_page=${this.perPage}`, {
                     headers: {"Authorization": this.authHeader}
                 });
+                console.log('response', response);
                 const products = response.json();
                 return products;
             }
