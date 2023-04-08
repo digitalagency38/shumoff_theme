@@ -46,7 +46,7 @@ window.app = new Vue({
         brands: [],
         selectedBrand: "",
         selectedModel: "",
-        selectedBody: "",
+        selectedBody: 1,
         uniqueModels: [],
         effect: "max",
         nonce: null,
@@ -57,6 +57,7 @@ window.app = new Vue({
             mobile: 768,
             window: window.innerWidth
         },
+        selectedBodyText: "Хетчбек",
         footerBlock: new FooterBlock(),
         textBlock: new TextBlock(),
         mapBlock: new MapBlock(),
@@ -82,7 +83,41 @@ window.app = new Vue({
             setTimeout(() => {
                 document.querySelector('.slider-progress').querySelector('.progress').classList.add('isInProgress');
             }, 400);
-            console.log('firstBlock.index');
+            // console.log('firstBlock.index');
+        },
+        selectedBody(newValue) {
+          console.log(newValue);
+          this.reloadAreas(this.effect);
+          document.querySelector('.calc_block__orange-info').scrollIntoView();
+          switch(newValue) {
+            case '1':  // if (x === 'value1')
+                this.selectedBodyText = 'Хэтчбек';
+              break;
+            case '2':  // if (x === 'value1')
+                this.selectedBodyText = 'Купе';
+              break;
+            case '3':  // if (x === 'value1')
+              this.selectedBodyText = 'Седан';
+            break;
+            case '4':  // if (x === 'value1')
+              this.selectedBodyText = 'Универсал';
+            break;
+            case '5':  // if (x === 'value1')
+              this.selectedBodyText = 'Кроссовер';
+            break;
+            case '6':  // if (x === 'value1')
+              this.selectedBodyText = 'Джип';
+            break;
+            case '7':  // if (x === 'value1')
+              this.selectedBodyText = 'Пикап';
+            break;
+            case '8':  // if (x === 'value1')
+              this.selectedBodyText = 'Микроавтобус';
+            break;
+            default:
+                this.selectedBodyText = 'Хэтчбек';
+              break;
+          }
         },
         selectedBrand: function(newValue, oldValue) {
             if (newValue === oldValue) return;
@@ -114,7 +149,7 @@ window.app = new Vue({
                 isModelIncluded = false;
                 return model;
             });
-            console.log(this.uniqueModels);
+            // console.log(this.uniqueModels);
         },
         selectedModel: function(newValue, oldValue) {
             if (newValue === oldValue) return;
@@ -155,14 +190,35 @@ window.app = new Vue({
 
             this.setApiParams();
             await this.getProducts().then(result => {
-                this.products = result;
-                console.log('this.products', this.products )
+                this.products = result.map(product => {
+                  let quantity = 1;
+
+                  product.attributes.map(attr => {
+                    if (attr.name == 'Количество в калькуляторе') {
+                      quantity = attr.options[0];
+                    }
+                    return attr;
+                  });
+                  // console.log('quantity, product', quantity, product)
+
+                  return {
+                    ...product,
+                    quantity: quantity
+                  }
+                  // product.quantity = product.attributes.map(attr => {
+                  //   if (attr.name == 'Количество в калькуляторе') {
+                      
+                  //   }
+                  // })
+                })
+                // console.log('attr', this.products);
             });
             this.models = loadModels();
             this.filterBrands();
             this.getNonce();
             new WOW().init();
             this.isMounted = true;
+            this.reloadAreas(this.effect);
         }, 0);
             
         
@@ -185,7 +241,7 @@ window.app = new Vue({
                 }
                 return model;
             })
-            console.log(uniqueBrands);
+            // console.log(uniqueBrands);
             this.selectedBrand = 'Все';
             this.selectedModel = 'Все';
         },
@@ -201,7 +257,7 @@ window.app = new Vue({
                 this.url = document.querySelector('[data-site-url]').dataset.siteUrl;
             }
             this.authHeader = this.basicAuth(this.wooClientKey, this.wooClientSecret);
-            console.log(this.url, this.authHeader);
+            // console.log(this.url, this.authHeader);
         },
         getProductsThatHasArea(products) {
             let filteredProducts = [];
@@ -221,7 +277,9 @@ window.app = new Vue({
         createAreasArray(filterProducts) {
             this.areas = [];
             let areaNames = [];
-            filterProducts.map(product => {
+            console.log('filterProducts', filterProducts);
+            filterProducts.map(item => {
+                let product = {...item};
                 if ('attributes' in product) {
                     product.attributes.map(attribute => {
                         if (attribute.name === 'Область применения') {
@@ -237,17 +295,17 @@ window.app = new Vue({
                                             weight: +product.weight,
                                             price: product.sale_price !== "" ? +product.sale_price : +product.price,
                                             products: [
-                                                product
+                                              JSON.parse(JSON.stringify(product))
                                             ]
                                         }
                                     ]
                                 } else {
                                     this.areas.map(item => {
-                                        console.log('item', item.name, option);
+                                        // console.log('item', item.name, option);
                                         if (item.name === option) {
                                             item.weight += +product.weight;
                                             item.price += product.sale_price !== "" ? +product.sale_price : +product.price;
-                                            item.products.push(product);
+                                            item.products.push(JSON.parse(JSON.stringify(product)));
                                         }
                                         return item;
                                     })
@@ -259,6 +317,7 @@ window.app = new Vue({
                 };
                 return product;
             });
+            console.log('this.areas', this.areas);
         },
         async splitProductsByArea(products) {
             let filteredProducts = await this.getProductsThatHasArea(products);
@@ -281,8 +340,8 @@ window.app = new Vue({
             this.products.filter(product => {
                 product.attributes.map(attr => {
                     if (attr.name === "Эффект" && JSON.stringify(attr.options).includes(this.effect)) {
-                        console.log('123123123123')
-                        prods.push(product);
+                        // console.log('123123123123')
+                        prods.push(JSON.parse(JSON.stringify(product)));
                     }
                     return attr;
                 })
@@ -292,45 +351,68 @@ window.app = new Vue({
         getNonce() {
             if (!document.querySelector("[data-nonce]")) return;
             this.nonce = document.querySelector("[data-nonce]").dataset.nonce;
-            console.log(this.nonce);
+            // console.log(this.nonce);
         },
         addToCart() {
-            console.log(this.selectedAreas, this.areas);
+            // console.log(this.selectedAreas, this.areas);
+            // this.isLoaded = false;
+            let products = [];
             this.selectedAreas.map(area => {
-              for (let i = 0; i < area.products.length; i++) {
-                console.log({
-                  product: area.products[i],
-                  attribute: area.products[i].attributes[0].name,
-                  value: area.products[i].attributes[0].options[0],
-                  type: area.products[i].type
+              area.products.map(product => {
+                // console.log(product);
+                products.push({
+                  id: product.id,
+                  type: product.type,
+                  variation_id: product.variations[0],
+                  quantity: product.quantity
                 });
+                return product;
+              });
+              return area;
+            })
+            // this.selectedAreas.map(area => {
+              // for (let i = 0; i < area.products.length; i++) {
+                // console.log({
+                //   product: area.products[i],
+                //   attribute: area.products[i].attributes[0].name,
+                //   value: area.products[i].attributes[0].options[0],
+                //   type: area.products[i].type
+                // });
                 setTimeout(() => {
                   $.ajax({
                     type: 'POST',
                     url: `${this.url}/wp-admin/admin-ajax.php`,
-                    dataType: 'json',
+                    // dataType: 'json',
                     headers: {
                       'X-WC-Store-API-Nonce': this.nonce,
                       "Authorization": this.authHeader
                     },
                     data: {
-                      product_id : area.products[i].id,
-                      quantity: 1,
-                      action: 'woocommerce_add_to_cart_variable_rc',
-                      variation_id: area.products[i].variations[0]
+                      // product_id : area.products[i].id,
+                      // quantity: 1,
+                      action: 'add_all_variations_to_cart',
+                      products: products
+                      // variation_id: area.products[i].variations[0]
                     },
-                    success: function(result) {
-                        console.log(result);
-                        if ('fragments' in result) {
-                          $('.widget_shopping_cart_content').replaceWith(result.fragments['div.widget_shopping_cart_content']);
-                        }
+                    success: (result) => {
+                      console.log('result', result, this);
+                      let data = JSON.parse(result);
+                      console.log('data', data, result);
+                      if (data.status == 'ok') {
+                        this.isLoaded = false;
+                      } else {
+                        this.isLoaded = true;
+                      }
+                        // if ('fragments' in result) {
+                        //   $('.widget_shopping_cart_content').replaceWith(result.fragments['div.widget_shopping_cart_content']);
+                        // }
                     }
                   });
                 }, 500)
-              }
+              // }
                 
-              return area;
-            })
+              // return area;
+            // })
            
         },
         clearFilter() {
@@ -338,6 +420,10 @@ window.app = new Vue({
             this.get.type = "Все";
             this.selectedModel = "Все";
             this.selectedBrand = "Все";
+        },
+        increaseProductQuantity(product) {
+          console.log(product);
+          product.quantity++;
         }
     },
     computed: {
@@ -365,7 +451,7 @@ window.app = new Vue({
                 };
                 return product;
             });
-            console.log('products', products);
+            // console.log('products', products);
             return products;
         },
         selectedAreas() {
