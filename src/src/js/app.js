@@ -292,8 +292,8 @@ window.app = new Vue({
                                             name: option,
                                             isSelected: true,
                                             isOpened: false,
-                                            weight: +product.weight,
-                                            price: product.sale_price !== "" ? +product.sale_price : +product.price,
+                                            weight: +product.weight * product.quantity,
+                                            price: product.sale_price !== "" ? +product.sale_price * product.quantity : +product.price * product.quantity,
                                             products: [
                                               JSON.parse(JSON.stringify(product))
                                             ]
@@ -303,8 +303,8 @@ window.app = new Vue({
                                     this.areas.map(item => {
                                         // console.log('item', item.name, option);
                                         if (item.name === option) {
-                                            item.weight += +product.weight;
-                                            item.price += product.sale_price !== "" ? +product.sale_price : +product.price;
+                                            item.weight += +product.weight * product.quantity;
+                                            item.price += product.sale_price !== "" ? +product.sale_price * product.quantity : +product.price * product.quantity;
                                             item.products.push(JSON.parse(JSON.stringify(product)));
                                         }
                                         return item;
@@ -421,9 +421,29 @@ window.app = new Vue({
             this.selectedModel = "Все";
             this.selectedBrand = "Все";
         },
+        recalculatePrices() {
+          // console.log(this.areas);
+          this.areas.map(area => {
+            console.log(area);
+            let price = 0;
+            let weight = 0;
+            area.products.map(product => {
+              price += product.sale_price !== "" ? +product.sale_price * product.quantity : +product.price * product.quantity;
+              weight += product.weight * product.quantity;
+            })
+            area.price = price;
+            area.weight = weight;
+          })
+        },
         increaseProductQuantity(product) {
           console.log(product);
           product.quantity++;
+          this.recalculatePrices();
+        },
+        decreaseProductQuantity(product) {
+          console.log(product);
+          product.quantity <= 0 ? product.quantity = 0 : product.quantity--;
+          this.recalculatePrices();
         }
     },
     computed: {
