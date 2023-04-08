@@ -57,6 +57,7 @@ window.app = new Vue({
             mobile: 768,
             window: window.innerWidth
         },
+        addingToCartProcess: false,
         selectedBodyText: "Хетчбек",
         footerBlock: new FooterBlock(),
         textBlock: new TextBlock(),
@@ -370,6 +371,7 @@ window.app = new Vue({
               });
               return area;
             })
+            this.addingToCartProcess = true;
             // this.selectedAreas.map(area => {
               // for (let i = 0; i < area.products.length; i++) {
                 // console.log({
@@ -403,6 +405,7 @@ window.app = new Vue({
                       } else {
                         this.isLoaded = true;
                       }
+                      this.addingToCartProcess = false;
                         // if ('fragments' in result) {
                         //   $('.widget_shopping_cart_content').replaceWith(result.fragments['div.widget_shopping_cart_content']);
                         // }
