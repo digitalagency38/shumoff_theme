@@ -57,6 +57,7 @@ window.app = new Vue({
             mobile: 768,
             window: window.innerWidth
         },
+        addingToCartProcess: false,
         selectedBodyText: "Хетчбек",
         footerBlock: new FooterBlock(),
         textBlock: new TextBlock(),
@@ -85,9 +86,10 @@ window.app = new Vue({
             }, 400);
             // console.log('firstBlock.index');
         },
-        selectedBody(newValue) {
+        async selectedBody(newValue) {
           console.log(newValue);
-          this.reloadAreas(this.effect);
+          await this.reloadAreas(this.effect);
+          await this.recalculateQuantities();
           document.querySelector('.calc_block__orange-info').scrollIntoView();
           switch(newValue) {
             case '1':  // if (x === 'value1')
@@ -218,16 +220,19 @@ window.app = new Vue({
             this.getNonce();
             new WOW().init();
             this.isMounted = true;
-            this.reloadAreas(this.effect);
+            await this.reloadAreas(this.effect);
+            await this.recalculateQuantities();
         }, 0);
             
         
     },
     methods: {
-        setEffect(effect) {
+        async setEffect(effect) {
             if (effect === this.effect) return;
             this.effect = effect;
-            this.reloadAreas(this.effect);
+            console.log('effect', effect);
+            await this.reloadAreas(this.effect);
+            await this.recalculateQuantities();
         },
         filterBrands() {
             let uniqueBrands = [];
@@ -282,6 +287,7 @@ window.app = new Vue({
                 let product = {...item};
                 if ('attributes' in product) {
                     product.attributes.map(attribute => {
+                      console.log('attribute', attribute);
                         if (attribute.name === 'Область применения') {
                             attribute.options.map(option => {
                                 if (!areaNames.includes(option)) {
@@ -337,6 +343,9 @@ window.app = new Vue({
         },
         reloadAreas(effect) {
             let prods = [];
+            let products = [];
+
+
             this.products.filter(product => {
                 product.attributes.map(attr => {
                     if (attr.name === "Эффект" && JSON.stringify(attr.options).includes(this.effect)) {
@@ -346,7 +355,45 @@ window.app = new Vue({
                     return attr;
                 })
             });
-            this.splitProductsByArea(prods);
+            prods.map(product => {
+              if ('attributes' in product) {
+                  product.attributes.map(attribute => {
+                      if (attribute.name === 'Тип кузова') {
+                          attribute.options.map(opt => {
+                              console.log('opt', opt, this.selectedBody)
+                              if (+opt == this.selectedBody) {
+                                  products.push(product);
+                              }
+                          })
+                      };
+                      return attribute;
+                  })
+              };
+              return product;
+            });
+            this.splitProductsByArea(products);
+        },
+        async recalculateQuantities() {
+          await this.areas.map(area => {
+            console.log('recalculateQuantities', area);
+
+            area.products.map(product => {
+              let quantity = 1;
+              product.attributes.map(attribute => {
+                // console.log(`${this.selectedBody}-${this.effect}-${area.name}`, attribute.name);
+                if (attribute.name == `${this.selectedBody}-${this.effect}-${area.name}`) {
+                  console.log('attribute', attribute)
+                  quantity = attribute.options[0];
+                }
+                return attribute;
+              })
+              product.quantity = quantity;
+              console.log('recalculateQuantities area', product)
+              return product;
+            })
+            return area;
+          });
+          this.recalculatePrices();
         },
         getNonce() {
             if (!document.querySelector("[data-nonce]")) return;
@@ -355,8 +402,9 @@ window.app = new Vue({
         },
         addToCart() {
             // console.log(this.selectedAreas, this.areas);
-            // this.isLoaded = false;
+            this.isLoaded = true;
             let products = [];
+            this.addingToCartProcess = true;
             this.selectedAreas.map(area => {
               area.products.map(product => {
                 // console.log(product);
@@ -400,9 +448,11 @@ window.app = new Vue({
                       console.log('data', data, result);
                       if (data.status == 'ok') {
                         this.isLoaded = false;
+                        document.querySelector('.header__cart > span').innerHTML = data.total;
                       } else {
                         this.isLoaded = true;
                       }
+                      this.addingToCartProcess = false;
                         // if ('fragments' in result) {
                         //   $('.widget_shopping_cart_content').replaceWith(result.fragments['div.widget_shopping_cart_content']);
                         // }
@@ -452,27 +502,6 @@ window.app = new Vue({
         },
         isTablet: function () {
             return this.sizes.window < this.sizes.tablet && this.sizes.window > this.sizes.mobile;
-        },
-        selectedProducts() {
-            let products = [];
-            this.products.map(product => {
-                if ('attributes' in product) {
-                    product.attributes.map(attribute => {
-                        if (attribute.name === 'Тип кузова') {
-                            attribute.options.map(opt => {
-                                console.log(opt, this.selectedBody)
-                                if (opt === this.selectedBody) {
-                                    products.push(product);
-                                }
-                            })
-                        };
-                        return attribute;
-                    })
-                };
-                return product;
-            });
-            // console.log('products', products);
-            return products;
         },
         selectedAreas() {
             return this.areas.filter(area => area.isSelected === true);
